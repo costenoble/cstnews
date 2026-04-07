@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#faf4f2">
+        <meta name="home-url" content="https://refashion.fr">
+        <meta name="equalweb" content="">
+        <meta name="environment" content="production">
+        <meta name="category" content="">
+        <script type="text/javascript">
+            (function() {
+                function i(e) {
+                    if (!window.frames[e]) {
+                        if (document.body && document.body.firstChild) {
+                            var t = document.body;
+                            var n = document.createElement("iframe");
+                            n.style.display = "none";
+                            n.name = e;
+                            n.title = e;
+                            t.insertBefore(n, t.firstChild)
+                        } else {
+                            setTimeout(function() {
+                                i(e)
+                            }, 5)
+                        }
+                    }
+                }
+                function e(n, o, r, f, s) {
+                    function e(e, t, n, i) {
+                        if (typeof n !== "function") {
+                            return
+                        }
+                        if (!window[o]) {
+                            window[o] = []
+                        }
+                        var a = false;
+                        if (s) {
+                            a = s(e, i, n)
+                        }
+                        if (!a) {
+                            window[o].push({
+                                command: e,
+                                version: t,
+                                callback: n,
+                                parameter: i
+                            })
+                        }
+                    }
+                    e.stub = true;
+                    e.stubVersion = 2;
+                    function t(i) {
+                        if (!window[n] || window[n].stub !== true) {
+                            return
+                        }
+                        if (!i.data) {
+                            return
+                        }
+                        var a = typeof i.data === "string";
+                        var e;
+                        try {
+                            e = a ? JSON.parse(i.data) : i.data
+                        } catch (t) {
+                            return
+                        }
+                        if (e[r]) {
+                            var o = e[r];
+                            window[n](o.command, o.version, function(e, t) {
+                                var n = {};
+                                n[f] = {
+                                    returnValue: e,
+                                    success: t,
+                                    callId: o.callId
+                                };
+                                if (i.source) {
+                                    i.source.postMessage(a ? JSON.stringify(n) : n, "*")
+                                }
+                            }, o.parameter)
+                        }
+                    }
+                    if (typeof window[n] !== "function") {
+                        window[n] = e;
+                        if (window.addEventListener) {
+                            window.addEventListener("message", t, false)
+                        } else {
+                            window.attachEvent("onmessage", t)
+                        }
+                    }
+                }
+                e("__tcfapi", "__tcfapiBuffer", "__tcfapiCall", "__tcfapiReturn");
+                i("__tcfapiLocator")
+            }
+            )();
+        </script>
+        <script type="text/javascript">
+            (function() {
+                (function(e) {
+                    var r = document.createElement("link");
+                    r.rel = "preconnect";
+                    r.as = "script";
+                    var t = document.createElement("link");
+                    t.rel = "dns-prefetch";
+                    t.as = "script";
+                    var n = document.createElement("script");
+                    n.id = "spcloader";
+                    n.type = "text/javascript";
+                    n["async"] = true;
+                    n.charset = "utf-8";
+                    var o = "https://sdk.privacy-center.org/" + e + "/loader.js?target=" + document.location.hostname;
+                    if (window.didomiConfig && window.didomiConfig.user) {
+                        var i = window.didomiConfig.user;
+                        var a = i.country;
+                        var c = i.region;
+                        if (a) {
+                            o = o + "&country=" + a;
+                            if (c) {
+                                o = o + "&region=" + c
+                            }
+                        }
+                    }
+                    r.href = "https://sdk.privacy-center.org/";
+                    t.href = "https://sdk.privacy-center.org/";
+                    n.src = o;
+                    var d = document.getElementsByTagName("script")[0];
+                    d.parentNode.insertBefore(r, d);
+                    d.parentNode.insertBefore(t, d);
+                    d.parentNode.insertBefore(n, d)
+                }
+                )("f5ca32cd-a204-46cf-894f-36545fedc0cf")
+            }
+            )();
+        </script>
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0]
+                  , j = d.createElement(s)
+                  , dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            }
+            )(window, document, 'script', 'dataLayer', 'GTM-MBRGMPV');
+        </script>
+        <!-- End Google Tag Manager -->
+        <script type="module">
+            import BugsnagPerformance from '//d2wy8f7a9ursnm.cloudfront.net/v1/bugsnag-performance.min.js'
+            BugsnagPerformance.start({
+                apiKey: '138a44f5dd7fb231cb1f2342707da7ec'
+            })
+        </script>
+        <link rel='stylesheet' href='https://refashion.fr/build/style-7T1pD9KJ.css' type='text/css'/>
+        <link rel="stylesheet" href="" type="text/css" media="print">
+        <title>Je réutilise - Réutiliser mes textiles et chaussures | Refashion</title>
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
+        <meta name="description" content="Réutiliser ses textiles et chaussures c&#039;est leur donner une deuxième vie. Découvrez des tutos et astuces créatives pour upcycler et transformer."/>
+        <link rel="canonical" href="https://refashion.fr/reutiliser-mes-textiles-et-chaussures"/>
+        <meta property="og:locale" content="fr_FR"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Je réutilise - Réutiliser mes textiles et chaussures | Refashion"/>
+        <meta property="og:description" content="Réutiliser ses textiles et chaussures c&#039;est leur donner une deuxième vie. Découvrez des tutos et astuces créatives pour upcycler et transformer."/>
+        <meta property="og:url" content="https://refashion.fr/reutiliser-mes-textiles-et-chaussures"/>
+        <meta property="og:site_name" content="Refashion"/>
+        <meta property="article:modified_time" content="2025-08-12T13:32:39+00:00"/>
+        <meta property="og:image" content="https://refashion.fr/app/uploads/2025/01/gettyimages-1168002855-min.jpg"/>
+        <meta property="og:image:width" content="1920"/>
+        <meta property="og:image:height" content="1280"/>
+        <meta property="og:image:type" content="image/jpeg"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:label1" content="Est. reading time"/>
+        <meta name="twitter:data1" content="1 minute"/>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures",
+                        "url": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures",
+                        "name": "Je réutilise - Réutiliser mes textiles et chaussures | Refashion",
+                        "isPartOf": {
+                            "@id": "https://refashion.fr/#website"
+                        },
+                        "primaryImageOfPage": {
+                            "@id": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures#primaryimage"
+                        },
+                        "image": {
+                            "@id": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures#primaryimage"
+                        },
+                        "thumbnailUrl": "https://media.refashion.fr/2025/01/gettyimages-1168002855-min.jpg",
+                        "datePublished": "2024-12-13T14:02:30+00:00",
+                        "dateModified": "2025-08-12T13:32:39+00:00",
+                        "description": "Réutiliser ses textiles et chaussures c'est leur donner une deuxième vie. Découvrez des tutos et astuces créatives pour upcycler et transformer.",
+                        "breadcrumb": {
+                            "@id": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures#breadcrumb"
+                        },
+                        "inLanguage": "fr-FR",
+                        "potentialAction": [
+                            {
+                                "@type": "ReadAction",
+                                "target": [
+                                    "https://refashion.fr/reutiliser-mes-textiles-et-chaussures"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "ImageObject",
+                        "inLanguage": "fr-FR",
+                        "@id": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures#primaryimage",
+                        "url": "https://media.refashion.fr/2025/01/gettyimages-1168002855-min.jpg",
+                        "contentUrl": "https://media.refashion.fr/2025/01/gettyimages-1168002855-min.jpg",
+                        "width": 1920,
+                        "height": 1280,
+                        "caption": "Image d'une femme en contre-plongée, bras écartés, vêtue d'un haut blanc ample avec des perforations et d'un pantalon bleu moulant. Fond ciel bleu uni."
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "@id": "https://refashion.fr/reutiliser-mes-textiles-et-chaussures#breadcrumb",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://refashion.fr/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Réutiliser"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://refashion.fr/#website",
+                        "url": "https://refashion.fr/",
+                        "name": "Refashion",
+                        "description": "Refashion est l’éco-organisme de la Filière Textile.  Sa mission est d’accélérer la transformation de la filière textile pour assurer la mise en place d’une économie 100% circulaire.",
+                        "potentialAction": [
+                            {
+                                "@type": "SearchAction",
+                                "target": {
+                                    "@type": "EntryPoint",
+                                    "urlTemplate": "https://refashion.fr/?s={search_term_string}"
+                                },
+                                "query-input": {
+                                    "@type": "PropertyValueSpecification",
+                                    "valueRequired": true,
+                                    "valueName": "search_term_string"}
+                                }
+                            ],
+                            "inLanguage": "fr-FR"
+                        }
+                    ]
+                }</script>
+            <link rel="alternate" href="https://refashion.fr/en/reuse-my-textiles-and-shoes" hreflang="en"/>
+            <link rel="alternate" href="https://refashion.fr/reutiliser-mes-textiles-et-chaussures" hreflang="fr"/>
+        </head>
+        <body class="is-front is-root-container page-template-default page page-id-297 multisite-language-switcher preset-blue-pink">
+            <!-- Google Tag Manager (noscript) -->
+            <noscript>
+                <iframe src=https://www.googletagmanager.com/ns.html?id= GTM-MBRGMPV height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+            <!-- End Google Tag Manager (noscript) -->
+            <refashion-app id="root">
+                <a href="#content" class="skip-link">Aller directement au contenu</a>
+                <a href="#footer" class="skip-link">Aller directement en pied de page</a>
+                <div id="main">
+                    <header-app class="block sticky top-[calc(0px+var(--wp-admin--admin-bar--height))] z-header pointer-events-none" role="banner">
+                        <header class="js-content p-header py-20  bg-cream pointer-events-auto rounded-b-30">
+                            <div class="wrapper flex justify-between items-center h-50 lg:h-40">
+                                <div class="p-header__logo flex gap-10 items-center w-full justify-between lg:w-auto">
+                                    <a class="h-40 flex items-center" href="https://refashion.fr" rel="home" aria-label="Refashion, Aller à la page d’accueil">
+                                        <svg class="fill-black w-148 h-28" xmlns="http://www.w3.org/2000/svg" width="529" height="100" fill="none" viewBox="0 0 529 100">
+                                            <path d="M188.79 85.461h-54.247v14.537h54.247V85.46ZM219.463 27.663V39.66h-9.183v45.798h-14.608V39.66h-6.262V27.663h6.262v-3.236c0-6.953 1.844-12.032 5.531-15.233 3.687-3.201 9.493-4.799 17.423-4.799v12.313c-3.061 0-5.215.59-6.467 1.773-1.252 1.182-1.879 3.166-1.879 5.946v3.236h9.183Z"/>
+                                            <path d="M258.066 69.03c3.061-3.025 4.588-7.18 4.588-12.465 0-5.284-1.533-9.439-4.588-12.465-3.061-3.025-6.643-4.54-10.746-4.54-4.102 0-7.667 1.497-10.692 4.488-3.026 2.99-4.542 7.128-4.542 12.418 0 5.29 1.528 9.457 4.594 12.517 3.061 3.061 6.625 4.594 10.693 4.594s7.632-1.515 10.693-4.54m-33.126 8.865c-5.185-5.6-7.772-12.746-7.772-21.442s2.575-15.806 7.719-21.337c5.145-5.53 11.688-8.292 19.618-8.292 7.93 0 13.982 3.271 18.155 9.808v-8.971h14.608v57.795H262.66V75.76c-4.384 7.028-10.47 10.54-18.26 10.54-7.79 0-14.28-2.798-19.46-8.398ZM281.326 44.563c0-5.01 2.119-9.217 6.368-12.623 4.243-3.406 9.879-5.109 16.902-5.109 7.023 0 12.659 1.685 16.902 5.062 4.243 3.377 6.502 7.947 6.783 13.717h-15.023c-.416-4.869-3.407-7.303-8.972-7.303-2.786 0-4.94.556-6.467 1.668-1.528 1.112-2.295 2.645-2.295 4.588s1.147 3.476 3.442 4.588c2.294 1.112 5.074 1.984 8.345 2.61 3.272.626 6.52 1.41 9.757 2.346 3.236.937 5.998 2.61 8.293 5.01 2.294 2.4 3.441 5.583 3.441 9.545 0 5.214-2.212 9.462-6.625 12.728-4.419 3.271-10.055 4.904-16.902 4.904-6.848 0-12.466-1.615-16.85-4.852-4.383-3.236-6.783-7.876-7.198-13.927h15.023c.556 4.868 3.652 7.303 9.288 7.303 2.716 0 4.905-.609 6.572-1.826 1.668-1.217 2.505-2.815 2.505-4.799 0-1.983-1.147-3.546-3.441-4.693-2.294-1.147-5.08-2.036-8.346-2.663a121.586 121.586 0 0 1-9.756-2.294c-3.236-.9-5.999-2.522-8.293-4.851-2.294-2.33-3.441-5.372-3.441-9.13M347.684 8.258v28.067c3.687-6.326 9.668-9.492 17.944-9.492 6.607 0 11.998 2.177 16.171 6.519 4.172 4.348 6.262 10.382 6.262 18.1v34.013h-14.608V53.54c0-4.523-1.147-7.982-3.441-10.381-2.295-2.4-5.426-3.599-9.388-3.599-3.962 0-7.111 1.2-9.44 3.599-2.329 2.4-3.494 5.858-3.494 10.382v31.922h-14.713V8.258h14.713-.006ZM392.762 27.663h14.713v57.795h-14.713V27.663Zm16.276-14.712c0 2.505-.872 4.63-2.61 6.367-1.739 1.738-3.846 2.61-6.315 2.61-2.47 0-4.577-.866-6.315-2.61-1.738-1.738-2.61-3.862-2.61-6.367s.866-4.623 2.61-6.367c1.744-1.744 3.845-2.61 6.315-2.61 2.469 0 4.57.872 6.315 2.61 1.738 1.738 2.61 3.863 2.61 6.367ZM440.442 73.88c4.103 0 7.632-1.51 10.587-4.535 2.956-3.025 4.437-7.303 4.437-12.833s-1.464-9.79-4.384-12.781c-2.92-2.99-6.455-4.489-10.593-4.489s-7.632 1.498-10.488 4.489c-2.856 2.99-4.278 7.268-4.278 12.833 0 5.566 1.422 9.844 4.278 12.834 2.85 2.99 6.327 4.489 10.435 4.489m-21.18 4.172c-5.636-5.495-8.451-12.693-8.451-21.594 0-8.901 2.85-16.064 8.556-21.489 5.701-5.425 12.782-8.14 21.233-8.14s15.527 2.715 21.233 8.14c5.701 5.425 8.557 12.588 8.557 21.489 0 8.9-2.868 16.105-8.609 21.594-5.742 5.495-12.853 8.24-21.339 8.24-8.486 0-15.544-2.745-21.18-8.24ZM488.432 27.662v8.661c3.687-6.326 9.668-9.492 17.944-9.492 6.608 0 11.998 2.177 16.171 6.52 4.172 4.347 6.262 10.38 6.262 18.1v34.012h-14.608V53.54c0-4.524-1.147-7.982-3.441-10.382-2.295-2.399-5.426-3.599-9.394-3.599s-7.111 1.2-9.44 3.6c-2.329 2.399-3.494 5.857-3.494 10.38v31.924h-14.713V27.662h14.713ZM115.281 41.327c-2.657-2.335-5.858-3.505-9.61-3.505-3.751 0-6.888 1.17-9.4 3.505-2.51 2.335-4.02 5.454-4.511 9.346h27.823c-.211-3.892-1.645-7.011-4.302-9.346Zm-9.821 44.382c-8.568 0-15.538-2.78-20.917-8.333-5.378-5.554-8.07-12.898-8.07-22.033 0-9.135 2.71-16.439 8.123-21.928 5.414-5.483 12.425-8.228 21.028-8.228 8.603 0 15.662 2.674 21.186 8.017 5.519 5.35 8.282 12.477 8.282 21.395 0 2.055-.141 3.962-.427 5.736h-42.9c.352 3.82 1.768 6.9 4.25 9.234 2.475 2.335 5.629 3.505 9.451 3.505 5.168 0 8.99-2.124 11.471-6.373h16.142c-1.698 5.595-4.993 10.16-9.874 13.7-4.887 3.54-10.798 5.308-17.733 5.308"/>
+                                            <path d="M34.46 46.117c-2.423-1.018-4.764-3.57-3.383-6.262.714-1.392 2.072-2.188 3.395-2.13h.029c5.39 0 8.896 7.947 8.896 7.947-2.81 1.142-6.058 1.657-8.937.451m26.366 3.81s1.498-1.065 2.224-1.645c6.894-5.518 10.534-12.646 10.534-20.616 0-8.556-2.593-15.403-7.702-20.348C58.385.084 48.453-.032 46.768-.003H0v84.966h14.526V13.498h32.528c.457 0 5.953.093 9.505 3.593 1.2 1.182 2.095 2.692 2.675 4.535.562 1.738.843 3.746.843 6.04 0 .65-.053 1.275-.164 1.872-.387 3.184-1.885 6.765-6.052 9.832.135-.1-4.495-5.039-4.963-5.478-1.902-1.779-3.991-3.394-6.32-4.576-7.638-3.88-17.646-2.423-21.439 5.969-2.305 5.109-2.346 11.078 1.528 15.432 4.74 5.32 12.156 6.408 18.91 6.11.643-.03 7.005-.984 6.853-1.218l18.71 29.477h15.984l-22.31-35.16.012.007Z"/>
+                                        </svg>
+                                    </a>
+                                    <div class="flex">
+                                        <button type="button" class="js-search lg:hidden w-50 h-50 bg-black rounded-20 flex items-center justify-center">
+                                            <svg class="fill-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18">
+                                                <path fill-rule="evenodd" d="M13.997 7.862c0 1.63-.642 3.174-1.808 4.31-1.166 1.135-2.683 1.805-4.316 1.805a6 6 0 0 1-4.315-1.806C2.42 11.007 1.75 9.493 1.75 7.861c0-1.63.641-3.173 1.808-4.309C4.724 2.417 6.21 1.747 7.873 1.747a6 6 0 0 1 4.316 1.805c1.137 1.165 1.808 2.65 1.808 4.31Zm3.266 8.124-3.266-3.232c2.479-3.087 2.245-7.63-.583-10.454A7.77 7.77 0 0 0 7.874 0c-2.1 0-4.083.815-5.57 2.3A7.764 7.764 0 0 0 0 7.862c0 2.126.816 4.076 2.304 5.562 1.487 1.455 3.44 2.3 5.57 2.3a7.84 7.84 0 0 0 4.898-1.718l3.237 3.232a.84.84 0 0 0 .612.262.795.795 0 0 0 .613-.262c.35-.35.35-.903.029-1.252Z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </button>
+                                        <burger-menu>
+                                            <button aria-label="Menu principal" aria-expanded="false" aria-controls="navigation" id="burger" class="js-button p-burger w-50 h-50 bg-white lg:w-40 lg:h-40 lg:bg-transparent rounded-20 flex items-center justify-center hover:opacity-50 transition-opacity">
+                                                <div class="w-20 h-20 flex flex-col gap-4 justify-center">
+                                                    <div class="w-full h-2 bg-black rounded-2"></div>
+                                                    <div class="w-full h-2 bg-black rounded-2"></div>
+                                                    <div class="w-full h-2 bg-black rounded-2"></div>
+                                                </div>
+                                            </button>
+                                        </burger-menu>
+                                    </div>
+                                </div>
+                                <div class="p-header__right hidden lg:flex items-center justify-center gap-30">
+                                    <button type="button" aria-haspopup="dialog" id="btn-search" class="js-search flex justify-between items-center h-50 lg:h-40 lg:min-w-[420px] px-18 bg-white rounded-20 lg:rounded-50">
+                                        <span class="utility">Recherche</span>
+                                        <span class="h-full rounded-20 lg:rounded-50  flex items-center justify-center">
+                                            <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18">
+                                                <path fill-rule="evenodd" d="M13.997 7.862c0 1.63-.642 3.174-1.808 4.31-1.166 1.135-2.683 1.805-4.316 1.805a6 6 0 0 1-4.315-1.806C2.42 11.007 1.75 9.493 1.75 7.861c0-1.63.641-3.173 1.808-4.309C4.724 2.417 6.21 1.747 7.873 1.747a6 6 0 0 1 4.316 1.805c1.137 1.165 1.808 2.65 1.808 4.31Zm3.266 8.124-3.266-3.232c2.479-3.087 2.245-7.63-.583-10.454A7.77 7.77 0 0 0 7.874 0c-2.1 0-4.083.815-5.57 2.3A7.764 7.764 0 0 0 0 7.862c0 2.126.816 4.076 2.304 5.562 1.487 1.455 3.44 2.3 5.57 2.3a7.84 7.84 0 0 0 4.898-1.718l3.237 3.232a.84.84 0 0 0 .612.262.795.795 0 0 0 .613-.262c.35-.35.35-.903.029-1.252Z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="flex relative" role="list">
+                                        <a role="listitem" href="https://refashion.fr" aria-current="true" class="p-header__btn">Particulier</a>
+                                        <a role="listitem" href="https://pro.refashion.fr" target="_blank" class="p-header__btn p-header__btn--white" aria-label="Aller à la version pro du site, nouvel onglet">Pro</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                    </header-app>
+                    <div id="content">
+                        <main class="sections relative" role="main">
+                            <hero-section class="b-hero mt-20 block wrapper">
+                                <div class="grid-default gap-y-25">
+                                    <div class="col-span-8 lg:col-span-8 flex flex-col gap-y-50 lg:gap-y-120">
+                                        <div data-index="0" class="js-section lg:min-h-[calc(100vh-var(--wp-admin--admin-bar--height)-100px-20px)] flex flex-col gap-60 pb-20 lg:pb-0">
+                                            <nav aria-label="Breadcrumb" class="p-breadcrumb hidden lg:block">
+                                                <ul class="flex items-center gap-5">
+                                                    <li class="subtitle-s font-semibold" aria-current="page">/Réutiliser
+					</li>
+                                                </ul>
+                                            </nav>
+                                            <div class="flex-1 flex flex-col justify-between gap-40 lg:pl-30">
+                                                <div class="flex flex-col gap-30">
+                                                    <h1 class="title-l">La réutilisation, elle a tout bon </h1>
+                                                    <div class="lg:grid lg:grid-cols-8 gap-x-default">
+                                                        <p class="lg:col-span-7 body whitespace-pre-line">Customisez, donnez, revendez : offrez une deuxième vie à vos vêtements !</p>
+                                                    </div>
+                                                </div>
+                                                <div class="lg:grid lg:grid-cols-8 gap-x-default">
+                                                    <div class="lg:col-span-7 flex flex-col">
+                                                        <a class="p-cta btn-tertiary   bg-primary text-black " href="https://refashion.fr/trier-mes-vetements" target="_self" aria-label="Accéder à la page Tri" rel="">
+                                                            <span class="btn-tertiary__icon-hover">
+                                                                <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                    <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="btn-tertiary__label">Je démarre mon tri
+            
+                        </span>
+                                                            <span class="btn-tertiary__icon">
+                                                                <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                    <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                                </svg>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-index="" class="js-section lg:grid lg:grid-cols-8 gap-x-default">
+                                            <div class="lg:col-span-7 flex flex-col gap-30 lg:pl-30">
+                                                <h3 class="subtitle-l">Du neuf (et des heureux) avec du vieux </h3>
+                                                <div class="body whitespace-pre-line">La mode du moment, les envies et les mensurations précises de chacun… c’est sûr, ça ne dure pas. Résultat : on a tendance à tout accumuler dans nos placards. Une expérimentation de l'Ademe a montré que nous y accumulons trois fois plus de pièces que ce dont on a effectivement besoin ! Et si vous trouviez une AUTRE vie trépidante à tous les vêtements, linges de maison et chaussures qui ne vous conviennent plus ? Pour que vos proches récupèrent quelques pièces en vous disant "j'adooore" et que votre portefeuille soit ravi de se remplumer un peu, n'hésitez pas à les donner ou à les revendre. Et pour réutiliser un sarouel en sac, un jupon en mini-jupe ou une taie en top, on vous aide à trouver un peu d'inspiration ! Alors, ça vous tente ?</div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="-order-1 col-span-8 lg:order-none lg:col-span-9 lg:col-start-10 relative">
+                                        <div class="lg:absolute top-0 left-0 w-full lg:h-[calc(100%+80px)]">
+                                            <div class="js-image b-hero__image lg:sticky rounded-20 lg:rounded-50 overflow-hidden aspect-[335/263] lg:aspect-auto bg-white">
+                                                <swiper-container slides-per-view="1" navigation="false" parallax="true" breakpoints='{"1024": {"direction": "vertical"}}' class="h-full">
+                                                    <swiper-slide class="overflow-hidden">
+                                                        <div class="relative w-full h-full" data-swiper-parallax="200">
+                                                            <picture class="responsive-picture">
+                                                                <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/gettyimages-1168002855-min-390x306-c-center.webp 1x, https://media.refashion.fr/2025/01/gettyimages-1168002855-min-780x612-c-center.webp 2x" type="image/webp"/>
+                                                                <source srcset="https://media.refashion.fr/2025/01/gettyimages-1168002855-min-920x682-c-center.webp 1x, https://media.refashion.fr/2025/01/gettyimages-1168002855-min-1840x1364-c-center.webp 2x" type="image/webp"/>
+                                                                <img fetchpriority="high" decoding="async" loading="eager" class=" object-center" src="https://media.refashion.fr/2025/01/gettyimages-1168002855-min-920x682-c-center.jpg" alt="Image d&#039;une femme en contre-plongée, bras écartés, vêtue d&#039;un haut blanc ample avec des perforations et d&#039;un pantalon bleu moulant. Fond ciel bleu uni." width="920" height="682"/>
+                                                            </picture>
+                                                        </div>
+                                                    </swiper-slide>
+                                                    <swiper-slide class="overflow-hidden">
+                                                        <div class="relative w-full h-full" data-swiper-parallax="200">
+                                                            <picture class="responsive-picture">
+                                                                <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/2024_26_10_jour_2_marseille_refashion_academie_37-min-390x306-c-center.webp 1x, https://media.refashion.fr/2025/01/2024_26_10_jour_2_marseille_refashion_academie_37-min-780x612-c-center.webp 2x" type="image/webp"/>
+                                                                <source srcset="https://media.refashion.fr/2025/01/2024_26_10_jour_2_marseille_refashion_academie_37-min-920x682-c-center.webp 1x, https://media.refashion.fr/2025/01/2024_26_10_jour_2_marseille_refashion_academie_37-min-1840x1364-c-center.webp 2x" type="image/webp"/>
+                                                                <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/2024_26_10_jour_2_marseille_refashion_academie_37-min-920x682-c-center.jpg" alt="femme couture main" width="920" height="682"/>
+                                                            </picture>
+                                                        </div>
+                                                    </swiper-slide>
+                                                </swiper-container>
+                                                <div class="absolute bottom-20 left-20 z-2 flex items-center gap-10">
+                                                    <button type="button" class="js-prev btn-arrow btn-arrow--icon" aria-label="Précédent">
+                                                        <span class="btn-arrow__icon">
+                                                            <svg class="rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <button type="button" class="js-next btn-arrow btn-arrow--icon" aria-label="Suivant">
+                                                        <span class="btn-arrow__icon">
+                                                            <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </hero-section>
+                            <section class="b-focus my-70 lg:my-120">
+                                <div class="wrapper flex flex-col gap-20">
+                                    <h2 class="subtitle">Que faire de vos vêtements et chaussures ?</h2>
+                                    <focus-carousel data-name="Que faire de vos vêtements et chaussures ?" class="grid-default gap-y-0">
+                                        <div class="col-span-8 relative ">
+                                            <div class="js-container-info bg-white rounded-20 lg:rounded-50 w-full lg:aspect-[614/524]  ">
+                                                <div class="js-info b-focus__info absolute top-0 left-0 w-full h-auto min-h-full p-30 lg:p-60 flex flex-col gap-20 justify-between is-active">
+                                                    <h3 class="title">Customiser &amp;Transformer</h3>
+                                                    <p class="body whitespace-pre-line">Vos vêtements vous paraissent démodés ? Vous pouvez les transformer. Avec un peu de créativité et sans pour autant être particulièrement doué en couture, vous pouvez leur donner une deuxième vie. N’hésitez pas à utiliser les nombreux tutoriels disponibles sur le web.</p>
+                                                </div>
+                                                <div class="js-info b-focus__info absolute top-0 left-0 w-full h-auto min-h-full p-30 lg:p-60 flex flex-col gap-20 justify-between ">
+                                                    <h3 class="title">Donner</h3>
+                                                    <p class="body whitespace-pre-line">Vos enfants ont grandi ? Vous n’aimez plus certains de vos vêtements ou votre linge de maison ? Faites-en profiter vos proches ! Vous ferez des heureux et donnerez une nouvelle vie aux textiles et aux chaussures dont vous ne voulez plus.</p>
+                                                </div>
+                                                <div class="js-info b-focus__info absolute top-0 left-0 w-full h-auto min-h-full p-30 lg:p-60 flex flex-col gap-20 justify-between ">
+                                                    <h3 class="title">Revendre</h3>
+                                                    <p class="body whitespace-pre-line">Vous aimeriez renouveler votre garde-robe sans trop dépenser ? Vos enfants ont (trop vite) grandi ? Vous pouvez revendre les textiles et chaussures dont vous souhaitez vous défaire lors d'un vide-grenier ou sur les nombreuses plateformes de revente.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-8 md:col-span-10">
+                                            <div class="relative lg:w-[calc(100%+2.0rem)] aspect-[335/292] lg:aspect-auto lg:h-full lg:-left-20 flex flex-col lg:flex-row rounded-20 lg:rounded-50 overflow-hidden">
+                                                <a data-index="0" style="z-index: 2" href="#_" class="js-item b-focus__item block relative w-full aspect-square lg:aspect-auto lg:h-full rounded-20 lg:rounded-50 overflow-hidden -mt-20 lg:mt-0 lg:-ml-100 transition-all duration-600 ease-out-cubic is-active" tabindex="-1">
+                                                    <div class="b-focus__item__image absolute inset-0 transition-opacity duration-300 ease-out-quart">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/customiser-transformer-390x306-c-center.webp 1x, https://media.refashion.fr/2025/01/customiser-transformer-780x612-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/customiser-transformer-908x696-c-center.webp 1x, https://media.refashion.fr/2025/01/customiser-transformer-1816x1392-c-center.webp 2x" type="image/webp"/>
+                                                            <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/customiser-transformer-908x696-c-center.jpg" alt="" width="908" height="696"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="b-focus__item__thematic absolute top-[50%] lg:top-20 lg:bottom-20 flex items-center justify-center lg:[writing-mode:vertical-lr] title-s left-1/2 lg:left-[calc(50%+50px)] -translate-x-1/2 transition-opacity duration-300 ease-out-quart">Customiser</div>
+                                                    <button tabindex="-1" type="button" class="js-next b-focus__item__next btn-arrow btn-arrow--icon absolute bottom-20 right-20 [--primary-color:#000000] text-white transition-[opacity,visibility] duration-300 ease-out-quart" aria-label="Suivant">
+                                                        <span class="btn-arrow__icon">
+                                                            <svg class="rotate-90 lg:rotate-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </a>
+                                                <a data-index="1" style="z-index: 1" href="#_" class="js-item b-focus__item block relative w-full aspect-square lg:aspect-auto lg:h-full rounded-20 lg:rounded-50 overflow-hidden -mt-20 lg:mt-0 lg:-ml-100 transition-all duration-600 ease-out-cubic ">
+                                                    <div class="b-focus__item__image absolute inset-0 transition-opacity duration-300 ease-out-quart">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/donner-2-e1738681071381-390x306-c-center.webp 1x, https://media.refashion.fr/2025/01/donner-2-e1738681071381-780x612-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/donner-2-e1738681071381-908x696-c-center.webp 1x, https://media.refashion.fr/2025/01/donner-2-e1738681071381-1816x1392-c-center.webp 2x" type="image/webp"/>
+                                                            <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/donner-2-e1738681071381-908x696-c-center.jpg" alt="donner mes textiles" width="908" height="696"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="b-focus__item__thematic absolute top-[50%] lg:top-20 lg:bottom-20 flex items-center justify-center lg:[writing-mode:vertical-lr] title-s left-1/2 lg:left-[calc(50%+50px)] -translate-x-1/2 transition-opacity duration-300 ease-out-quart">Donner</div>
+                                                    <button tabindex="-1" type="button" inert="true" class="js-next b-focus__item__next btn-arrow btn-arrow--icon absolute bottom-20 right-20 [--primary-color:#000000] text-white transition-[opacity,visibility] duration-300 ease-out-quart" aria-label="Suivant">
+                                                        <span class="btn-arrow__icon">
+                                                            <svg class="rotate-90 lg:rotate-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </a>
+                                                <a data-index="2" style="z-index: 0" href="#_" class="js-item b-focus__item block relative w-full aspect-square lg:aspect-auto lg:h-full rounded-20 lg:rounded-50 overflow-hidden -mt-20 lg:mt-0 lg:-ml-100 transition-all duration-600 ease-out-cubic ">
+                                                    <div class="b-focus__item__image absolute inset-0 transition-opacity duration-300 ease-out-quart">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/revendre-390x306-c-center.webp 1x, https://media.refashion.fr/2025/01/revendre-780x612-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/revendre-908x696-c-center.webp 1x, https://media.refashion.fr/2025/01/revendre-1816x1392-c-center.webp 2x" type="image/webp"/>
+                                                            <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/revendre-908x696-c-center.jpg" alt="revendre mes textiles" width="908" height="696"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="b-focus__item__thematic absolute top-[50%] lg:top-20 lg:bottom-20 flex items-center justify-center lg:[writing-mode:vertical-lr] title-s left-1/2 lg:left-[calc(50%+50px)] -translate-x-1/2 transition-opacity duration-300 ease-out-quart">Revendre</div>
+                                                    <button tabindex="-1" type="button" inert="true" class="js-next b-focus__item__next btn-arrow btn-arrow--icon absolute bottom-20 right-20 [--primary-color:#000000] text-white transition-[opacity,visibility] duration-300 ease-out-quart" aria-label="Suivant">
+                                                        <span class="btn-arrow__icon">
+                                                            <svg class="rotate-90 lg:rotate-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                                <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </focus-carousel>
+                                </div>
+                            </section>
+                            <section class="b-episodes relative mt-70 lg:mt-120 b-episodes--bg py-30 lg:py-80  rounded-t-20 lg:rounded-t-50 ">
+                                <div class=" swiper-overflow">
+                                    <swiper-controls data-name="On refait la mode" class="wrapper flex flex-col gap-25 lg:gap-60">
+                                        <div class="flex justify-between items-center">
+                                            <div class="flex w-full lg:w-auto lg:min-col-5 justify-between items-baseline pt-8">
+                                                <h2 class="title-l">On refait la mode</h2>
+                                            </div>
+                                            <div class="hidden lg:block">
+                                                <a class="p-cta btn-secondary    " href="https://refashion.fr/on-refait-la-mode" target="_self" aria-label="Accéder à tous les épisodes On refait la mode" rel="">
+                                                    <span class="btn-secondary__icon-hover">
+                                                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="btn-secondary__label">Tous les épisodes
+            
+                        </span>
+                                                    <span class="btn-secondary__icon">
+                                                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <swiper-container slides-per-view="1.15" space-between="10" mousewheel='{"enabled": true, "forceToAxis": true }' breakpoints='{"768": {"slidesPerView": 3, "spaceBetween": 20}}' navigation="false">
+                                            <swiper-slide>
+                                                <article class="p-episode pb-8">
+                                                    <a href="https://www.m6.fr/refashion-p_25849/episode-7-adrien-c_13075835" target="_blank" data-type="episode" class="p-episode__item group rounded-30 flex flex-col gap-10">
+                                                        <div class="relative aspect-[453/295] overflow-hidden rounded-20 lg:rounded-30 group-hover:rounded-50 group-hover:bg-blue transition-[border-radius,background] duration-600 ease-out-quart">
+                                                            <div class="image-placeholder"></div>
+                                                            <div class="absolute bottom-20 right-20 w-50 h-50 bg-white rounded-full flex items-center justify-center">
+                                                                <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="none" viewBox="0 0 12 14">
+                                                                    <path d="M1.375 2.729c0-.46 0-.768.023-.995.022-.228.06-.284.069-.294a.53.53 0 0 1 .378-.19c.034-.002.122.006.345.113.22.106.5.274.914.52l7.146 4.272c.362.217.605.362.775.486.172.125.205.182.211.196a.39.39 0 0 1 0 .326c-.006.014-.039.071-.21.196-.171.124-.414.27-.777.486l-7.145 4.271c-.413.247-.695.415-.914.521-.223.107-.31.115-.345.113a.53.53 0 0 1-.378-.19c-.008-.01-.047-.066-.07-.294a11.625 11.625 0 0 1-.022-.995V2.73Z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex gap-20">
+                                                            <h3 class="subtitle-l">Episode 7 - Adrien</h3>
+                                                            <div class="body">11:23</div>
+                                                        </div>
+                                                    </a>
+                                                </article>
+                                            </swiper-slide>
+                                            <swiper-slide>
+                                                <article class="p-episode pb-8">
+                                                    <a href="https://www.m6.fr/refashion-p_25849/episode-6-emma-c_13075834" target="_blank" data-type="episode" class="p-episode__item group rounded-30 flex flex-col gap-10">
+                                                        <div class="relative aspect-[453/295] overflow-hidden rounded-20 lg:rounded-30 group-hover:rounded-50 group-hover:bg-blue transition-[border-radius,background] duration-600 ease-out-quart">
+                                                            <div class="image-placeholder"></div>
+                                                            <div class="absolute bottom-20 right-20 w-50 h-50 bg-white rounded-full flex items-center justify-center">
+                                                                <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="none" viewBox="0 0 12 14">
+                                                                    <path d="M1.375 2.729c0-.46 0-.768.023-.995.022-.228.06-.284.069-.294a.53.53 0 0 1 .378-.19c.034-.002.122.006.345.113.22.106.5.274.914.52l7.146 4.272c.362.217.605.362.775.486.172.125.205.182.211.196a.39.39 0 0 1 0 .326c-.006.014-.039.071-.21.196-.171.124-.414.27-.777.486l-7.145 4.271c-.413.247-.695.415-.914.521-.223.107-.31.115-.345.113a.53.53 0 0 1-.378-.19c-.008-.01-.047-.066-.07-.294a11.625 11.625 0 0 1-.022-.995V2.73Z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex gap-20">
+                                                            <h3 class="subtitle-l">Episode 6 - Emma</h3>
+                                                            <div class="body">11:26</div>
+                                                        </div>
+                                                    </a>
+                                                </article>
+                                            </swiper-slide>
+                                            <swiper-slide>
+                                                <article class="p-episode pb-8">
+                                                    <a href="https://www.m6.fr/refashion-p_25849/episode-5-hajar-c_13075833" target="_blank" data-type="episode" class="p-episode__item group rounded-30 flex flex-col gap-10">
+                                                        <div class="relative aspect-[453/295] overflow-hidden rounded-20 lg:rounded-30 group-hover:rounded-50 group-hover:bg-blue transition-[border-radius,background] duration-600 ease-out-quart">
+                                                            <picture class="responsive-picture">
+                                                                <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/02/img_2914-338x220-c-center.webp 1x, https://media.refashion.fr/2025/02/img_2914-676x440-c-center.webp 2x" type="image/webp"/>
+                                                                <source srcset="https://media.refashion.fr/2025/02/img_2914-492x321-c-center.webp 1x, https://media.refashion.fr/2025/02/img_2914-984x642-c-center.webp 2x" type="image/webp"/>
+                                                                <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/02/img_2914-492x321-c-center.jpg" alt="" width="492" height="321"/>
+                                                            </picture>
+                                                            <div class="absolute bottom-20 right-20 w-50 h-50 bg-white rounded-full flex items-center justify-center">
+                                                                <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="none" viewBox="0 0 12 14">
+                                                                    <path d="M1.375 2.729c0-.46 0-.768.023-.995.022-.228.06-.284.069-.294a.53.53 0 0 1 .378-.19c.034-.002.122.006.345.113.22.106.5.274.914.52l7.146 4.272c.362.217.605.362.775.486.172.125.205.182.211.196a.39.39 0 0 1 0 .326c-.006.014-.039.071-.21.196-.171.124-.414.27-.777.486l-7.145 4.271c-.413.247-.695.415-.914.521-.223.107-.31.115-.345.113a.53.53 0 0 1-.378-.19c-.008-.01-.047-.066-.07-.294a11.625 11.625 0 0 1-.022-.995V2.73Z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex gap-20">
+                                                            <h3 class="subtitle-l">Episode 5 - Hajar</h3>
+                                                            <div class="body">11:12</div>
+                                                        </div>
+                                                    </a>
+                                                </article>
+                                            </swiper-slide>
+                                        </swiper-container>
+                                        <div class="lg:hidden">
+                                            <a class="p-cta btn-secondary    " href="https://refashion.fr/on-refait-la-mode" target="_self" aria-label="Accéder à tous les épisodes On refait la mode" rel="">
+                                                <span class="btn-secondary__icon-hover">
+                                                    <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                        <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </span>
+                                                <span class="btn-secondary__label">Tous les épisodes
+            
+                        </span>
+                                                <span class="btn-secondary__icon">
+                                                    <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                        <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </swiper-controls>
+                                </div>
+                                <div class="b-episodes__corner-left"></div>
+                                <div class="b-episodes__corner-right"></div>
+                            </section>
+                            <section class="b-tutorials swiper-overflow my-70 lg:my-120">
+                                <swiper-controls data-name="Tutoriels" class="wrapper flex flex-col gap-20">
+                                    <div class="flex justify-between py-10">
+                                        <div class="flex-1 lg:flex-initial w-full lg:w-auto lg:min-col-5 self-start flex items-baseline justify-between gap-20">
+                                            <h2 class="subtitle">Tutoriels</h2>
+                                            <div class="">
+                                                <div class="js-nav flex items-center gap-36">
+                                                    <button type="button" class="js-prev rounded-full" aria-label="Précédent">
+                                                        <svg class="fill-current rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
+                                                    <button type="button" class="js-next rounded-full" aria-label="Suivant">
+                                                        <svg class="fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <swiper-container slides-per-view="1.15" mousewheel='{"enabled": true, "forceToAxis": true }' breakpoints='{"768": {"slidesPerView": 3.6, "spaceBetween": 20}}' space-between="10">
+                                        <swiper-slide>
+                                            <video-card data-id="video-678a18fa95756-0" data-title="Sublimer un trou" class="p-tutorial group relative">
+                                                <button type="button" aria-haspopup="dialog" aria-label="Voir la vidéo : Sublimer un trou" class="js-button block rounded-30 text-left w-full">
+                                                    <div class="p-tutorial__media relative rounded-30 overflow-hidden aspect-[376/500]">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/sublimer_trou-338x449-c-center.webp 1x, https://media.refashion.fr/2025/01/sublimer_trou-676x898-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/sublimer_trou-502x668-c-center.webp 1x, https://media.refashion.fr/2025/01/sublimer_trou-1004x1336-c-center.webp 2x" type="image/webp"/>
+                                                            <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/sublimer_trou-502x668-c-center.jpg" alt="" width="502" height="668"/>
+                                                        </picture>
+                                                        <div class="absolute bottom-20 right-20 w-50 h-50 bg-white rounded-full flex items-center justify-center">
+                                                            <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="none" viewBox="0 0 12 14">
+                                                                <path d="M1.375 2.729c0-.46 0-.768.023-.995.022-.228.06-.284.069-.294a.53.53 0 0 1 .378-.19c.034-.002.122.006.345.113.22.106.5.274.914.52l7.146 4.272c.362.217.605.362.775.486.172.125.205.182.211.196a.39.39 0 0 1 0 .326c-.006.014-.039.071-.21.196-.171.124-.414.27-.777.486l-7.145 4.271c-.413.247-.695.415-.914.521-.223.107-.31.115-.345.113a.53.53 0 0 1-.378-.19c-.008-.01-.047-.066-.07-.294a11.625 11.625 0 0 1-.022-.995V2.73Z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute top-20 left-20 bg-white tag">Réparer</div>
+                                                    <div class="p-30 p-tutorial__desc">
+                                                        <h3 class="subtitle-l">Sublimer un trou</h3>
+                                                    </div>
+                                                </button>
+                                                <teleport-object data-target="#root" class="hidden">
+                                                    <video-modal role="dialog" aria-modal="true" data-id="video-678a18fa95756-0" data-is-iframe="1" class="p-video-modal fixed inset-0 bg-cream/85 backdrop-blur-[10px] z-popin pt-[var(--wp-admin--admin-bar--height)] overflow-y-auto overflow-x-hidden overscroll-contain flex-col justify-center">
+                                                        <div class="js-close absolute inset-0"></div>
+                                                        <div class="wrapper w-full flex flex-col items-center justify-center ">
+                                                            <div class="aspect-video  max-h-screen bg-white p-10 rounded-30">
+                                                                <iframe title="YouTube video : Sublimer un trou" class="w-full h-full relative bg-black rounded-20" width="560" height="315" data-src="https://www.youtube.com/embed/UFk7VupRFYQ?autoplay=1&rel=0&showinfo=0&modestbranding=1&playsinline=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" aria-label="Fermer" class="js-close absolute top-20 right-20 w-50 h-50 bg-black rounded-30 flex items-center justify-center lg:bg-transparent hover:opacity-50 transition-opacity z-1">
+                                                            <svg class="fill-white lg:fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                                <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                                                <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                                                            </svg>
+                                                        </button>
+                                                    </video-modal>
+                                                </teleport-object>
+                                            </video-card>
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <video-card data-id="video-678a18f4cab6f-1" data-title="Apprendre à coller un patch" class="p-tutorial group relative">
+                                                <button type="button" aria-haspopup="dialog" aria-label="Voir la vidéo : Apprendre à coller un patch" class="js-button block rounded-30 text-left w-full">
+                                                    <div class="p-tutorial__media relative rounded-30 overflow-hidden aspect-[376/500]">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/coller_patch-e1738926099797-338x449-c-center.webp 1x, https://media.refashion.fr/2025/01/coller_patch-e1738926099797-676x898-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/coller_patch-e1738926099797-502x668-c-center.webp 1x, https://media.refashion.fr/2025/01/coller_patch-e1738926099797-1004x1336-c-center.webp 2x" type="image/webp"/>
+                                                            <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/coller_patch-e1738926099797-502x668-c-center.jpg" alt="" width="502" height="668"/>
+                                                        </picture>
+                                                        <div class="absolute bottom-20 right-20 w-50 h-50 bg-white rounded-full flex items-center justify-center">
+                                                            <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="none" viewBox="0 0 12 14">
+                                                                <path d="M1.375 2.729c0-.46 0-.768.023-.995.022-.228.06-.284.069-.294a.53.53 0 0 1 .378-.19c.034-.002.122.006.345.113.22.106.5.274.914.52l7.146 4.272c.362.217.605.362.775.486.172.125.205.182.211.196a.39.39 0 0 1 0 .326c-.006.014-.039.071-.21.196-.171.124-.414.27-.777.486l-7.145 4.271c-.413.247-.695.415-.914.521-.223.107-.31.115-.345.113a.53.53 0 0 1-.378-.19c-.008-.01-.047-.066-.07-.294a11.625 11.625 0 0 1-.022-.995V2.73Z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute top-20 left-20 bg-white tag">Réparer</div>
+                                                    <div class="p-30 p-tutorial__desc">
+                                                        <h3 class="subtitle-l">Apprendre à coller un patch</h3>
+                                                    </div>
+                                                </button>
+                                                <teleport-object data-target="#root" class="hidden">
+                                                    <video-modal role="dialog" aria-modal="true" data-id="video-678a18f4cab6f-1" data-is-iframe="1" class="p-video-modal fixed inset-0 bg-cream/85 backdrop-blur-[10px] z-popin pt-[var(--wp-admin--admin-bar--height)] overflow-y-auto overflow-x-hidden overscroll-contain flex-col justify-center">
+                                                        <div class="js-close absolute inset-0"></div>
+                                                        <div class="wrapper w-full flex flex-col items-center justify-center h-full">
+                                                            <div class="video__instagram aspect-[480/810] w-full max-h-[calc(100vh-40px)] bg-white p-10 rounded-30">
+                                                                <iframe title="Instagram video : Apprendre à coller un patch" class="relative w-full h-full rounded-20 bg-black/10" width="520" height="860" data-src="https://www.instagram.com/p/DA1C8JVM9r_/embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" aria-label="Fermer" class="js-close absolute top-20 right-20 w-50 h-50 bg-black rounded-30 flex items-center justify-center lg:bg-transparent hover:opacity-50 transition-opacity z-1">
+                                                            <svg class="fill-white lg:fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                                <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                                                <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                                                            </svg>
+                                                        </button>
+                                                    </video-modal>
+                                                </teleport-object>
+                                            </video-card>
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <video-card data-id="video-678a19118ba31-2" data-title="Prendre en main la machine à coudre" class="p-tutorial group relative">
+                                                <button type="button" aria-haspopup="dialog" aria-label="Voir la vidéo : Prendre en main la machine à coudre" class="js-button block rounded-30 text-left w-full">
+                                                    <div class="p-tutorial__media relative rounded-30 overflow-hidden aspect-[376/500]">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/prendre_en_main_la_machine_a_coudre-e1738926116668-338x449-c-center.webp 1x, https://media.refashion.fr/2025/01/prendre_en_main_la_machine_a_coudre-e1738926116668-676x898-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/prendre_en_main_la_machine_a_coudre-e1738926116668-502x668-c-center.webp 1x, https://media.refashion.fr/2025/01/prendre_en_main_la_machine_a_coudre-e1738926116668-1004x1336-c-center.webp 2x" type="image/webp"/>
+                                                            <img decoding="async" loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/prendre_en_main_la_machine_a_coudre-e1738926116668-502x668-c-center.jpg" alt="" width="502" height="668"/>
+                                                        </picture>
+                                                        <div class="absolute bottom-20 right-20 w-50 h-50 bg-white rounded-full flex items-center justify-center">
+                                                            <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="none" viewBox="0 0 12 14">
+                                                                <path d="M1.375 2.729c0-.46 0-.768.023-.995.022-.228.06-.284.069-.294a.53.53 0 0 1 .378-.19c.034-.002.122.006.345.113.22.106.5.274.914.52l7.146 4.272c.362.217.605.362.775.486.172.125.205.182.211.196a.39.39 0 0 1 0 .326c-.006.014-.039.071-.21.196-.171.124-.414.27-.777.486l-7.145 4.271c-.413.247-.695.415-.914.521-.223.107-.31.115-.345.113a.53.53 0 0 1-.378-.19c-.008-.01-.047-.066-.07-.294a11.625 11.625 0 0 1-.022-.995V2.73Z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute top-20 left-20 bg-white tag">Réparer</div>
+                                                    <div class="p-30 p-tutorial__desc">
+                                                        <h3 class="subtitle-l">Prendre en main la machine à coudre</h3>
+                                                    </div>
+                                                </button>
+                                                <teleport-object data-target="#root" class="hidden">
+                                                    <video-modal role="dialog" aria-modal="true" data-id="video-678a19118ba31-2" data-is-iframe="1" class="p-video-modal fixed inset-0 bg-cream/85 backdrop-blur-[10px] z-popin pt-[var(--wp-admin--admin-bar--height)] overflow-y-auto overflow-x-hidden overscroll-contain flex-col justify-center">
+                                                        <div class="js-close absolute inset-0"></div>
+                                                        <div class="wrapper w-full flex flex-col items-center justify-center h-full">
+                                                            <div class="video__instagram aspect-[480/810] w-full max-h-[calc(100vh-40px)] bg-white p-10 rounded-30">
+                                                                <iframe title="Instagram video : Prendre en main la machine à coudre" class="relative w-full h-full rounded-20 bg-black/10" width="520" height="860" data-src="https://www.instagram.com/p/DBqourhMnzF/embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" aria-label="Fermer" class="js-close absolute top-20 right-20 w-50 h-50 bg-black rounded-30 flex items-center justify-center lg:bg-transparent hover:opacity-50 transition-opacity z-1">
+                                                            <svg class="fill-white lg:fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                                <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                                                <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                                                            </svg>
+                                                        </button>
+                                                    </video-modal>
+                                                </teleport-object>
+                                            </video-card>
+                                        </swiper-slide>
+                                    </swiper-container>
+                                </swiper-controls>
+                            </section>
+                        </main>
+                        <footer ref="footer" class="p-footer wrapper pt-30 my-30 bg-black text-white rounded-20 lg:rounded-30" role="contentinfo" id="footer">
+                            <div class="grid-default gap-y-50">
+                                <div class="col-span-8 lg:col-span-6 flex flex-col gap-20 px-30 lg:pl-25 lg:pr-0">
+                                    <h3 class="subtitle font-bold">Changeons notre mo(n)de durablement</h3>
+                                    <p class="utility-large lg:w-4/5">
+                                        Refashion est l'éco-organisme de la Filière Textile (textiles, linge de maison et chaussures).&nbsp;<br>
+                                        <br>
+                                        <b>Notre mission</b>
+                                        : fédérer et accompagner tous les acteurs de la production, de la consommation jusqu’à la régénération, pour réduire les impacts et créer de la valeur.&nbsp;<br>
+                                        <br>
+                                        <b>Notre projet</b>
+                                        : S'inscrire dans la dynamique d'une économique circulaire : mettre en place un modèle innovant et durable, moteur d’activité et de performance environnementale, économique et sociale.&nbsp;
+                                    </p>
+                                </div>
+                                <div class="col-span-8 lg:col-span-10 lg:col-start-9 px-30 lg:pl-0 lg:pr-25">
+                                    <nav role="navigation" class="p-menu p-menu--footer">
+                                        <div class=" flex flex-col gap-36 lg:grid lg:grid-cols-3 gap-x-default ">
+                                            <div class="p-menu__item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12">
+                                                <collapse-object data-to="md" class="group collapse-object">
+                                                    <button aria-controls="collapse-footer-12" aria-expanded="false" id="collapse-footer-12-btn" type="button" class="lg:hidden js-collapse-btn subtitle flex items-center gap-10">
+                                                        A propos
+								
+                                                        <svg class="fill-white group-[.is-active]:rotate-90 transition-transform transition-600 ease-out-quart" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
+                                                    <h3 class="hidden lg:block utility-large font-bold p-10">A propos</h3>
+                                                    <div id="collapse-footer-12" role="region" aria-labelledby="collapse-footer-12-btn" class="js-collapse collapse-object__content lg:h-auto lg:p-10">
+                                                        <div class="collapse-object__content__inner">
+                                                            <ul class="flex flex-col gap-5 lg:gap-10 pt-5">
+                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1573">
+                                                                    <a class="legal link-secondary" target="_self" href="https://refashion.fr/qui-sommes-nous">Nous connaître</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3051">
+                                                                    <a class="legal link-secondary" target="_self" href="https://talents.refashion.fr/">Nous rejoindre</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1571">
+                                                                    <a class="legal link-secondary" target="_self" href="https://refashion.fr/nos-champs-daction">Nos champs d’action</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1572">
+                                                                    <a class="legal link-secondary" target="_self" href="https://refashion.fr/notre-gouvernance-refashion">Notre gouvernance</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1569">
+                                                                    <a class="legal link-secondary" target="_self" href="https://refashion.fr/avis-du-comite-des-parties-prenantes">Avis du Comité des Parties Prenantes</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1570">
+                                                                    <a class="legal link-secondary" target="_self" href="https://refashion.fr/nos-actions-et-resultats">Nos actions et résultats</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1576">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://faq.refashion.fr/hc/fr/requests/new">Nous Contacter</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </collapse-object>
+                                            </div>
+                                            <div class="p-menu__item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14">
+                                                <collapse-object data-to="md" class="group collapse-object">
+                                                    <button aria-controls="collapse-footer-14" aria-expanded="false" id="collapse-footer-14-btn" type="button" class="lg:hidden js-collapse-btn subtitle flex items-center gap-10">
+                                                        Nos sites
+								
+                                                        <svg class="fill-white group-[.is-active]:rotate-90 transition-transform transition-600 ease-out-quart" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
+                                                    <h3 class="hidden lg:block utility-large font-bold p-10">Nos sites</h3>
+                                                    <div id="collapse-footer-14" role="region" aria-labelledby="collapse-footer-14-btn" class="js-collapse collapse-object__content lg:h-auto lg:p-10">
+                                                        <div class="collapse-object__content__inner">
+                                                            <ul class="flex flex-col gap-5 lg:gap-10 pt-5">
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://pro.refashion.fr/">ReFashion Pro</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://refashion.fr/pro/fr/metteur-en-march%C3%A9">Metteur en marché</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://refashion.fr/pro/fr/collectivit%C3%A9-acteur-public">Collectivité et  Acteur Public</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://refashion.fr/pro/fr/op%C3%A9rateur">Opérateur</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://refashion.fr/pro/fr/r%C3%A9parateur">Réparateur</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1574">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://recycle.refashion.fr/">Plateforme Recycle</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1575">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://faq.refashion.fr/hc/fr">FAQ</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </collapse-object>
+                                            </div>
+                                            <div class="p-menu__item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13">
+                                                <collapse-object data-to="md" class="group collapse-object">
+                                                    <button aria-controls="collapse-footer-13" aria-expanded="false" id="collapse-footer-13-btn" type="button" class="lg:hidden js-collapse-btn subtitle flex items-center gap-10">
+                                                        Nous suivre
+								
+                                                        <svg class="fill-white group-[.is-active]:rotate-90 transition-transform transition-600 ease-out-quart" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                            <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
+                                                    <h3 class="hidden lg:block utility-large font-bold p-10">Nous suivre</h3>
+                                                    <div id="collapse-footer-13" role="region" aria-labelledby="collapse-footer-13-btn" class="js-collapse collapse-object__content lg:h-auto lg:p-10">
+                                                        <div class="collapse-object__content__inner">
+                                                            <ul class="flex flex-col gap-5 lg:gap-10 pt-5">
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1579">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://www.instagram.com/refashion.fr/?hl=fr">Instagram</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1578">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://x.com/refashionecoorg?lang=fr">X</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1581">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://www.youtube.com/@Refashion-ecoorganisme">Youtube</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1580">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://www.linkedin.com/company/refashion-ecoorganisme/posts/?feedView=all">Linkedin</a>
+                                                                </li>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1577">
+                                                                    <a class="legal link-secondary" target="_blank" href="https://www.facebook.com/refashion.fr">Facebook</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </collapse-object>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="grid-default gap-y-50 mt-50">
+                                <div class="col-span-8 lg:col-span-6 px-30 lg:pl-25 lg:pr-0">
+                                    <p class="legal">&copy;2026 Refashion</p>
+                                </div>
+                                <div class="col-span-8 lg:col-span-10 lg:col-start-9 px-30 lg:pl-0 lg:pr-25">
+                                    <nav role="navigation" class="p-menu p-menu--legals">
+                                        <div class=" flex flex-col lg:flex-row gap-5 lg:gap-20 justify-between ">
+                                            <div class="p-menu__item menu-item menu-item-type-post_type menu-item-object-page menu-item-1597">
+                                                <a class="legal link-secondary" aria-label="Accéder aux Mentions Légales Refashion" target="_self" href="https://refashion.fr/mentions-legales">Mentions Légales</a>
+                                            </div>
+                                            <div class="p-menu__item menu-item menu-item-type-post_type menu-item-object-page menu-item-1610">
+                                                <a class="legal link-secondary" aria-label="Accéder aux Conditions générales d'utilisation Refashion" target="_self" href="https://refashion.fr/conditions-generales-dutilisation">Conditions générales d’utilisation</a>
+                                            </div>
+                                            <div class="p-menu__item menu-item menu-item-type-post_type menu-item-object-page menu-item-1609">
+                                                <a class="legal link-secondary" aria-label="Accéder à la Politique de protection des données personnelles Refashion" target="_self" href="https://refashion.fr/politique-de-protection-des-donnees-personnelles">Politique de protection des données</a>
+                                            </div>
+                                            <div class="p-menu__item menu-item menu-item-type-post_type menu-item-object-page menu-item-2365">
+                                                <a class="legal link-secondary" aria-label="Accéder à la déclaration d'ac cessibilité Refashion" target="_self" href="https://refashion.fr/declaration-daccessibilite">Déclaration d’accessibilité</a>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="px-20 lg:px-25 pt-50 lg:pb-10">
+                                <a class="block opacity-50 hover:opacity-100 transition-opacity" href="https://refashion.fr" rel="home" aria-label="Refashion, Aller à la page d’accueil">
+                                    <svg class="fill-white w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="529" height="100" fill="none" viewBox="0 0 529 100">
+                                        <path d="M188.79 85.461h-54.247v14.537h54.247V85.46ZM219.463 27.663V39.66h-9.183v45.798h-14.608V39.66h-6.262V27.663h6.262v-3.236c0-6.953 1.844-12.032 5.531-15.233 3.687-3.201 9.493-4.799 17.423-4.799v12.313c-3.061 0-5.215.59-6.467 1.773-1.252 1.182-1.879 3.166-1.879 5.946v3.236h9.183Z"/>
+                                        <path d="M258.066 69.03c3.061-3.025 4.588-7.18 4.588-12.465 0-5.284-1.533-9.439-4.588-12.465-3.061-3.025-6.643-4.54-10.746-4.54-4.102 0-7.667 1.497-10.692 4.488-3.026 2.99-4.542 7.128-4.542 12.418 0 5.29 1.528 9.457 4.594 12.517 3.061 3.061 6.625 4.594 10.693 4.594s7.632-1.515 10.693-4.54m-33.126 8.865c-5.185-5.6-7.772-12.746-7.772-21.442s2.575-15.806 7.719-21.337c5.145-5.53 11.688-8.292 19.618-8.292 7.93 0 13.982 3.271 18.155 9.808v-8.971h14.608v57.795H262.66V75.76c-4.384 7.028-10.47 10.54-18.26 10.54-7.79 0-14.28-2.798-19.46-8.398ZM281.326 44.563c0-5.01 2.119-9.217 6.368-12.623 4.243-3.406 9.879-5.109 16.902-5.109 7.023 0 12.659 1.685 16.902 5.062 4.243 3.377 6.502 7.947 6.783 13.717h-15.023c-.416-4.869-3.407-7.303-8.972-7.303-2.786 0-4.94.556-6.467 1.668-1.528 1.112-2.295 2.645-2.295 4.588s1.147 3.476 3.442 4.588c2.294 1.112 5.074 1.984 8.345 2.61 3.272.626 6.52 1.41 9.757 2.346 3.236.937 5.998 2.61 8.293 5.01 2.294 2.4 3.441 5.583 3.441 9.545 0 5.214-2.212 9.462-6.625 12.728-4.419 3.271-10.055 4.904-16.902 4.904-6.848 0-12.466-1.615-16.85-4.852-4.383-3.236-6.783-7.876-7.198-13.927h15.023c.556 4.868 3.652 7.303 9.288 7.303 2.716 0 4.905-.609 6.572-1.826 1.668-1.217 2.505-2.815 2.505-4.799 0-1.983-1.147-3.546-3.441-4.693-2.294-1.147-5.08-2.036-8.346-2.663a121.586 121.586 0 0 1-9.756-2.294c-3.236-.9-5.999-2.522-8.293-4.851-2.294-2.33-3.441-5.372-3.441-9.13M347.684 8.258v28.067c3.687-6.326 9.668-9.492 17.944-9.492 6.607 0 11.998 2.177 16.171 6.519 4.172 4.348 6.262 10.382 6.262 18.1v34.013h-14.608V53.54c0-4.523-1.147-7.982-3.441-10.381-2.295-2.4-5.426-3.599-9.388-3.599-3.962 0-7.111 1.2-9.44 3.599-2.329 2.4-3.494 5.858-3.494 10.382v31.922h-14.713V8.258h14.713-.006ZM392.762 27.663h14.713v57.795h-14.713V27.663Zm16.276-14.712c0 2.505-.872 4.63-2.61 6.367-1.739 1.738-3.846 2.61-6.315 2.61-2.47 0-4.577-.866-6.315-2.61-1.738-1.738-2.61-3.862-2.61-6.367s.866-4.623 2.61-6.367c1.744-1.744 3.845-2.61 6.315-2.61 2.469 0 4.57.872 6.315 2.61 1.738 1.738 2.61 3.863 2.61 6.367ZM440.442 73.88c4.103 0 7.632-1.51 10.587-4.535 2.956-3.025 4.437-7.303 4.437-12.833s-1.464-9.79-4.384-12.781c-2.92-2.99-6.455-4.489-10.593-4.489s-7.632 1.498-10.488 4.489c-2.856 2.99-4.278 7.268-4.278 12.833 0 5.566 1.422 9.844 4.278 12.834 2.85 2.99 6.327 4.489 10.435 4.489m-21.18 4.172c-5.636-5.495-8.451-12.693-8.451-21.594 0-8.901 2.85-16.064 8.556-21.489 5.701-5.425 12.782-8.14 21.233-8.14s15.527 2.715 21.233 8.14c5.701 5.425 8.557 12.588 8.557 21.489 0 8.9-2.868 16.105-8.609 21.594-5.742 5.495-12.853 8.24-21.339 8.24-8.486 0-15.544-2.745-21.18-8.24ZM488.432 27.662v8.661c3.687-6.326 9.668-9.492 17.944-9.492 6.608 0 11.998 2.177 16.171 6.52 4.172 4.347 6.262 10.38 6.262 18.1v34.012h-14.608V53.54c0-4.524-1.147-7.982-3.441-10.382-2.295-2.399-5.426-3.599-9.394-3.599s-7.111 1.2-9.44 3.6c-2.329 2.399-3.494 5.857-3.494 10.38v31.924h-14.713V27.662h14.713ZM115.281 41.327c-2.657-2.335-5.858-3.505-9.61-3.505-3.751 0-6.888 1.17-9.4 3.505-2.51 2.335-4.02 5.454-4.511 9.346h27.823c-.211-3.892-1.645-7.011-4.302-9.346Zm-9.821 44.382c-8.568 0-15.538-2.78-20.917-8.333-5.378-5.554-8.07-12.898-8.07-22.033 0-9.135 2.71-16.439 8.123-21.928 5.414-5.483 12.425-8.228 21.028-8.228 8.603 0 15.662 2.674 21.186 8.017 5.519 5.35 8.282 12.477 8.282 21.395 0 2.055-.141 3.962-.427 5.736h-42.9c.352 3.82 1.768 6.9 4.25 9.234 2.475 2.335 5.629 3.505 9.451 3.505 5.168 0 8.99-2.124 11.471-6.373h16.142c-1.698 5.595-4.993 10.16-9.874 13.7-4.887 3.54-10.798 5.308-17.733 5.308"/>
+                                        <path d="M34.46 46.117c-2.423-1.018-4.764-3.57-3.383-6.262.714-1.392 2.072-2.188 3.395-2.13h.029c5.39 0 8.896 7.947 8.896 7.947-2.81 1.142-6.058 1.657-8.937.451m26.366 3.81s1.498-1.065 2.224-1.645c6.894-5.518 10.534-12.646 10.534-20.616 0-8.556-2.593-15.403-7.702-20.348C58.385.084 48.453-.032 46.768-.003H0v84.966h14.526V13.498h32.528c.457 0 5.953.093 9.505 3.593 1.2 1.182 2.095 2.692 2.675 4.535.562 1.738.843 3.746.843 6.04 0 .65-.053 1.275-.164 1.872-.387 3.184-1.885 6.765-6.052 9.832.135-.1-4.495-5.039-4.963-5.478-1.902-1.779-3.991-3.394-6.32-4.576-7.638-3.88-17.646-2.423-21.439 5.969-2.305 5.109-2.346 11.078 1.528 15.432 4.74 5.32 12.156 6.408 18.91 6.11.643-.03 7.005-.984 6.853-1.218l18.71 29.477h15.984l-22.31-35.16.012.007Z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                <contact-form id="contact-form" class="p-form" role="dialog" aria-modal="true">
+                    <div class="p-form__content">
+                        <div class="p-form__inner">
+                            <h2 class="title mb-20 lg:mb-40 text-center js-title">Pour télécharger notre kit jeunesse</h2>
+                            <div class="flex flex-wrap gap-10"></div>
+                        </div>
+                        <button type="button" aria-label="Fermer" class="js-close absolute top-10 right-10 lg:top-20 lg:right-20 w-50 h-50 flex items-center justify-center bg-transparent hover:opacity-50 transition-opacity z-1">
+                            <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                            </svg>
+                        </button>
+                    </div>
+                </contact-form>
+                <mega-menu id="navigation" role="navigation" aria-label="Navigation principal" class="p-megamenu fixed inset-0 max-w-[1920px] mx-auto pt-[var(--wp-admin--admin-bar--height)] z-popin overflow-y-auto overflow-x-hidden overscroll-contain">
+                    <div class="p-megamenu__bg fixed inset-0 bg-cream lg:bg-white"></div>
+                    <div class="grid-default gap-0 h-full">
+                        <nav class="p-megamenu__left col-span-8 lg:col-span-13 pb-40 flex flex-col gap-40 lg:gap-60 justify-between bg-black rounded-tl-0 text-white">
+                            <div class="relative mt-20 left-0 h-50 lg:h-40 mx-20 lg:mx-30 flex items-center">
+                                <div class="flex gap-10 items-center justify-between w-full lg:w-auto">
+                                    <a class="p-header__logo h-40 flex items-center" href="https://refashion.fr" rel="home" aria-label="Refashion, Aller à la page d’accueil">
+                                        <svg class="fill-white w-148 h-28" xmlns="http://www.w3.org/2000/svg" width="529" height="100" fill="none" viewBox="0 0 529 100">
+                                            <path d="M188.79 85.461h-54.247v14.537h54.247V85.46ZM219.463 27.663V39.66h-9.183v45.798h-14.608V39.66h-6.262V27.663h6.262v-3.236c0-6.953 1.844-12.032 5.531-15.233 3.687-3.201 9.493-4.799 17.423-4.799v12.313c-3.061 0-5.215.59-6.467 1.773-1.252 1.182-1.879 3.166-1.879 5.946v3.236h9.183Z"/>
+                                            <path d="M258.066 69.03c3.061-3.025 4.588-7.18 4.588-12.465 0-5.284-1.533-9.439-4.588-12.465-3.061-3.025-6.643-4.54-10.746-4.54-4.102 0-7.667 1.497-10.692 4.488-3.026 2.99-4.542 7.128-4.542 12.418 0 5.29 1.528 9.457 4.594 12.517 3.061 3.061 6.625 4.594 10.693 4.594s7.632-1.515 10.693-4.54m-33.126 8.865c-5.185-5.6-7.772-12.746-7.772-21.442s2.575-15.806 7.719-21.337c5.145-5.53 11.688-8.292 19.618-8.292 7.93 0 13.982 3.271 18.155 9.808v-8.971h14.608v57.795H262.66V75.76c-4.384 7.028-10.47 10.54-18.26 10.54-7.79 0-14.28-2.798-19.46-8.398ZM281.326 44.563c0-5.01 2.119-9.217 6.368-12.623 4.243-3.406 9.879-5.109 16.902-5.109 7.023 0 12.659 1.685 16.902 5.062 4.243 3.377 6.502 7.947 6.783 13.717h-15.023c-.416-4.869-3.407-7.303-8.972-7.303-2.786 0-4.94.556-6.467 1.668-1.528 1.112-2.295 2.645-2.295 4.588s1.147 3.476 3.442 4.588c2.294 1.112 5.074 1.984 8.345 2.61 3.272.626 6.52 1.41 9.757 2.346 3.236.937 5.998 2.61 8.293 5.01 2.294 2.4 3.441 5.583 3.441 9.545 0 5.214-2.212 9.462-6.625 12.728-4.419 3.271-10.055 4.904-16.902 4.904-6.848 0-12.466-1.615-16.85-4.852-4.383-3.236-6.783-7.876-7.198-13.927h15.023c.556 4.868 3.652 7.303 9.288 7.303 2.716 0 4.905-.609 6.572-1.826 1.668-1.217 2.505-2.815 2.505-4.799 0-1.983-1.147-3.546-3.441-4.693-2.294-1.147-5.08-2.036-8.346-2.663a121.586 121.586 0 0 1-9.756-2.294c-3.236-.9-5.999-2.522-8.293-4.851-2.294-2.33-3.441-5.372-3.441-9.13M347.684 8.258v28.067c3.687-6.326 9.668-9.492 17.944-9.492 6.607 0 11.998 2.177 16.171 6.519 4.172 4.348 6.262 10.382 6.262 18.1v34.013h-14.608V53.54c0-4.523-1.147-7.982-3.441-10.381-2.295-2.4-5.426-3.599-9.388-3.599-3.962 0-7.111 1.2-9.44 3.599-2.329 2.4-3.494 5.858-3.494 10.382v31.922h-14.713V8.258h14.713-.006ZM392.762 27.663h14.713v57.795h-14.713V27.663Zm16.276-14.712c0 2.505-.872 4.63-2.61 6.367-1.739 1.738-3.846 2.61-6.315 2.61-2.47 0-4.577-.866-6.315-2.61-1.738-1.738-2.61-3.862-2.61-6.367s.866-4.623 2.61-6.367c1.744-1.744 3.845-2.61 6.315-2.61 2.469 0 4.57.872 6.315 2.61 1.738 1.738 2.61 3.863 2.61 6.367ZM440.442 73.88c4.103 0 7.632-1.51 10.587-4.535 2.956-3.025 4.437-7.303 4.437-12.833s-1.464-9.79-4.384-12.781c-2.92-2.99-6.455-4.489-10.593-4.489s-7.632 1.498-10.488 4.489c-2.856 2.99-4.278 7.268-4.278 12.833 0 5.566 1.422 9.844 4.278 12.834 2.85 2.99 6.327 4.489 10.435 4.489m-21.18 4.172c-5.636-5.495-8.451-12.693-8.451-21.594 0-8.901 2.85-16.064 8.556-21.489 5.701-5.425 12.782-8.14 21.233-8.14s15.527 2.715 21.233 8.14c5.701 5.425 8.557 12.588 8.557 21.489 0 8.9-2.868 16.105-8.609 21.594-5.742 5.495-12.853 8.24-21.339 8.24-8.486 0-15.544-2.745-21.18-8.24ZM488.432 27.662v8.661c3.687-6.326 9.668-9.492 17.944-9.492 6.608 0 11.998 2.177 16.171 6.52 4.172 4.347 6.262 10.38 6.262 18.1v34.012h-14.608V53.54c0-4.524-1.147-7.982-3.441-10.382-2.295-2.399-5.426-3.599-9.394-3.599s-7.111 1.2-9.44 3.6c-2.329 2.399-3.494 5.857-3.494 10.38v31.924h-14.713V27.662h14.713ZM115.281 41.327c-2.657-2.335-5.858-3.505-9.61-3.505-3.751 0-6.888 1.17-9.4 3.505-2.51 2.335-4.02 5.454-4.511 9.346h27.823c-.211-3.892-1.645-7.011-4.302-9.346Zm-9.821 44.382c-8.568 0-15.538-2.78-20.917-8.333-5.378-5.554-8.07-12.898-8.07-22.033 0-9.135 2.71-16.439 8.123-21.928 5.414-5.483 12.425-8.228 21.028-8.228 8.603 0 15.662 2.674 21.186 8.017 5.519 5.35 8.282 12.477 8.282 21.395 0 2.055-.141 3.962-.427 5.736h-42.9c.352 3.82 1.768 6.9 4.25 9.234 2.475 2.335 5.629 3.505 9.451 3.505 5.168 0 8.99-2.124 11.471-6.373h16.142c-1.698 5.595-4.993 10.16-9.874 13.7-4.887 3.54-10.798 5.308-17.733 5.308"/>
+                                            <path d="M34.46 46.117c-2.423-1.018-4.764-3.57-3.383-6.262.714-1.392 2.072-2.188 3.395-2.13h.029c5.39 0 8.896 7.947 8.896 7.947-2.81 1.142-6.058 1.657-8.937.451m26.366 3.81s1.498-1.065 2.224-1.645c6.894-5.518 10.534-12.646 10.534-20.616 0-8.556-2.593-15.403-7.702-20.348C58.385.084 48.453-.032 46.768-.003H0v84.966h14.526V13.498h32.528c.457 0 5.953.093 9.505 3.593 1.2 1.182 2.095 2.692 2.675 4.535.562 1.738.843 3.746.843 6.04 0 .65-.053 1.275-.164 1.872-.387 3.184-1.885 6.765-6.052 9.832.135-.1-4.495-5.039-4.963-5.478-1.902-1.779-3.991-3.394-6.32-4.576-7.638-3.88-17.646-2.423-21.439 5.969-2.305 5.109-2.346 11.078 1.528 15.432 4.74 5.32 12.156 6.408 18.91 6.11.643-.03 7.005-.984 6.853-1.218l18.71 29.477h15.984l-22.31-35.16.012.007Z"/>
+                                        </svg>
+                                    </a>
+                                    <button class="js-close w-40 h-40 flex justify-center items-center rounded-20 lg:rounded-50 hover:opacity-50 transition-opacity" type="button" aria-label="Fermer la Navigation principal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 17 17">
+                                            <path fill="#fff" fill-rule="evenodd" d="M.532 14.81a.75.75 0 0 0 1.06 1.06l6.91-6.91 6.91 6.91a.75.75 0 1 0 1.061-1.06L9.563 7.9l6.588-6.587A.75.75 0 1 0 15.09.252L8.502 6.84 1.915.252a.75.75 0 1 0-1.06 1.06L7.441 7.9l-6.91 6.91Z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex flex-1 flex-col justify-between gap-40 pl-30">
+                                <div class="flex justify-start">
+                                    <ul class="relative flex flex-col items-stretch p-megamenu__nav">
+                                        <li class="p-megamenu__nav__item group/item py-10 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-567">
+                                            <a class=" js-submenu  js-main-link is-tracked p-megamenu__nav__item__link w-film peer group/link relative title-xl flex items-center gap-20" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
+                                                <span>Réduire</span>
+                                                <svg class="p-megamenu__nav__item__link__icon w-[26px] lg:w-[52px] lg:h-[41px] group-aria-expanded/link:rotate-90 lg:group-aria-expanded/link:rotate-0 transition-transform transition-600 ease-out-quart" aria-hidden="true" width="52" height="41" viewBox="0 0 52 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M33 1.77274e-06C33 8.37068 39.3059 15.5006 47.8141 17L50 17L50 17.026C50.3807 17.0087 50.7636 17 51.1484 17L51.1484 17.2898C51.1491 17.2898 51.1497 17.2898 51.1504 17.2898L51.1504 23.2898C50.3003 23.2898 49.4597 23.2472 48.6309 23.1639C39.7117 24.3367 32.9981 31.6528 32.9981 40.2898L26.9981 40.2898C26.9981 33.3896 30.0878 27.2435 34.9684 23L-1.3253e-06 23L-9.79568e-07 17L34.643 17C29.952 12.7689 27 6.74467 27 1.45042e-06L33 1.77274e-06Z" fill="white"/>
+                                                </svg>
+                                            </a>
+                                            <div class="js-children invisible h-0 lg:h-auto group-hover/item:visible peer-aria-expanded:visible lg:absolute top-0 left-0 lg:left-full lg:pl-20 z-1 w-full flex flex-col gap-8 transition-[height] duration-600 ease-out-quart overflow-hidden pb-2">
+                                                <span class="body hidden lg:block">Je veux...</span>
+                                                <ul class="flex flex-col gap-8 py-25 lg:p-0">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-445">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/reduire-impact-environnemental">Tout comprendre sur la réduction</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="p-megamenu__nav__item group/item py-10 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-564">
+                                            <a class=" js-submenu  js-main-link is-tracked p-megamenu__nav__item__link w-film peer group/link relative title-xl flex items-center gap-20" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
+                                                <span>Réparer</span>
+                                                <svg class="p-megamenu__nav__item__link__icon w-[26px] lg:w-[52px] lg:h-[41px] group-aria-expanded/link:rotate-90 lg:group-aria-expanded/link:rotate-0 transition-transform transition-600 ease-out-quart" aria-hidden="true" width="52" height="41" viewBox="0 0 52 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M33 1.77274e-06C33 8.37068 39.3059 15.5006 47.8141 17L50 17L50 17.026C50.3807 17.0087 50.7636 17 51.1484 17L51.1484 17.2898C51.1491 17.2898 51.1497 17.2898 51.1504 17.2898L51.1504 23.2898C50.3003 23.2898 49.4597 23.2472 48.6309 23.1639C39.7117 24.3367 32.9981 31.6528 32.9981 40.2898L26.9981 40.2898C26.9981 33.3896 30.0878 27.2435 34.9684 23L-1.3253e-06 23L-9.79568e-07 17L34.643 17C29.952 12.7689 27 6.74467 27 1.45042e-06L33 1.77274e-06Z" fill="white"/>
+                                                </svg>
+                                            </a>
+                                            <div class="js-children invisible h-0 lg:h-auto group-hover/item:visible peer-aria-expanded:visible lg:absolute top-0 left-0 lg:left-full lg:pl-20 z-1 w-full flex flex-col gap-8 transition-[height] duration-600 ease-out-quart overflow-hidden pb-2">
+                                                <span class="body hidden lg:block">Je veux...</span>
+                                                <ul class="flex flex-col gap-8 py-25 lg:p-0">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-697">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/reparer-mes-vetements-et-chaussures">Tout savoir sur la réparation</a>
+                                                    </li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-565">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/trouver-un-reparateur">Trouver un réparateur</a>
+                                                    </li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-698">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/bonus-reparation">Tout savoir sur le Bonus Réparation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="p-megamenu__nav__item group/item py-10 menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-568">
+                                            <a class=" js-submenu  js-main-link is-tracked p-megamenu__nav__item__link w-film peer group/link relative title-xl flex items-center gap-20" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
+                                                <span>Réutiliser</span>
+                                                <svg class="p-megamenu__nav__item__link__icon w-[26px] lg:w-[52px] lg:h-[41px] group-aria-expanded/link:rotate-90 lg:group-aria-expanded/link:rotate-0 transition-transform transition-600 ease-out-quart" aria-hidden="true" width="52" height="41" viewBox="0 0 52 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M33 1.77274e-06C33 8.37068 39.3059 15.5006 47.8141 17L50 17L50 17.026C50.3807 17.0087 50.7636 17 51.1484 17L51.1484 17.2898C51.1491 17.2898 51.1497 17.2898 51.1504 17.2898L51.1504 23.2898C50.3003 23.2898 49.4597 23.2472 48.6309 23.1639C39.7117 24.3367 32.9981 31.6528 32.9981 40.2898L26.9981 40.2898C26.9981 33.3896 30.0878 27.2435 34.9684 23L-1.3253e-06 23L-9.79568e-07 17L34.643 17C29.952 12.7689 27 6.74467 27 1.45042e-06L33 1.77274e-06Z" fill="white"/>
+                                                </svg>
+                                            </a>
+                                            <div class="js-children invisible h-0 lg:h-auto group-hover/item:visible peer-aria-expanded:visible lg:absolute top-0 left-0 lg:left-full lg:pl-20 z-1 w-full flex flex-col gap-8 transition-[height] duration-600 ease-out-quart overflow-hidden pb-2">
+                                                <span class="body hidden lg:block">Je veux...</span>
+                                                <ul class="flex flex-col gap-8 py-25 lg:p-0">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-297 current_page_item menu-item-447">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/reutiliser-mes-textiles-et-chaussures">Tout savoir sur  la réutilisation</a>
+                                                    </li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-591">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/devenir-des-textiles-et-chaussures-usages">Découvrir où vont mes vêtements</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="p-megamenu__nav__item group/item py-10 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-569">
+                                            <a class=" js-submenu  js-main-link is-tracked p-megamenu__nav__item__link w-film peer group/link relative title-xl flex items-center gap-20" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
+                                                <span>Recycler</span>
+                                                <svg class="p-megamenu__nav__item__link__icon w-[26px] lg:w-[52px] lg:h-[41px] group-aria-expanded/link:rotate-90 lg:group-aria-expanded/link:rotate-0 transition-transform transition-600 ease-out-quart" aria-hidden="true" width="52" height="41" viewBox="0 0 52 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M33 1.77274e-06C33 8.37068 39.3059 15.5006 47.8141 17L50 17L50 17.026C50.3807 17.0087 50.7636 17 51.1484 17L51.1484 17.2898C51.1491 17.2898 51.1497 17.2898 51.1504 17.2898L51.1504 23.2898C50.3003 23.2898 49.4597 23.2472 48.6309 23.1639C39.7117 24.3367 32.9981 31.6528 32.9981 40.2898L26.9981 40.2898C26.9981 33.3896 30.0878 27.2435 34.9684 23L-1.3253e-06 23L-9.79568e-07 17L34.643 17C29.952 12.7689 27 6.74467 27 1.45042e-06L33 1.77274e-06Z" fill="white"/>
+                                                </svg>
+                                            </a>
+                                            <div class="js-children invisible h-0 lg:h-auto group-hover/item:visible peer-aria-expanded:visible lg:absolute top-0 left-0 lg:left-full lg:pl-20 z-1 w-full flex flex-col gap-8 transition-[height] duration-600 ease-out-quart overflow-hidden pb-2">
+                                                <span class="body hidden lg:block">Je veux...</span>
+                                                <ul class="flex flex-col gap-8 py-25 lg:p-0">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-448">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/recycler-mes-vetements-et-chaussures">Tout savoir sur  le recyclage</a>
+                                                    </li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-570">
+                                                        <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/trouver-un-point-de-collecte">Trouver un point de collecte</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul class="grid grid-cols-2 gap-y-25">
+                                    <li style="--delay:0.2s" class="p-megamenu__nav__col col-span-2 lg:col-span-1 break-inside-avoid-column flex flex-col gap-8 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-443">
+                                        <a class="js-link is-tracked body">À la une</a>
+                                        <ul class="flex flex-col gap-8">
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-561">
+                                                <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/medias-et-actualites">Médias et actualités</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li style="--delay:0.2s" class="p-megamenu__nav__col col-span-2 lg:col-span-1 break-inside-avoid-column flex flex-col gap-8 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-444">
+                                        <a class="js-link is-tracked body">Nos outils</a>
+                                        <ul class="flex flex-col gap-8">
+                                            <li class="menu-item menu-item-type-post_type_archive menu-item-object-tutorial menu-item-562">
+                                                <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/tutorials">Nos tutoriels</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1474">
+                                                <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/kit-jeunesse">Kit jeunesse</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-457">
+                                                <a class="js-link is-tracked subtitle-l link-secondary" target="_blank" href="https://faq.refashion.fr/">Foire aux questions</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2011">
+                                                <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/trouver-un-point-de-collecte">Trouver un point de collecte</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2012">
+                                                <a class="js-link is-tracked subtitle-l link-secondary" target="_self" href="https://refashion.fr/trouver-un-reparateur">Trouver un réparateur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="col-span-8 lg:col-span-5 h-full flex flex-wrap">
+                            <div class="p-megamenu__widget bg-[var(--primary-color,white)] lg:rounded-50 relative h-full px-20 lg:px-30 py-30 lg:py-40 flex flex-col gap-20 justify-between preset-orange-blue">
+                                <div class="relative flex flex-col gap-20 ">
+                                    <div class="title-s">Rien ne se jette, tout se transforme</div>
+                                    <p class="body-s">Triez, déposez : vos vêtements méritent une seconde chance !</p>
+                                </div>
+                                <div class="relative">
+                                    <a class="p-cta btn-primary   js-link is-tracked [--primary-color:#000000;] bg-black text-white " href="https://refashion.fr/trier-mes-vetements" target="_self" rel="">Je démarre mon tri
+            
+                    
+            </a>
+                                </div>
+                            </div>
+                            <div class="p-megamenu__widget bg-[var(--primary-color,white)] lg:rounded-50 relative h-full px-20 lg:px-30 py-30 lg:py-40 flex flex-col gap-20 justify-between preset-blue-pink">
+                                <div class="absolute top-0 left-0 w-full h-full lg:w-[35%] lg:left-auto lg:right-0">
+                                    <picture class="responsive-picture">
+                                        <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/map-215x195-c-center.webp 1x, https://media.refashion.fr/2025/01/map-430x390-c-center.webp 2x" type="image/webp"/>
+                                        <source srcset="https://media.refashion.fr/2025/01/map-165x252-c-center.webp 1x, https://media.refashion.fr/2025/01/map-330x504-c-center.webp 2x" type="image/webp"/>
+                                        <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/map-165x252-c-center.png" alt="" width="165" height="252"/>
+                                    </picture>
+                                </div>
+                                <div class="relative flex flex-col gap-20  lg:w-[65%] ">
+                                    <div class="subtitle-l">Trouvez un point de collecte à côté de chez vous</div>
+                                </div>
+                                <div class="relative">
+                                    <a class="p-cta btn-primary   js-link is-tracked [--primary-color:#000000;] bg-black text-white " href="https://refashion.fr/trouver-un-point-de-collecte" target="_self" rel="">J'explore
+            
+                    
+            </a>
+                                </div>
+                            </div>
+                            <div class="p-megamenu__widget bg-[var(--primary-color,white)] lg:rounded-50 relative h-full px-20 lg:px-30 py-30 lg:py-40 flex flex-col gap-20 justify-between preset-pink-green">
+                                <div class="relative flex flex-col gap-20 ">
+                                    <div class="subtitle-l">On refait la mode</div>
+                                </div>
+                                <div class="relative">
+                                    <a class="p-cta btn-arrow  btn-arrow--icon js-link is-tracked [--primary-color:#000000;] bg-black text-white " href="https://refashion.fr/on-refait-la-mode" target="_self" rel="">
+                                        <span class="btn-arrow__icon">
+                                            <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative col-span-8 flex lg:hidden p-20">
+                            <div class="flex flex-1 bg-white rounded-20">
+                                <a class="p-megamenu__btn">Particulier</a>
+                                <a href="" target="_blank" class="p-megamenu__btn p-megamenu__btn--white">Pro</a>
+                            </div>
+                            <button class="w-68 h-68 rounded-20 bg-black flex items-center justify-center">
+                                <svg class="fill-white" aria-hidden="true" width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.85273 9C1.9691 9.20589 2.14027 9.49606 2.3644 9.84311C2.83126 10.566 3.523 11.5279 4.42215 12.487C6.23414 14.4198 8.79963 16.25 12 16.25C15.2004 16.25 17.7659 14.4198 19.5778 12.487C20.477 11.5279 21.1687 10.566 21.6356 9.84311C21.8597 9.49606 22.0309 9.20589 22.1473 9C22.0309 8.79411 21.8597 8.50394 21.6356 8.15689C21.1687 7.43402 20.477 6.47205 19.5778 5.51296C17.7659 3.58017 15.2004 1.75 12 1.75C8.79963 1.75 6.23414 3.58017 4.42215 5.51296C3.523 6.47205 2.83126 7.43402 2.3644 8.15689C2.14027 8.50394 1.9691 8.79411 1.85273 9ZM23 9C23.6708 8.66459 23.6707 8.66433 23.6705 8.66404L23.6702 8.66331L23.6692 8.66129L23.666 8.65508L23.6553 8.63413C23.6462 8.61643 23.6332 8.59135 23.6163 8.55937C23.5824 8.49541 23.533 8.40383 23.4681 8.28855C23.3385 8.05811 23.1471 7.73239 22.8957 7.34311C22.3938 6.56598 21.648 5.52795 20.6722 4.48704C18.7341 2.41983 15.7996 0.25 12 0.25C8.20037 0.25 5.26586 2.41983 3.32785 4.48704C2.352 5.52795 1.60624 6.56598 1.10435 7.34311C0.852934 7.73239 0.661492 8.05811 0.531865 8.28855C0.467023 8.40383 0.417564 8.49541 0.383723 8.55937C0.3668 8.59135 0.353774 8.61643 0.344675 8.63413L0.333974 8.65508L0.330837 8.66129L0.329823 8.66331L0.329455 8.66404C0.32931 8.66433 0.32918 8.66459 1 9L0.32918 8.66459C0.223607 8.87574 0.223607 9.12426 0.32918 9.33541L1 9C0.32918 9.33541 0.32931 9.33567 0.329455 9.33596L0.329823 9.3367L0.330837 9.33871L0.333974 9.34492L0.344675 9.36587C0.353774 9.38357 0.3668 9.40865 0.383723 9.44063C0.417564 9.50459 0.467023 9.59617 0.531865 9.71145C0.661492 9.94189 0.852934 10.2676 1.10435 10.6569C1.60624 11.434 2.352 12.4721 3.32785 13.513C5.26586 15.5802 8.20037 17.75 12 17.75C15.7996 17.75 18.7341 15.5802 20.6722 13.513C21.648 12.4721 22.3938 11.434 22.8957 10.6569C23.1471 10.2676 23.3385 9.94189 23.4681 9.71145C23.533 9.59617 23.5824 9.50459 23.6163 9.44063C23.6332 9.40865 23.6462 9.38357 23.6553 9.36587L23.666 9.34492L23.6692 9.33871L23.6702 9.3367L23.6705 9.33596C23.6707 9.33567 23.6708 9.33541 23 9ZM23 9L23.6708 9.33541C23.7764 9.12426 23.7764 8.87574 23.6708 8.66459L23 9Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.75C10.7574 6.75 9.75 7.75736 9.75 9C9.75 10.2426 10.7574 11.25 12 11.25C13.2426 11.25 14.25 10.2426 14.25 9C14.25 7.75736 13.2426 6.75 12 6.75ZM8.25 9C8.25 6.92893 9.92893 5.25 12 5.25C14.0711 5.25 15.75 6.92893 15.75 9C15.75 11.0711 14.0711 12.75 12 12.75C9.92893 12.75 8.25 11.0711 8.25 9Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </mega-menu>
+                <search-panel role="dialog" aria-labelledby="btn-search" aria-modal="true" id="search-panel" class="p-search-panel fixed inset-0 pt-[var(--wp-admin--admin-bar--height)] bg-cream/90 backdrop-blur-[10px] z-popin overflow-x-hidden overflow-y-auto overscroll-contain">
+                    <div class="relative wrapper pt-20 pb-50 lg:pb-100">
+                        <div class="sticky top-20 grid-default z-2">
+                            <div class="relative col-span-8 lg:col-span-12 lg:col-start-4 flex items-center">
+                                <div class="flex-1 z-1">
+                                    <predictive-search data-loading-text="Chargement..." data-reset-text="Le champ de recherche a été réinitialisé. Veuillez rechercher un nouveau mot" data-result-text=" suggestion(s) trouvée(s), pour naviguer utilisez les flèches haut et bas." class="lg:relative">
+                                        <form role="search" class="js-form form p-search-form h-50 lg:h-40 lg:min-w-[420px] bg-white rounded-20 lg:rounded-50 flex items-center">
+                                            <div class="relative h-full flex-1">
+                                                <label id="search" class="sr-only">Recherche</label>
+                                                <input type="search" name="q" for="search" id="search-input" placeholder="Recherche" class="js-search subtitle-s lg:utility h-full pl-18 appearance-none bg-white rounded-20 lg:rounded-50 w-full" role="combobox" aria-owns="predictive-search-results-queries-list" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"/>
+                                                <button type="reset" class="js-reset absolute top-0 right-0 h-50 w-40 lg:h-40 flex items-center justify-center hidden hover:opacity-50 transition-opacity" aria-label="Réinitialiser">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="none" viewBox="0 0 9 9">
+                                                        <path fill="#000" fill-rule="evenodd" d="M1.293 6.879a1 1 0 0 0 1.414 1.414L4.75 6.25l2.114 2.114A1 1 0 0 0 8.278 6.95L6.164 4.836l2.2-2.2A1 1 0 1 0 6.95 1.222l-2.2 2.2-2.129-2.13a1 1 0 0 0-1.414 1.415l2.129 2.129-2.043 2.043Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <button type="submit" aria-label="Rechercher" class="h-full rounded-20 lg:rounded-50 px-18 hover:opacity-50 transition-opacity">
+                                                <svg class="fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18">
+                                                    <path fill-rule="evenodd" d="M13.997 7.862c0 1.63-.642 3.174-1.808 4.31-1.166 1.135-2.683 1.805-4.316 1.805a6 6 0 0 1-4.315-1.806C2.42 11.007 1.75 9.493 1.75 7.861c0-1.63.641-3.173 1.808-4.309C4.724 2.417 6.21 1.747 7.873 1.747a6 6 0 0 1 4.316 1.805c1.137 1.165 1.808 2.65 1.808 4.31Zm3.266 8.124-3.266-3.232c2.479-3.087 2.245-7.63-.583-10.454A7.77 7.77 0 0 0 7.874 0c-2.1 0-4.083.815-5.57 2.3A7.764 7.764 0 0 0 0 7.862c0 2.126.816 4.076 2.304 5.562 1.487 1.455 3.44 2.3 5.57 2.3a7.84 7.84 0 0 0 4.898-1.718l3.237 3.232a.84.84 0 0 0 .612.262.795.795 0 0 0 .613-.262c.35-.35.35-.903.029-1.252Z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </button>
+                                            <div tabindex="-1" class="js-results p-predictive-search absolute top-[calc(100%+10px)] rounded-30 px-20 py-30 left-0 bg-white w-full"></div>
+                                            <span class="predictive-search-status hidden" aria-live="assertive"></span>
+                                        </form>
+                                    </predictive-search>
+                                </div>
+                                <button type="button" aria-label="Fermer" class="js-close w-50 h-50 bg-black rounded-20 flex items-center justify-center lg:w-40 lg:h-40 lg:bg-transparent hover:opacity-50 transition-opacity">
+                                    <svg class="fill-white lg:fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                        <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                        <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="js-content p-search-panel__content z-1">
+                            <search-filters class="grid-default gap-y-40 lg:gap-y-64 mt-25 lg:mt-60">
+                                <div id="panel-grid" class="col-span-8 lg:col-span-12 lg:col-start-4 flex flex-col gap-60">
+                                    <swiper-controls class="p-search-panel__row flex flex-col gap-20">
+                                        <div class="flex justify-between">
+                                            <h3 class="subtitle-s">Les plus recherchés</h3>
+                                            <div class="js-nav flex items-center gap-36">
+                                                <button type="button" class="js-prev rounded-full" aria-label="Précédent">
+                                                    <svg class="fill-current rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                        <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </button>
+                                                <button type="button" class="js-next rounded-full" aria-label="Suivant">
+                                                    <svg class="fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                        <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <swiper-container a11y='{"slideRole":"listitem"}' role="list" slides-per-view="2" space-between="10" mousewheel='{"enabled": true, "forceToAxis": true }' breakpoints='{"768": {"slidesPerView": 3, "spaceBetween": 20}}'>
+                                            <swiper-slide class="p-search-panel__row__item">
+                                                <a href="https://refashion.fr/trouver-un-point-de-collecte" data-title="Trouver un point de collecte" data-type="" class="js-search-item is-tracked block p-search-item group relative rounded-20 lg:rounded-30 break-inside-avoid preset-pink-orange ">
+                                                    <div style="aspect-ratio:291/280" class="p-search-item__media rounded-20 lg:rounded-30 overflow-hidden ">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/03/carte-reparateur-190x183-c-center.webp 1x, https://media.refashion.fr/2025/03/carte-reparateur-380x366-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/03/carte-reparateur-398x383-c-center.webp 1x, https://media.refashion.fr/2025/03/carte-reparateur-796x766-c-center.webp 2x" type="image/webp"/>
+                                                            <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/03/carte-reparateur-398x383-c-center.jpg" alt="" width="398" height="383"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="bg-white w-full rounded-20 lg:rounded-30 p-search-item__media p-20 lg:p-30 flex flex-col gap-10">
+                                                        <div class="flex flex-col gap-15">
+                                                            <h3 class="flex flex-col gap-10 lg:block subtitle-l">
+                                                                <span>Trouver un point de collecte</span>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </swiper-slide>
+                                            <swiper-slide class="p-search-panel__row__item">
+                                                <a href="https://refashion.fr/bonus-reparation" data-title="Bonus réparation" data-type="" class="js-search-item is-tracked block p-search-item group relative rounded-20 lg:rounded-30 break-inside-avoid preset-orange-blue ">
+                                                    <div style="aspect-ratio:291/280" class="p-search-item__media rounded-20 lg:rounded-30 overflow-hidden ">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/03/bonus-reparation-190x183-c-center.webp 1x, https://media.refashion.fr/2025/03/bonus-reparation-380x366-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/03/bonus-reparation-398x383-c-center.webp 1x, https://media.refashion.fr/2025/03/bonus-reparation-796x766-c-center.webp 2x" type="image/webp"/>
+                                                            <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/03/bonus-reparation-398x383-c-center.jpg" alt="" width="398" height="383"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="bg-white w-full rounded-20 lg:rounded-30 p-search-item__media p-20 lg:p-30 flex flex-col gap-10">
+                                                        <div class="flex flex-col gap-15">
+                                                            <h3 class="flex flex-col gap-10 lg:block subtitle-l">
+                                                                <span>Bonus réparation</span>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </swiper-slide>
+                                            <swiper-slide class="p-search-panel__row__item">
+                                                <a href="https://refashion.fr/trouver-un-reparateur" data-title="Trouver un réparateur" data-type="" class="js-search-item is-tracked block p-search-item group relative rounded-20 lg:rounded-30 break-inside-avoid preset-orange-blue ">
+                                                    <div style="aspect-ratio:291/280" class="p-search-item__media rounded-20 lg:rounded-30 overflow-hidden ">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/03/carte-collecte-190x183-c-center.webp 1x, https://media.refashion.fr/2025/03/carte-collecte-380x366-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/03/carte-collecte-398x383-c-center.webp 1x, https://media.refashion.fr/2025/03/carte-collecte-796x766-c-center.webp 2x" type="image/webp"/>
+                                                            <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/03/carte-collecte-398x383-c-center.jpg" alt="Une carte illustrée des points de collecte Refashion" width="398" height="383"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="bg-white w-full rounded-20 lg:rounded-30 p-search-item__media p-20 lg:p-30 flex flex-col gap-10">
+                                                        <div class="flex flex-col gap-15">
+                                                            <h3 class="flex flex-col gap-10 lg:block subtitle-l">
+                                                                <span>Trouver un réparateur</span>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </swiper-slide>
+                                        </swiper-container>
+                                    </swiper-controls>
+                                    <swiper-controls class="p-search-panel__row flex flex-col gap-20">
+                                        <div class="flex justify-between">
+                                            <h3 class="subtitle-s">Ils nous inspirent</h3>
+                                            <div class="js-nav flex items-center gap-36">
+                                                <button type="button" class="js-prev rounded-full" aria-label="Précédent">
+                                                    <svg class="fill-current rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                        <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </button>
+                                                <button type="button" class="js-next rounded-full" aria-label="Suivant">
+                                                    <svg class="fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="16" fill="none" viewBox="0 0 21 16">
+                                                        <path fill-rule="evenodd" d="M20.09 7.473h.004V8.57h-.043c-3.905.02-7.026 3.057-7.026 6.755H11.93c0-2.885 1.61-5.391 4-6.755H.126V7.473h15.81c-2.39-1.364-4.001-3.87-4.001-6.755h1.095c0 3.696 3.119 6.733 7.022 6.755h.039Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <swiper-container a11y='{"slideRole":"listitem"}' role="list" slides-per-view="2" space-between="10" mousewheel='{"enabled": true, "forceToAxis": true }' breakpoints='{"768": {"slidesPerView": 3, "spaceBetween": 20}}'>
+                                            <swiper-slide class="p-search-panel__row__item">
+                                                <video-card data-id="video-679ab084828c4-0" data-title="Par où commencer à trier ?" data-type="" class="js-search-item is-tracked block p-search-item group relative rounded-20 lg:rounded-30 break-inside-avoid preset- ">
+                                                    <button type="button" aria-haspopup="dialog" aria-label="Voir la vidéo : Par où commencer à trier ?" class="js-button block text-left w-full">
+                                                        <div style="aspect-ratio:291/280" class="p-search-item__media rounded-20 lg:rounded-30 overflow-hidden ">
+                                                            <picture class="responsive-picture">
+                                                                <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/ou_commencer_tri-190x183-c-center.webp 1x, https://media.refashion.fr/2025/01/ou_commencer_tri-380x366-c-center.webp 2x" type="image/webp"/>
+                                                                <source srcset="https://media.refashion.fr/2025/01/ou_commencer_tri-398x383-c-center.webp 1x, https://media.refashion.fr/2025/01/ou_commencer_tri-796x766-c-center.webp 2x" type="image/webp"/>
+                                                                <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/ou_commencer_tri-398x383-c-center.jpg" alt="Une femme de dos face à son dressing ouvert, en plein tri de ses vêtements. Elle porte un short en jean et un t-shirt blanc illustré. À gauche, des étagères remplies de vêtements soigneusement pliés." width="398" height="383"/>
+                                                            </picture>
+                                                        </div>
+                                                        <div class="bg-white w-full rounded-20 lg:rounded-30 p-search-item__media p-20 lg:p-30 flex flex-col gap-10">
+                                                            <div class="flex flex-col gap-15">
+                                                                <h3 class="flex flex-col gap-10 lg:block subtitle-l">
+                                                                    <span>Par où commencer à trier ?</span>
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </button>
+                                                    <teleport-object data-target="#root" class="hidden">
+                                                        <video-modal role="dialog" aria-modal="true" data-id="video-679ab084828c4-0" data-is-iframe="1" class="p-video-modal fixed inset-0 bg-cream/85 backdrop-blur-[10px] z-popin pt-[var(--wp-admin--admin-bar--height)] overflow-y-auto overflow-x-hidden overscroll-contain flex-col justify-center">
+                                                            <div class="js-close absolute inset-0"></div>
+                                                            <div class="wrapper w-full flex flex-col items-center justify-center h-full">
+                                                                <div class="video__instagram aspect-[480/810] w-full max-h-[calc(100vh-40px)] bg-white p-10 rounded-30">
+                                                                    <iframe title="Instagram video : Par où commencer à trier ?" class="relative w-full h-full rounded-20 bg-black/10" width="520" height="860" data-src="https://www.instagram.com/p/C_8Q9iFtovG/embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" aria-label="Fermer" class="js-close absolute top-20 right-20 w-50 h-50 bg-black rounded-30 flex items-center justify-center lg:bg-transparent hover:opacity-50 transition-opacity z-1">
+                                                                <svg class="fill-white lg:fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                                    <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                                                    <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                                                                </svg>
+                                                            </button>
+                                                        </video-modal>
+                                                    </teleport-object>
+                                                </video-card>
+                                            </swiper-slide>
+                                            <swiper-slide class="p-search-panel__row__item">
+                                                <video-card data-id="video-678a19118ba31-1" data-title="Réparer un trou avec la technique sashiko" data-type="" class="js-search-item is-tracked block p-search-item group relative rounded-20 lg:rounded-30 break-inside-avoid preset- ">
+                                                    <button type="button" aria-haspopup="dialog" aria-label="Voir la vidéo : Réparer un trou avec la technique sashiko" class="js-button block text-left w-full">
+                                                        <div style="aspect-ratio:291/280" class="p-search-item__media rounded-20 lg:rounded-30 overflow-hidden ">
+                                                            <picture class="responsive-picture">
+                                                                <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/sashiko-e1738926133691-190x183-c-center.webp 1x, https://media.refashion.fr/2025/01/sashiko-e1738926133691-380x366-c-center.webp 2x" type="image/webp"/>
+                                                                <source srcset="https://media.refashion.fr/2025/01/sashiko-e1738926133691-398x383-c-center.webp 1x, https://media.refashion.fr/2025/01/sashiko-e1738926133691-796x766-c-center.webp 2x" type="image/webp"/>
+                                                                <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/sashiko-e1738926133691-398x383-c-center.jpg" alt="" width="398" height="383"/>
+                                                            </picture>
+                                                        </div>
+                                                        <div class="bg-white w-full rounded-20 lg:rounded-30 p-search-item__media p-20 lg:p-30 flex flex-col gap-10">
+                                                            <div class="flex flex-col gap-15">
+                                                                <h3 class="flex flex-col gap-10 lg:block subtitle-l">
+                                                                    <span>Réparer un trou avec la technique sashiko</span>
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </button>
+                                                    <teleport-object data-target="#root" class="hidden">
+                                                        <video-modal role="dialog" aria-modal="true" data-id="video-678a19118ba31-1" data-is-iframe="1" class="p-video-modal fixed inset-0 bg-cream/85 backdrop-blur-[10px] z-popin pt-[var(--wp-admin--admin-bar--height)] overflow-y-auto overflow-x-hidden overscroll-contain flex-col justify-center">
+                                                            <div class="js-close absolute inset-0"></div>
+                                                            <div class="wrapper w-full flex flex-col items-center justify-center h-full">
+                                                                <div class="video__instagram aspect-[480/810] w-full max-h-[calc(100vh-40px)] bg-white p-10 rounded-30">
+                                                                    <iframe title="Instagram video : Réparer un trou avec la technique sashiko" class="relative w-full h-full rounded-20 bg-black/10" width="520" height="860" data-src="https://www.instagram.com/p/DAxmJEpNC_y/embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" aria-label="Fermer" class="js-close absolute top-20 right-20 w-50 h-50 bg-black rounded-30 flex items-center justify-center lg:bg-transparent hover:opacity-50 transition-opacity z-1">
+                                                                <svg class="fill-white lg:fill-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                                    <rect width="20.365" height="1" y="14.401" rx=".5" transform="rotate(-45 0 14.4)"/>
+                                                                    <rect width="20.365" height="1" x="1.273" rx=".5" transform="rotate(45 1.273 0)"/>
+                                                                </svg>
+                                                            </button>
+                                                        </video-modal>
+                                                    </teleport-object>
+                                                </video-card>
+                                            </swiper-slide>
+                                            <swiper-slide class="p-search-panel__row__item">
+                                                <a href="https://refashion.fr/news/refashion-collecte-awards-une-campagne-avec-natoo" data-title="Refashion Collecte Awards : une campagne avec Natoo" data-type="" class="js-search-item is-tracked block p-search-item group relative rounded-20 lg:rounded-30 break-inside-avoid preset-blue-pink ">
+                                                    <div style="aspect-ratio:291/280" class="p-search-item__media rounded-20 lg:rounded-30 overflow-hidden ">
+                                                        <picture class="responsive-picture">
+                                                            <source media="(max-width:480px)" srcset="https://media.refashion.fr/2025/01/header_natoo_0-190x183-c-center.webp 1x, https://media.refashion.fr/2025/01/header_natoo_0-380x366-c-center.webp 2x" type="image/webp"/>
+                                                            <source srcset="https://media.refashion.fr/2025/01/header_natoo_0-398x383-c-center.webp 1x, https://media.refashion.fr/2025/01/header_natoo_0-796x766-c-center.webp 2x" type="image/webp"/>
+                                                            <img loading="lazy" class=" object-center" src="https://media.refashion.fr/2025/01/header_natoo_0-398x383-c-center.png" alt="Jeune femme aux cheveux rouges attachés rit aux éclats, vêtue d&#039;un survêtement rouge et blanc, devant un décor urbain avec des enseignes lumineuses." width="398" height="383"/>
+                                                        </picture>
+                                                    </div>
+                                                    <div class="bg-white w-full rounded-20 lg:rounded-30 p-search-item__media p-20 lg:p-30 flex flex-col gap-10">
+                                                        <div class="flex flex-col gap-15">
+                                                            <h3 class="flex flex-col gap-10 lg:block subtitle-l">
+                                                                <span>Refashion Collecte Awards : une campagne avec Natoo</span>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </swiper-slide>
+                                        </swiper-container>
+                                    </swiper-controls>
+                                </div>
+                            </search-filters>
+                        </div>
+                    </div>
+                </search-panel>
+            </refashion-app>
+            <script type='text/javascript' src='https://refashion.fr/build/script-CgtTh_ko.js' defer></script>
+        </body>
+    </html>
+    <!-- Cache Enabler by KeyCDN @ Wed, 01 Apr 2026 12:56:03 GMT (https-index.html) -->

@@ -1,0 +1,16 @@
+{
+  "name": "CSTLAB",
+  "short_name": "CSTLAB",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf4f2",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
