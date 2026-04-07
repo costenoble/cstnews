@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
 import { companyInfo, projects, serviceShowcase } from '../content/siteContent.js'
 
@@ -99,12 +99,51 @@ function unsplash(id) {
   return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`
 }
 
+function ServiceRevealCard({ card, index, progress }) {
+  const prefersReducedMotion = useReducedMotion()
+  const start = 0.06 + index * 0.14
+  const end = start + 0.24
+  const clipPath = useTransform(progress, [start, end], [
+    'inset(0% 0% 100% 0% round 28px)',
+    'inset(0% 0% 0% 0% round 28px)',
+  ])
+  const opacity = useTransform(progress, [start, end], [0.3, 1])
+  const y = useTransform(progress, [start, end], [30, 0])
+
+  return (
+    <motion.article
+      className="service-card service-card-reveal"
+      style={prefersReducedMotion ? undefined : { clipPath, opacity }}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.div className="service-card-inner" style={prefersReducedMotion ? undefined : { y }}>
+        <img
+          src={unsplash(card.image)}
+          alt={card.title}
+          className="service-card-image"
+          loading="lazy"
+        />
+        <div className="service-card-body">
+          <h3 className="service-card-title">{card.title}</h3>
+          <p className="service-card-desc">{card.desc}</p>
+        </div>
+      </motion.div>
+    </motion.article>
+  )
+}
+
 export default function Home() {
   const [current, setCurrent] = useState(0)
   const [activeCategory, setActiveCategory] = useState(0)
   const [openFaqIndex, setOpenFaqIndex] = useState(0)
   const [isAuditCtaExpanded, setIsAuditCtaExpanded] = useState(false)
   const auditCtaRef = useRef(null)
+  const expertiseRef = useRef(null)
+  const { scrollYProgress: expertiseProgress } = useScroll({
+    target: expertiseRef,
+    offset: ['start 82%', 'end 24%'],
+  })
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -255,27 +294,14 @@ export default function Home() {
             <span className="section-label">Nos expertises</span>
             <h2 className="h2">Ce que nous faisons</h2>
           </div>
-          <div className="services-grid">
+          <div className="services-grid" ref={expertiseRef}>
             {serviceCards.map((card, i) => (
-              <motion.div
+              <ServiceRevealCard
                 key={card.title}
-                className="service-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <img
-                  src={unsplash(card.image)}
-                  alt={card.title}
-                  className="service-card-image"
-                  loading="lazy"
-                />
-                <div className="service-card-body">
-                  <h3 className="service-card-title">{card.title}</h3>
-                  <p className="service-card-desc">{card.desc}</p>
-                </div>
-              </motion.div>
+                card={card}
+                index={i}
+                progress={expertiseProgress}
+              />
             ))}
           </div>
         </div>

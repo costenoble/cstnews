@@ -878,11 +878,22 @@ ul, ol {
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  will-change: transform, clip-path;
 }
 
 .service-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+.service-card-reveal {
+  backface-visibility: hidden;
+}
+
+.service-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .service-card-image {
