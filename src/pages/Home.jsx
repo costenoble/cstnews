@@ -387,7 +387,11 @@ export default function Home() {
                 <article
                   key={item.q}
                   className={`faq-item${isOpen ? ' open' : ''}`}
-                  onMouseEnter={() => setOpenFaqIndex(index)}
+                  onPointerEnter={(event) => {
+                    if (event.pointerType === 'mouse') {
+                      setOpenFaqIndex(index)
+                    }
+                  }}
                 >
                   <button
                     type="button"
