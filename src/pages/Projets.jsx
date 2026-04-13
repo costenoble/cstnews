@@ -58,9 +58,13 @@ export default function Projets() {
           <motion.div className="projects-grid" layout>
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
-                <motion.article
+                <motion.a
                   key={project.slug}
                   className="project-grid-card"
+                  href={project.siteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Voir le site ${project.name}`}
                   layout
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -75,6 +79,7 @@ export default function Projets() {
                       loading="lazy"
                     />
                   </div>
+                  <span className="project-grid-visit">Voir le site</span>
                   <div className="project-grid-body">
                     <span className="project-grid-tag">{project.category}</span>
                     <h3 className="project-grid-title">{project.name}</h3>
@@ -90,7 +95,7 @@ export default function Projets() {
                       ))}
                     </div>
                   </div>
-                </motion.article>
+                </motion.a>
               ))}
             </AnimatePresence>
           </motion.div>
