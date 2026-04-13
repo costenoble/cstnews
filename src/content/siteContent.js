@@ -179,6 +179,19 @@ export const projects = [
     outcomes: ['Site vitrine', 'Offre clarifiée', 'Prise de contact'],
     stack: ['Vite', 'React', 'SEO technique', 'Formulaire'],
   },
+  {
+    slug: 'ortho',
+    name: 'ORTHO',
+    category: 'Site vitrine',
+    client: 'Projet personnel pour cabinet d’orthodontie',
+    year: '2026',
+    image: 'photo-1629909613654-28e377c37b09',
+    siteUrl: 'https://ortho-nh1f.vercel.app',
+    summary:
+      'Projet personnel conçu pour montrer comment un cabinet d’orthodontie peut présenter ses soins, rassurer sur les traitements et structurer une prise de contact claire dans un univers premium et médical.',
+    outcomes: ['Parcours patient clarifié', 'Prise de rendez-vous mise en avant'],
+    stack: ['React', 'Vite', 'Framer Motion', 'UI sur mesure', 'SEO local'],
+  },
 ]
 
 export const clientTestimonials = {
