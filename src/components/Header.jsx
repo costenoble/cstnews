@@ -57,7 +57,7 @@ export default function Header() {
           </Link>
 
           <button
-            className={`hamburger header-menu-toggle${menuOpen ? ' open' : ''}`}
+            className={`hamburger header-menu-toggle${menuOpen ? ' open is-hidden' : ''}`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={menuOpen}
