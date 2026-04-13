@@ -146,7 +146,7 @@ export const projects = [
     client: 'Atelier de retouches textiles',
     year: '2025',
     image: 'photo-1753162658307-a2fdbb4c8a67',
-    siteUrl: 'http://ateliercaslista.fr',
+    siteUrl: 'https://ateliercalista.fr',
     summary:
       "Solution web complète pour la gestion de commandes, le paiement Stripe, les notifications emails et l'administration des services.",
     outcomes: ['Checkout Stripe', 'Back-office admin', 'Emails transactionnels'],
