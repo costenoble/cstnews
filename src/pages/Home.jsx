@@ -170,6 +170,9 @@ export default function Home() {
   const [current, setCurrent] = useState(0)
   const [activeCategory, setActiveCategory] = useState(0)
   const [openFaqIndex, setOpenFaqIndex] = useState(0)
+  const [isMobileFaq, setIsMobileFaq] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth <= 768,
+  )
   const [isAuditCtaExpanded, setIsAuditCtaExpanded] = useState(false)
   const auditCtaRef = useRef(null)
   const expertiseRef = useRef(null)
@@ -188,6 +191,16 @@ export default function Home() {
       setCurrent((c) => (c + 1) % slides.length)
     }, 5000)
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 768px)')
+    const updateMobileFaq = (event) => setIsMobileFaq(event.matches)
+
+    setIsMobileFaq(media.matches)
+    media.addEventListener('change', updateMobileFaq)
+
+    return () => media.removeEventListener('change', updateMobileFaq)
   }, [])
 
   useEffect(() => {
@@ -382,26 +395,32 @@ export default function Home() {
           </div>
           <div className="faq-list">
             {faqItems.map((item, index) => {
-              const isOpen = openFaqIndex === index
+              const isOpen = isMobileFaq || openFaqIndex === index
               return (
                 <article
                   key={item.q}
                   className={`faq-item${isOpen ? ' open' : ''}`}
                   onPointerEnter={(event) => {
-                    if (event.pointerType === 'mouse') {
+                    if (!isMobileFaq && event.pointerType === 'mouse') {
                       setOpenFaqIndex(index)
                     }
                   }}
                 >
-                  <button
-                    type="button"
-                    className="faq-question"
-                    onClick={() => setOpenFaqIndex((prev) => (prev === index ? -1 : index))}
-                    aria-expanded={isOpen}
-                  >
-                    <span>{item.q}</span>
-                    <span className="faq-arrow" aria-hidden="true">+</span>
-                  </button>
+                  {isMobileFaq ? (
+                    <div className="faq-question faq-question-static">
+                      <span>{item.q}</span>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      className="faq-question"
+                      onClick={() => setOpenFaqIndex((prev) => (prev === index ? -1 : index))}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{item.q}</span>
+                      <span className="faq-arrow" aria-hidden="true">+</span>
+                    </button>
+                  )}
                   <motion.div
                     className="faq-answer"
                     initial={false}

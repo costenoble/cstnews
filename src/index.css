@@ -1246,6 +1246,10 @@ ul, ol {
   letter-spacing: -0.01em;
 }
 
+.faq-question-static {
+  cursor: default;
+}
+
 .faq-arrow {
   font-size: 24px;
   color: var(--orange);
@@ -3117,6 +3121,24 @@ a.contact-info-value:hover {
   .faq-question {
     font-size: 18px;
     padding: 16px 18px;
+  }
+
+  .faq-question-static {
+    pointer-events: none;
+  }
+
+  .faq-question-static .faq-arrow {
+    display: none;
+  }
+
+  .faq-answer {
+    height: auto !important;
+    opacity: 1 !important;
+    overflow: visible;
+  }
+
+  .faq-answer-inner {
+    transform: none !important;
   }
 
   .faq-answer p {
