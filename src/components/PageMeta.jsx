@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
-import { defaultMeta, siteUrl } from '../content/siteContent.js'
+import { useContext, useEffect } from 'react'
+import { PageMetaContext } from '../lib/pageMetaContext.js'
+import { buildPageMeta } from '../lib/seo.js'
 
 function upsertMeta(selector, attributes) {
   let element = document.head.querySelector(selector)
@@ -43,98 +44,98 @@ function syncStructuredData(items) {
 
 export default function PageMeta({
   title,
-  description = defaultMeta.description,
+  description,
   path = '/',
-  image = defaultMeta.image,
-  imageAlt = defaultMeta.imageAlt,
+  image,
+  imageAlt,
   type = 'website',
   noIndex = false,
   structuredData = null,
 }) {
-  useEffect(() => {
-    const canonicalUrl = new URL(path, siteUrl).toString()
-    const imageUrl = new URL(image, siteUrl).toString()
-    const pageTitle = title ? `${title} | ${defaultMeta.title}` : defaultMeta.title
-    const robots = noIndex ? 'noindex,nofollow' : 'index,follow'
-    const breadcrumbSchema =
-      !noIndex && title && path !== '/'
-        ? {
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: defaultMeta.title,
-                item: siteUrl,
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: title,
-                item: canonicalUrl,
-              },
-            ],
-          }
-        : null
-    const structuredDataItems = [
-      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
-      ...(Array.isArray(structuredData) ? structuredData : [structuredData]).filter(Boolean),
-    ]
+  const pageMeta = buildPageMeta({
+    title,
+    description,
+    path,
+    image,
+    imageAlt,
+    type,
+    noIndex,
+    structuredData,
+  })
+  const metaContext = useContext(PageMetaContext)
+  const structuredDataKey = JSON.stringify(pageMeta.structuredDataItems)
 
-    document.title = pageTitle
+  if (metaContext) {
+    metaContext.current = pageMeta
+  }
+
+  useEffect(() => {
+    document.title = pageMeta.pageTitle
 
     upsertMeta('meta[name="description"]', {
       name: 'description',
-      content: description,
+      content: pageMeta.description,
     })
-    upsertMeta('meta[name="robots"]', { name: 'robots', content: robots })
-    upsertMeta('meta[property="og:type"]', { property: 'og:type', content: type })
+    upsertMeta('meta[name="robots"]', { name: 'robots', content: pageMeta.robots })
+    upsertMeta('meta[property="og:type"]', { property: 'og:type', content: pageMeta.type })
     upsertMeta('meta[property="og:site_name"]', {
       property: 'og:site_name',
-      content: defaultMeta.title,
+      content: 'CSTLAB',
     })
-    upsertMeta('meta[property="og:title"]', { property: 'og:title', content: pageTitle })
+    upsertMeta('meta[property="og:locale"]', {
+      property: 'og:locale',
+      content: 'fr_FR',
+    })
+    upsertMeta('meta[property="og:title"]', { property: 'og:title', content: pageMeta.pageTitle })
     upsertMeta('meta[property="og:description"]', {
       property: 'og:description',
-      content: description,
+      content: pageMeta.description,
     })
-    upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalUrl })
-    upsertMeta('meta[property="og:image"]', { property: 'og:image', content: imageUrl })
+    upsertMeta('meta[property="og:url"]', { property: 'og:url', content: pageMeta.canonicalUrl })
+    upsertMeta('meta[property="og:image"]', { property: 'og:image', content: pageMeta.imageUrl })
     upsertMeta('meta[property="og:image:alt"]', {
       property: 'og:image:alt',
-      content: imageAlt,
+      content: pageMeta.imageAlt,
     })
     upsertMeta('meta[name="author"]', {
       name: 'author',
-      content: defaultMeta.title,
+      content: 'CSTLAB',
     })
     upsertMeta('meta[name="twitter:card"]', {
       name: 'twitter:card',
       content: 'summary_large_image',
     })
-    upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: pageTitle })
+    upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: pageMeta.pageTitle })
     upsertMeta('meta[name="twitter:description"]', {
       name: 'twitter:description',
-      content: description,
+      content: pageMeta.description,
     })
     upsertMeta('meta[name="twitter:image"]', {
       name: 'twitter:image',
-      content: imageUrl,
+      content: pageMeta.imageUrl,
     })
-    upsertLink('link[rel="canonical"]', { rel: 'canonical', href: canonicalUrl })
+    upsertLink('link[rel="canonical"]', { rel: 'canonical', href: pageMeta.canonicalUrl })
     upsertLink('link[rel="alternate"][hreflang="fr-FR"]', {
       rel: 'alternate',
       hrefLang: 'fr-FR',
-      href: canonicalUrl,
+      href: pageMeta.canonicalUrl,
     })
     upsertLink('link[rel="alternate"][hreflang="x-default"]', {
       rel: 'alternate',
       hrefLang: 'x-default',
-      href: canonicalUrl,
+      href: pageMeta.canonicalUrl,
     })
-    syncStructuredData(structuredDataItems)
-  }, [description, image, imageAlt, noIndex, path, structuredData, title, type])
+    syncStructuredData(pageMeta.structuredDataItems)
+  }, [
+    pageMeta.canonicalUrl,
+    pageMeta.description,
+    pageMeta.imageAlt,
+    pageMeta.imageUrl,
+    pageMeta.pageTitle,
+    pageMeta.robots,
+    pageMeta.type,
+    structuredDataKey,
+  ])
 
   return null
 }

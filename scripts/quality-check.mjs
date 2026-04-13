@@ -37,7 +37,7 @@ assert(!about.includes('Sophie Martin'), 'La page a propos contient encore des n
 assert(!about.includes('Maxime Dubois'), 'La page a propos contient encore des noms d equipe fictifs')
 assert(!projects.includes('MaisonVerte'), 'La page projets contient encore un client placeholder')
 assert(!projects.includes('RetailPlus'), 'La page projets contient encore un client placeholder')
-assert(html.includes('og-image.svg'), 'Les metadonnees Open Graph par defaut sont absentes du HTML')
+assert(html.includes('<!--app-head-->'), 'Le placeholder de metadonnees prerender est absent du HTML')
 assert(existsSync(resolve(rootDir, 'public/favicon.svg')), 'Favicon manquant: public/favicon.svg')
 assert(existsSync(resolve(rootDir, 'public/robots.txt')), 'robots.txt manquant')
 assert(existsSync(resolve(rootDir, 'public/sitemap.xml')), 'sitemap.xml manquant')
