@@ -2,25 +2,25 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { companyInfo, projects, serviceShowcase } from '../content/siteContent.js'
+import { clientTestimonials, companyInfo, projects, serviceShowcase } from '../content/siteContent.js'
 
 const slides = [
   {
-    label: 'Developpement Web',
+    label: 'Développement Web',
     title: 'Des sites qui\nperforment.',
-    desc: 'Nous creons des experiences web performantes, accessibles et belles.',
+    desc: 'Nous créons des expériences web performantes, accessibles et belles.',
     image: 'photo-1460925895917-afdab827c52f',
   },
   {
     label: 'Design UX/UI',
-    title: 'Des interfaces\nqui seduisent.',
+    title: 'Des interfaces\nqui séduisent.',
     desc: 'Du wireframe au produit final, nous concevons des interfaces intuitives.',
     image: 'photo-1561070791-2526d30994b5',
   },
   {
-    label: 'Strategie Digitale',
-    title: 'Une presence\nqui rayonne.',
-    desc: 'Audit, strategie et execution pour une visibilite digitale solide.',
+    label: 'Stratégie Digitale',
+    title: 'Une présence\nqui rayonne.',
+    desc: 'Audit, stratégie et exécution pour une visibilité digitale solide.',
     image: 'photo-1553877522-43269d4ea984',
   },
 ]
@@ -52,48 +52,48 @@ const packagedOffers = [
   {
     name: 'Site vitrine',
     range: '1 200 EUR - 2 500 EUR',
-    desc: 'Pour presenter votre activite et generer des demandes qualifiees.',
-    items: ['5 a 10 pages', 'Design sur mesure', 'SEO technique de base', 'Formation prise en main'],
+    desc: 'Pour présenter votre activité et générer des demandes qualifiées.',
+    items: ['5 à 10 pages', 'Design sur mesure', 'SEO technique de base', 'Formation prise en main'],
   },
   {
-    name: 'Refonte complete',
+    name: 'Refonte complète',
     range: '1 000 EUR - 2 000 EUR',
-    desc: 'Pour moderniser votre image et ameliorer clairement les conversions.',
+    desc: 'Pour moderniser votre image et améliorer clairement les conversions.',
     items: ['Audit UX + technique', 'Nouvelle architecture', 'Nouveau design', 'Migration progressive'],
   },
   {
-    name: 'Maintenance evolutive',
+    name: 'Maintenance évolutive',
     range: '45 EUR - 150 EUR / mois',
-    desc: 'Pour garder un site rapide, securise et qui evolue chaque mois.',
-    items: ['Mises a jour', 'Corrections rapides', 'Monitoring', 'Petites evolutions continues'],
+    desc: 'Pour garder un site rapide, sécurisé et qui évolue chaque mois.',
+    items: ['Mises à jour', 'Corrections rapides', 'Monitoring', 'Petites évolutions continues'],
   },
 ]
 
 const faqItems = [
   {
-    q: 'Combien ca coute ?',
-    a: "Le budget depend surtout du perimetre, des contenus disponibles et du niveau de personnalisation attendu. Les fourchettes affichees plus haut donnent un premier repere, mais un audit permet de distinguer ce qui est indispensable, ce qui peut venir plus tard, et d'arriver a un chiffrage plus juste.",
+    q: 'Combien ça coûte ?',
+    a: "Le budget dépend surtout du périmètre, des contenus disponibles et du niveau de personnalisation attendu. Les fourchettes affichées plus haut donnent un premier repère, mais un audit permet de distinguer ce qui est indispensable, ce qui peut venir plus tard, et d'arriver à un chiffrage plus juste.",
   },
   {
     q: 'Combien de temps ?',
-    a: 'Pour un site vitrine, on est souvent sur 3 a 6 semaines. Une refonte plus complete ou un outil avec logique metier peut demander davantage. Le vrai point cle reste la disponibilite des contenus, des validations et des acces: plus ces elements sont prets, plus le projet avance vite et proprement.',
+    a: 'Pour un site vitrine, on est souvent sur 3 à 6 semaines. Une refonte plus complète ou un outil avec logique métier peut demander davantage. Le vrai point clé reste la disponibilité des contenus, des validations et des accès: plus ces éléments sont prêts, plus le projet avance vite et proprement.',
   },
   {
     q: 'Qui fait les textes ?',
-    a: "Je peux partir de vos contenus existants, vous aider a les restructurer ou proposer une trame de redaction plus claire. L'objectif n'est pas seulement d'avoir du texte, mais un message lisible, credible et adapte a vos clients. Si besoin, je peux aussi cadrer cela avec un partenaire contenu.",
+    a: "Je peux partir de vos contenus existants, vous aider à les restructurer ou proposer une trame de rédaction plus claire. L'objectif n'est pas seulement d'avoir du texte, mais un message lisible, crédible et adapté à vos clients. Si besoin, je peux aussi cadrer cela avec un partenaire contenu.",
   },
   {
-    q: 'Et apres livraison ?',
-    a: "La mise en ligne n'est pas la fin du travail. Je peux proposer un suivi de maintenance a partir de 45 EUR HT par mois pour les petites corrections, mises a jour, verifications de base et ajustements ponctuels. Si le site doit evoluer davantage, on peut aussi fonctionner avec une maintenance plus active ou des evolutions au fil de l'eau.",
+    q: 'Et après livraison ?',
+    a: "La mise en ligne n'est pas la fin du travail. Je peux proposer un suivi de maintenance à partir de 45 EUR HT par mois pour les petites corrections, mises à jour, vérifications de base et ajustements ponctuels. Si le site doit évoluer davantage, on peut aussi fonctionner avec une maintenance plus active ou des évolutions au fil de l'eau.",
   },
 ]
 
 const stripItems = [
-  'Developpement Web', 'Design UX/UI', 'Strategie Digitale', 'Cloud & DevOps',
+  'Développement Web', 'Design UX/UI', 'Stratégie Digitale', 'Cloud & DevOps',
   'Branding', 'SEO', 'Motion Design', 'E-commerce',
 ]
 
-const categories = ['Tous les services', 'Web', 'Design', 'Strategie', 'Cloud']
+const categories = ['Tous les services', 'Web', 'Design', 'Stratégie', 'Cloud']
 
 function unsplash(id) {
   return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`
@@ -101,8 +101,8 @@ function unsplash(id) {
 
 function ServiceRevealCard({ card, index, progress }) {
   const prefersReducedMotion = useReducedMotion()
-  const start = 0.06 + index * 0.14
-  const end = start + 0.24
+  const start = 0.05 + index * 0.12
+  const end = start + 0.22
   const clipPath = useTransform(progress, [start, end], [
     'inset(0% 0% 100% 0% round 28px)',
     'inset(0% 0% 0% 0% round 28px)',
@@ -133,6 +133,39 @@ function ServiceRevealCard({ card, index, progress }) {
   )
 }
 
+function TestimonialRevealCard({ item, index, progress }) {
+  const prefersReducedMotion = useReducedMotion()
+  const start = 0.05 + index * 0.12
+  const end = start + 0.24
+  const clipPath = useTransform(progress, [start, end], [
+    'inset(0% 0% 100% 0% round 28px)',
+    'inset(0% 0% 0% 0% round 28px)',
+  ])
+  const opacity = useTransform(progress, [start, end], [0.3, 1])
+  const y = useTransform(progress, [start, end], [28, 0])
+
+  return (
+    <motion.article
+      className="testimonial-card testimonial-card-reveal"
+      style={prefersReducedMotion ? undefined : { clipPath, opacity }}
+    >
+      <motion.div className="testimonial-card-shell" style={prefersReducedMotion ? undefined : { y }}>
+        <span className="testimonial-source">{item.source}</span>
+        <p className="testimonial-quote">{item.quote}</p>
+        <div className="testimonial-footer">
+          <div>
+            <div className="testimonial-author">{item.author}</div>
+            <div className="testimonial-role">
+              {item.role} · {item.company}
+            </div>
+          </div>
+          <div className="testimonial-context">{item.context}</div>
+        </div>
+      </motion.div>
+    </motion.article>
+  )
+}
+
 export default function Home() {
   const [current, setCurrent] = useState(0)
   const [activeCategory, setActiveCategory] = useState(0)
@@ -140,9 +173,14 @@ export default function Home() {
   const [isAuditCtaExpanded, setIsAuditCtaExpanded] = useState(false)
   const auditCtaRef = useRef(null)
   const expertiseRef = useRef(null)
+  const testimonialsRef = useRef(null)
   const { scrollYProgress: expertiseProgress } = useScroll({
     target: expertiseRef,
-    offset: ['start 82%', 'end 24%'],
+    offset: ['start 88%', 'end 34%'],
+  })
+  const { scrollYProgress: testimonialsProgress } = useScroll({
+    target: testimonialsRef,
+    offset: ['start 86%', 'end 24%'],
   })
 
   useEffect(() => {
@@ -177,6 +215,7 @@ export default function Home() {
   }, [])
 
   const slide = slides[current]
+  const maltLink = companyInfo.socialLinks.find((item) => item.label === 'Malt')?.href
 
   return (
     <motion.div
@@ -188,7 +227,7 @@ export default function Home() {
     >
       <PageMeta
         path="/"
-        description="CST Lab accompagne les projets web, e-commerce et outils metier avec une approche sobre, rapide et maintenable."
+        description="CSTLAB accompagne les projets web, e-commerce et outils métier avec une approche sobre, rapide et maintenable."
       />
 
       <section className="hero container">
@@ -310,8 +349,8 @@ export default function Home() {
       <section className="section pricing-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">Offres packagees</span>
-            <h2 className="h2">Reperes de budget</h2>
+            <span className="section-label">Offres packagées</span>
+            <h2 className="h2">Repères de budget</h2>
           </div>
           <div className="pricing-grid">
             {packagedOffers.map((offer) => (
@@ -339,7 +378,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <span className="section-label">FAQ objections</span>
-            <h2 className="h2">Questions frequentes avant de lancer</h2>
+            <h2 className="h2">Questions fréquentes avant de lancer</h2>
           </div>
           <div className="faq-list">
             {faqItems.map((item, index) => {
@@ -396,11 +435,11 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="rennes-banner">
-            <span className="section-label">Presence locale</span>
-            <h3 className="h3">Base a Rennes, deplacements possibles en entreprise.</h3>
+            <span className="section-label">Présence locale</span>
+            <h3 className="h3">Base à Rennes, déplacements possibles en entreprise.</h3>
             <p className="rennes-text">
-              {companyInfo.founderName} peut intervenir sur site a Rennes et autour pour
-              cadrer un besoin, aligner les priorites et accelerer le projet.
+              {companyInfo.founderName} peut intervenir sur site à Rennes et autour pour
+              cadrer un besoin, aligner les priorités et accélérer le projet.
             </p>
             <Link to="/audit" className="btn btn-orange">
               Organiser un audit
@@ -413,7 +452,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
             <div>
-              <span className="section-label">Nos realisations</span>
+              <span className="section-label">Nos réalisations</span>
               <h2 className="h2">Projets phares</h2>
             </div>
             <Link to="/projets" className="btn btn-outline">
@@ -422,9 +461,13 @@ export default function Home() {
           </div>
           <div className="projects-featured">
             {projects.map((project, i) => (
-              <motion.div
+              <motion.a
                 key={project.slug}
                 className="project-card"
+                href={project.siteUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Voir le site ${project.name}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
@@ -436,12 +479,80 @@ export default function Home() {
                   className="project-card-image"
                   loading="lazy"
                 />
+                <span className="project-card-visit">Voir le site</span>
                 <div className="project-card-info">
                   <span className="project-card-tag">{project.category}</span>
                   <h3 className="project-card-title">{project.name}</h3>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section testimonials-section">
+        <div className="container">
+          <div className="section-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '20px' }}>
+            <div>
+              <span className="section-label">Avis clients</span>
+              <h2 className="h2">Des retours qui parlent du travail, pas juste du rendu.</h2>
+            </div>
+            {maltLink ? (
+              <a
+                href={maltLink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline"
+              >
+                Voir le profil Malt
+              </a>
+            ) : null}
+          </div>
+
+          <div ref={testimonialsRef} className="testimonials-layout">
+            <motion.aside
+              className="testimonials-proof"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="testimonials-proof-label">{clientTestimonials.sourceLabel}</span>
+              <div className="testimonials-proof-score">
+                <span className="testimonials-proof-rating">{clientTestimonials.rating}</span>
+                <span className="testimonials-proof-outof">/5</span>
+              </div>
+              <div className="testimonials-proof-meta">
+                <span>Le plus pertinent</span>
+                <span>{clientTestimonials.reviewCount}</span>
+              </div>
+              <p className="testimonials-proof-text">{clientTestimonials.intro}</p>
+              <div className="testimonials-proof-bars" aria-hidden="true">
+                <div className="testimonials-proof-bar">
+                  <span>Qualité</span>
+                  <strong>5,0</strong>
+                </div>
+                <div className="testimonials-proof-bar">
+                  <span>Délai</span>
+                  <strong>5,0</strong>
+                </div>
+                <div className="testimonials-proof-bar">
+                  <span>Communication</span>
+                  <strong>5,0</strong>
+                </div>
+              </div>
+            </motion.aside>
+
+            <div className="testimonials-grid">
+              {clientTestimonials.items.map((item, index) => (
+                <TestimonialRevealCard
+                  key={`${item.author}-${item.company}`}
+                  item={item}
+                  index={index}
+                  progress={testimonialsProgress}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -454,7 +565,7 @@ export default function Home() {
           Audit
         </div>
         <div className="cta-content">
-          <span className="cta-label">Pret a cadrer votre projet ?</span>
+          <span className="cta-label">Prêt à cadrer votre projet ?</span>
           <h2 className="cta-title">Passez par l'audit pour un devis clair et actionnable.</h2>
         </div>
         <div className="cta-actions">

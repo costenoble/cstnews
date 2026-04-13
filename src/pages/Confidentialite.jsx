@@ -12,17 +12,17 @@ export default function Confidentialite() {
       transition={{ duration: 0.3 }}
     >
       <PageMeta
-        title="Confidentialite"
+        title="Confidentialité"
         path="/confidentialite"
-        description="Politique de confidentialite et traitement des donnees sur le site CST Lab."
+        description="Politique de confidentialité et traitement des données sur le site CSTLAB."
       />
 
       <div className="page-hero container">
-        <span className="page-hero-label">Donnees personnelles</span>
-        <h1 className="page-hero-title">Politique de confidentialite</h1>
+        <span className="page-hero-label">Données personnelles</span>
+        <h1 className="page-hero-title">Politique de confidentialité</h1>
         <p className="page-hero-desc">
-          Les formulaires ne servent qu'a traiter une prise de contact ou une demande
-          d'audit. Cette page explique quelles donnees sont collectees et pourquoi.
+          Les formulaires ne servent qu'à traiter une prise de contact ou une demande
+          d'audit. Cette page explique quelles données sont collectées et pourquoi.
         </p>
       </div>
 

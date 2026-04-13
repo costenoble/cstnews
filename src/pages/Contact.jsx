@@ -16,7 +16,7 @@ const contactItems = [
   { label: 'Email', value: companyInfo.email, href: `mailto:${companyInfo.email}` },
   { label: 'Base', value: companyInfo.locationLabel, href: null },
   { label: 'Zone', value: `${companyInfo.localTravelLabel} - ${companyInfo.serviceAreaLabel}`, href: null },
-  { label: 'Reponse', value: companyInfo.responseTimeLabel, href: null },
+  { label: 'Réponse', value: companyInfo.responseTimeLabel, href: null },
 ]
 
 const initialForm = {
@@ -36,12 +36,12 @@ async function sendContactEmail(form, shield) {
     prenom: normalizeShortText(form.prenom),
     nom: normalizeShortText(form.nom),
     email: normalizeShortText(form.email),
-    telephone: normalizeShortText(form.telephone) || 'Non renseigne',
+    telephone: normalizeShortText(form.telephone) || 'Non renseigné',
     sujet: form.sujet,
     message: normalizeLongText(form.message),
     consentement: shield.consent ? 'Oui' : 'Non',
     provenance: 'Page contact',
-    _subject: `[CST Lab] Nouveau message - ${form.sujet}`,
+    _subject: `[CSTLAB] Nouveau message - ${form.sujet}`,
     _template: 'table',
     _honey: shield.website,
   }
@@ -79,7 +79,7 @@ export default function Contact() {
     const message = normalizeLongText(form.message)
 
     if (message.length < 20) {
-      setSubmitError('Merci de donner un peu plus de contexte pour que je puisse repondre utilement.')
+      setSubmitError('Merci de donner un peu plus de contexte pour que je puisse répondre utilement.')
       return
     }
 
@@ -120,15 +120,15 @@ export default function Contact() {
       <PageMeta
         title="Contact"
         path="/contact"
-        description="Echangeons sur votre projet web, e-commerce ou outil metier avec CST Lab a Rennes."
+        description="Échangeons sur votre projet web, e-commerce ou outil métier avec CSTLAB à Rennes."
       />
 
       <div className="page-hero container">
         <span className="page-hero-label">Contact</span>
-        <h1 className="page-hero-title">On peut cadrer un besoin, meme s'il n'est pas encore completement formule.</h1>
+        <h1 className="page-hero-title">On peut cadrer un besoin, même s'il n'est pas encore complètement formulé.</h1>
         <p className="page-hero-desc">
           Que tu arrives avec un brief, un audit ou juste une intuition, le but reste le
-          meme: clarifier le besoin et voir si CST Lab est le bon format pour l'adresser.
+          même: clarifier le besoin et voir si CSTLAB est le bon format pour l'adresser.
         </p>
       </div>
 
@@ -140,7 +140,7 @@ export default function Contact() {
                 <h2 className="contact-info-title">Contact principal</h2>
                 <p className="contact-info-subtitle">
                   {companyInfo.founderName}, {companyInfo.founderRole}. Premier retour en
-                  general sous 24h ouvrees.
+                  général sous 24h ouvrées.
                 </p>
               </div>
 
@@ -162,8 +162,8 @@ export default function Contact() {
               <div className="contact-note-card">
                 <div className="contact-note-title">Devis sous 48h quand le besoin est clair</div>
                 <p className="contact-note-text">
-                  Si tu as deja les contenus, les acces et un perimetre un minimum pose,
-                  le cadrage peut aller tres vite.
+                  Si tu as déjà les contenus, les accès et un périmètre un minimum posé,
+                  le cadrage peut aller très vite.
                 </p>
               </div>
             </div>
@@ -180,7 +180,7 @@ export default function Contact() {
                     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <div className="form-success-icon">OK</div>
-                    <h3 className="form-success-title">Message envoye</h3>
+                    <h3 className="form-success-title">Message envoyé</h3>
                     <p className="form-success-desc">
                       Merci. Je reviens vers toi rapidement pour voir comment avancer.
                     </p>
@@ -208,7 +208,7 @@ export default function Contact() {
                   >
                     <div className="form-row">
                       <div className="form-group">
-                        <label className="form-label" htmlFor="prenom">Prenom</label>
+                        <label className="form-label" htmlFor="prenom">Prénom</label>
                         <input
                           id="prenom"
                           name="prenom"
@@ -256,7 +256,7 @@ export default function Contact() {
                         />
                       </div>
                       <div className="form-group">
-                        <label className="form-label" htmlFor="telephone">Telephone</label>
+                        <label className="form-label" htmlFor="telephone">Téléphone</label>
                         <input
                           id="telephone"
                           name="telephone"
@@ -282,11 +282,11 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                       >
-                        <option value="" disabled>Selectionnez un sujet</option>
+                        <option value="" disabled>Sélectionnez un sujet</option>
                         <option value="site-marketing">Site marketing</option>
                         <option value="e-commerce">E-commerce</option>
-                        <option value="outil-metier">Outil metier</option>
-                        <option value="integration">Integration et automatisation</option>
+                        <option value="outil-metier">Outil métier</option>
+                        <option value="integration">Intégration et automatisation</option>
                         <option value="autre">Autre</option>
                       </select>
                     </div>
@@ -297,7 +297,7 @@ export default function Contact() {
                         id="message"
                         name="message"
                         className="form-textarea"
-                        placeholder="Decris le contexte, les enjeux, les contraintes ou l'urgence du projet."
+                        placeholder="Décris le contexte, les enjeux, les contraintes ou l'urgence du projet."
                         value={form.message}
                         onChange={handleChange}
                         maxLength={2400}
@@ -327,10 +327,10 @@ export default function Contact() {
                         onChange={handleChange}
                       />
                       <span>
-                        J'accepte que ces informations soient utilisees pour traiter ma
-                        demande, conformement a la{' '}
+                        J'accepte que ces informations soient utilisées pour traiter ma
+                        demande, conformément à la{' '}
                         <Link to="/confidentialite" className="form-inline-link">
-                          politique de confidentialite
+                          politique de confidentialité
                         </Link>
                         .
                       </span>

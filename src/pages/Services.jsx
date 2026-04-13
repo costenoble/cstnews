@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { companyInfo, processSteps, projects, serviceShowcase } from '../content/siteContent.js'
+import { processSteps, projects, serviceShowcase } from '../content/siteContent.js'
 
 const fitItems = [
   {
-    title: 'Ce format est bien adapte si...',
+    title: 'Ce format est bien adapté si...',
     text:
-      "Tu veux un site, un outil ou une integration avec un interlocuteur unique, un besoin concret et un perimetre qu'on peut cadrer puis livrer proprement.",
+      "Tu veux un site, un outil ou une intégration avec un interlocuteur unique, un besoin concret et un périmètre qu'on peut cadrer puis livrer proprement.",
   },
   {
-    title: 'Ce format est moins adapte si...',
+    title: 'Ce format est moins adapté si...',
     text:
-      "Tu as besoin des le depart d'une grosse equipe, d'un appel d'offres tres lourd ou d'une production tres volumineuse avec plusieurs poles en parallele.",
+      "Tu as besoin dès le départ d'une grosse équipe, d'un appel d'offres très lourd ou d'une production très volumineuse avec plusieurs pôles en parallèle.",
   },
 ]
 
@@ -28,16 +28,16 @@ export default function Services() {
       <PageMeta
         title="Services"
         path="/services"
-        description="Sites marketing, e-commerce, plateformes web et integrations metier pilotes par CST Lab a Rennes."
+        description="Sites marketing, e-commerce, plateformes web et intégrations métier pilotés par CSTLAB à Rennes."
       />
 
       <div className="page-hero container services-page-hero">
         <span className="page-hero-label">Services</span>
-        <h1 className="page-hero-title">Une offre simple, lisible, et orientee execution.</h1>
+        <h1 className="page-hero-title">Une offre simple, lisible, et orientée exécution.</h1>
         <p className="page-hero-desc">
-          Le but n'est pas de tout promettre. CST Lab intervient surtout quand il faut
+          Le but n'est pas de tout promettre. CSTLAB intervient surtout quand il faut
           clarifier un produit, remettre de l'ordre dans un parcours, ou livrer un outil
-          web qui tient techniquement dans la duree.
+          web qui tient techniquement dans la durée.
         </p>
       </div>
 
@@ -80,8 +80,8 @@ export default function Services() {
       <section className="section services-process-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">Methode</span>
-            <h2 className="h2">Un cadre de travail simple du cadrage a la mise en ligne.</h2>
+            <span className="section-label">Méthode</span>
+            <h2 className="h2">Un cadre de travail simple du cadrage à la mise en ligne.</h2>
           </div>
 
           <div className="services-process-grid">
@@ -100,18 +100,14 @@ export default function Services() {
               </motion.article>
             ))}
           </div>
-
-          <div className="services-process-note">
-            <p>{companyInfo.collaborationModel}</p>
-          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">References</span>
-            <h2 className="h2">Quelques projets qui montrent le type de sujet traite.</h2>
+            <span className="section-label">Références</span>
+            <h2 className="h2">Quelques projets qui montrent le type de sujet traité.</h2>
           </div>
 
           <div className="services-proof-grid">
@@ -137,7 +133,7 @@ export default function Services() {
         <div className="container">
           <div className="section-header">
             <span className="section-label">Cadre d'intervention</span>
-            <h2 className="h2">Pour qui ce format est pense.</h2>
+            <h2 className="h2">Pour qui ce format est pensé.</h2>
           </div>
 
           <div className="services-fit-grid">
@@ -152,11 +148,11 @@ export default function Services() {
           <div className="services-maintenance-card">
             <span className="services-maintenance-label">Maintenance</span>
             <h3 className="services-maintenance-title">
-              Un suivi est possible a partir de 45 EUR HT / mois.
+              Un suivi est possible à partir de 45 EUR HT / mois.
             </h3>
             <p className="services-maintenance-text">
               C'est utile pour garder un site propre dans le temps: petites corrections,
-              mises a jour, surveillance legere et ajustements ponctuels.
+              mises à jour, surveillance légère et ajustements ponctuels.
             </p>
           </div>
         </div>
@@ -165,7 +161,7 @@ export default function Services() {
       <div className="cta-section">
         <div className="cta-content">
           <span className="cta-label">Parlons du besoin</span>
-          <h2 className="cta-title">Si le sujet est deja la, on peut maintenant le cadrer proprement.</h2>
+          <h2 className="cta-title">Si le sujet est déjà là, on peut maintenant le cadrer proprement.</h2>
         </div>
         <div className="cta-actions">
           <Link to="/audit" className="btn btn-orange">

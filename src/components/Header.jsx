@@ -79,70 +79,99 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="menu-overlay"
-            initial={{ opacity: 0, x: '-100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '-100%' }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            role="dialog"
-            aria-modal="true"
+            className="menu-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            onClick={() => setMenuOpen(false)}
           >
-            <nav className="menu-nav" id={mobileMenuId}>
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -60 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -60 }}
-                  transition={{ delay: i * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Link
-                    to={link.href}
-                    className={`menu-link${pathname === link.href ? ' active-menu' : ''}`}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <span className="menu-link-mask">
-                      <motion.span
-                        className="menu-link-reveal"
-                        initial={{ y: '110%' }}
-                        animate={{ y: 0 }}
-                        exit={{ y: '110%' }}
-                        transition={{
-                          delay: 0.08 + i * 0.07,
-                          duration: 0.55,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
+            <motion.div
+              className="menu-overlay"
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              role="dialog"
+              aria-modal="true"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="menu-main">
+                <nav className="menu-nav" id={mobileMenuId}>
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -60 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -60 }}
+                      transition={{ delay: i * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <Link
+                        to={link.href}
+                        className={`menu-link${pathname === link.href ? ' active-menu' : ''}`}
+                        onClick={() => setMenuOpen(false)}
                       >
-                        <span className="menu-link-slide">
-                          <span className="menu-link-slide-text" data-text={link.label}>
-                            {link.label}
-                          </span>
+                        <span className="menu-link-mask">
+                          <motion.span
+                            className="menu-link-reveal"
+                            initial={{ y: '110%' }}
+                            animate={{ y: 0 }}
+                            exit={{ y: '110%' }}
+                            transition={{
+                              delay: 0.08 + i * 0.07,
+                              duration: 0.55,
+                              ease: [0.22, 1, 0.36, 1],
+                            }}
+                          >
+                            <span className="menu-link-slide">
+                              <span className="menu-link-slide-text" data-text={link.label}>
+                                {link.label}
+                              </span>
+                            </span>
+                          </motion.span>
                         </span>
-                      </motion.span>
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
 
-            <div className="menu-footer-row">
-              <a href="mailto:contact@cstlab.dev" className="menu-footer-email">
-                contact@cstlab.dev
-              </a>
-              <div className="menu-footer-socials">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    className="menu-social-link"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {social.label}
-                  </a>
-                ))}
+                <div className="menu-side">
+                  <div className="menu-side-stack">
+                  <div className="menu-side-item">
+                      <span className="menu-side-label">Basé</span>
+                      <span className="menu-side-value">{companyInfo.locationLabel}</span>
+                    </div>
+                    <div className="menu-side-item">
+                      <span className="menu-side-label">Réponse</span>
+                      <span className="menu-side-value">{companyInfo.responseTimeLabel}</span>
+                    </div>
+                  </div>
+
+                  <Link to="/audit" className="btn btn-orange menu-side-cta" onClick={() => setMenuOpen(false)}>
+                    Demander un audit
+                  </Link>
+                </div>
               </div>
-            </div>
+
+              <div className="menu-footer-row">
+                <a href="mailto:contact@cstlab.dev" className="menu-footer-email">
+                  contact@cstlab.dev
+                </a>
+                <div className="menu-footer-socials">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      className="menu-social-link"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {social.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

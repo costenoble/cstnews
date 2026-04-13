@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">CST Lab Open Graph</title>
-  <desc id="desc">Visuel de partage CST Lab</desc>
+  <title id="title">CSTLAB Open Graph</title>
+  <desc id="desc">Visuel de partage CSTLAB</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#171513" />
@@ -16,9 +16,9 @@
   <circle cx="190" cy="540" r="180" fill="#ff5500" opacity="0.08" />
   <rect x="92" y="92" width="1016" height="446" rx="34" fill="#faf4f2" opacity="0.05" stroke="#ffffff" stroke-opacity="0.08" />
   <rect x="92" y="92" width="320" height="8" rx="4" fill="url(#accent)" />
-  <text x="92" y="225" fill="#faf4f2" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-3">CST Lab</text>
-  <text x="92" y="308" fill="#faf4f2" font-family="Inter, Arial, sans-serif" font-size="34" opacity="0.88">Studio web independant pour sites, outils metier</text>
-  <text x="92" y="352" fill="#faf4f2" font-family="Inter, Arial, sans-serif" font-size="34" opacity="0.88">et integrations e-commerce.</text>
+  <text x="92" y="225" fill="#faf4f2" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-3">CSTLAB</text>
+  <text x="92" y="308" fill="#faf4f2" font-family="Inter, Arial, sans-serif" font-size="34" opacity="0.88">Studio web indépendant pour sites, outils métier</text>
+  <text x="92" y="352" fill="#faf4f2" font-family="Inter, Arial, sans-serif" font-size="34" opacity="0.88">et intégrations e-commerce.</text>
   <rect x="92" y="428" width="222" height="54" rx="27" fill="#ff5500" />
   <text x="135" y="463" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">cstlab.dev</text>
 </svg>

@@ -14,7 +14,7 @@ export default function NotFound() {
       <PageMeta
         title="404"
         path="/404"
-        description="La page demandee est introuvable."
+        description="La page demandée est introuvable."
         noIndex
       />
 
@@ -24,10 +24,10 @@ export default function NotFound() {
             <span className="section-label">Erreur 404</span>
             <h1 className="h1">Cette page n'existe pas.</h1>
             <p className="page-hero-desc">
-              Le lien que vous avez suivi est invalide ou a ete deplace.
+              Le lien que vous avez suivi est invalide ou a été déplacé.
             </p>
             <Link to="/" className="btn btn-orange">
-              Retour a l'accueil
+              Retour à l'accueil
             </Link>
           </div>
         </div>

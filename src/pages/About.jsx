@@ -51,7 +51,7 @@ export default function About() {
       <PageMeta
         title="À propos"
         path="/a-propos"
-        description="CST Lab est un studio independant pilote par Ryan Costenoble depuis Rennes pour les projets web, e-commerce et outils metier."
+        description="CSTLAB est un studio indépendant piloté par Ryan Costenoble depuis Rennes pour les projets web, e-commerce et outils métier."
       />
 
       <div className="about-hero container">
@@ -62,7 +62,7 @@ export default function About() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="page-hero-label">À propos</span>
-          <h1 className="about-hero-title">Un studio web independant, avec un interlocuteur technique clair.</h1>
+          <h1 className="about-hero-title">Un studio web indépendant, avec un interlocuteur technique clair.</h1>
           <p className="about-hero-desc">{companyInfo.positioning}</p>
           <p className="about-hero-desc">{companyInfo.collaborationModel}</p>
           <Link to="/contact" className="btn btn-orange" style={{ width: 'fit-content' }}>
@@ -72,7 +72,7 @@ export default function About() {
 
         <motion.img
           src={unsplash('photo-1522071820081-009f0129c71c')}
-          alt="Studio CST Lab"
+          alt="Studio CSTLAB"
           className="about-image"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ export default function About() {
         <div className="container">
           <div className="section-header">
             <span className="section-label">Mode de collaboration</span>
-            <h2 className="h2">Comment CST Lab fonctionne</h2>
+            <h2 className="h2">Comment CSTLAB fonctionne</h2>
           </div>
           <div className="about-model-grid">
             {studioModel.map((item, index) => (
@@ -142,7 +142,7 @@ export default function About() {
       <div className="cta-section">
         <div className="cta-content">
           <span className="cta-label">Suite logique</span>
-          <h2 className="cta-title">Si le besoin est deja la, on peut le cadrer ensemble.</h2>
+          <h2 className="cta-title">Si le besoin est déjà là, on peut le cadrer ensemble.</h2>
         </div>
         <div className="cta-actions">
           <Link to="/audit" className="btn btn-orange">

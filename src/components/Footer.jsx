@@ -35,7 +35,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="footer-local-card">
-              <div className="footer-local-title">Base a Rennes</div>
+              <div className="footer-local-title">Base à Rennes</div>
               <p className="footer-local-text">{companyInfo.collaborationModel}</p>
             </div>
           </div>
@@ -87,17 +87,17 @@ export default function Footer() {
               </span>
             </div>
             <div className="footer-contact-item">
-              <span className="footer-contact-label">Reponse</span>
+              <span className="footer-contact-label">Réponse</span>
               <span className="footer-contact-value">{companyInfo.responseTimeLabel}</span>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copy">(c) {new Date().getFullYear()} CSTLAB. Tous droits reserves.</p>
+          <p className="footer-copy">(c) {new Date().getFullYear()} CSTLAB. Tous droits réservés.</p>
           <div className="footer-legal">
-            <Link to="/mentions-legales" className="footer-legal-link">Mentions legales</Link>
-            <Link to="/confidentialite" className="footer-legal-link">Politique de confidentialite</Link>
+            <Link to="/mentions-legales" className="footer-legal-link">Mentions légales</Link>
+            <Link to="/confidentialite" className="footer-legal-link">Politique de confidentialité</Link>
             <Link to="/cgv" className="footer-legal-link">CGV</Link>
           </div>
         </div>

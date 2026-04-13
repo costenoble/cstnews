@@ -28,14 +28,14 @@ export default function Projets() {
       <PageMeta
         title="Projets"
         path="/projets"
-        description="Une selection de projets signes CST Lab: produit web, e-commerce et landing page editoriale."
+        description="Une sélection de projets signés CSTLAB: produit web, e-commerce et landing page éditoriale."
       />
 
       <div className="page-hero container">
         <span className="page-hero-label">Projets</span>
-        <h1 className="page-hero-title">Quelques missions recentes, choisies pour ce qu'elles racontent.</h1>
+        <h1 className="page-hero-title">Quelques missions récentes, choisies pour ce qu'elles racontent.</h1>
         <p className="page-hero-desc">
-          Des projets varies, mais un fil conducteur commun: clarifier l'usage, tenir la
+          Des projets variés, mais un fil conducteur commun: clarifier l'usage, tenir la
           technique et livrer quelque chose que le client peut vraiment exploiter.
         </p>
       </div>

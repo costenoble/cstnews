@@ -14,16 +14,16 @@ export default function Cgv() {
       <PageMeta
         title="CGV"
         path="/cgv"
-        description="Conditions generales de vente des prestations proposees par CST Lab."
+        description="Conditions générales de vente des prestations proposées par CSTLAB."
       />
 
       <div className="page-hero container">
         <span className="page-hero-label">Conditions commerciales</span>
-        <h1 className="page-hero-title">Conditions generales de vente</h1>
+        <h1 className="page-hero-title">Conditions générales de vente</h1>
         <p className="page-hero-desc">
-          Ces conditions donnent le cadre general des missions. Le devis reste toujours le
-          document contractuel prioritaire pour fixer le perimetre, les livrables et les
-          modalites financieres.
+          Ces conditions donnent le cadre général des missions. Le devis reste toujours le
+          document contractuel prioritaire pour fixer le périmètre, les livrables et les
+          modalités financières.
         </p>
       </div>
 

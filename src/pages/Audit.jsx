@@ -13,10 +13,10 @@ import {
 } from '../lib/forms.js'
 
 const goals = [
-  'Generer plus de leads',
+  'Générer plus de leads',
   'Vendre en ligne',
   "Clarifier l'offre",
-  'Automatiser une tache',
+  'Automatiser une tâche',
   'Lancer un nouveau produit',
 ]
 
@@ -57,7 +57,7 @@ function toggleArrayItem(list, value) {
 }
 
 function joinList(list) {
-  return list.length > 0 ? list.join(', ') : 'Non precise'
+  return list.length > 0 ? list.join(', ') : 'Non précisé'
 }
 
 async function sendAuditRequest(form, shield) {
@@ -65,21 +65,21 @@ async function sendAuditRequest(form, shield) {
     entreprise: normalizeShortText(form.entreprise),
     nom: normalizeShortText(form.nom),
     email: normalizeShortText(form.email),
-    telephone: normalizeShortText(form.telephone) || 'Non renseigne',
-    localisation: normalizeShortText(form.localisation) || 'Non renseignee',
+    telephone: normalizeShortText(form.telephone) || 'Non renseigné',
+    localisation: normalizeShortText(form.localisation) || 'Non renseignée',
     type_projet: form.typeProjet,
     objectifs: joinList(form.objectifs),
     fonctionnalites: joinList(form.fonctionnalites),
-    site_actuel: normalizeShortText(form.siteActuel) || 'Non precise',
-    contenu_pret: form.contenuPret || 'Non precise',
-    branding_pret: form.brandingPret || 'Non precise',
+    site_actuel: normalizeShortText(form.siteActuel) || 'Non précisé',
+    contenu_pret: form.contenuPret || 'Non précisé',
+    branding_pret: form.brandingPret || 'Non précisé',
     budget: form.budget,
     delai: form.delai,
     preference_rdv: form.rdv,
     details: normalizeLongText(form.details),
     consentement: shield.consent ? 'Oui' : 'Non',
     provenance: 'Page audit',
-    _subject: `[CST Lab] Nouvelle demande d'audit - ${form.entreprise || form.nom}`,
+    _subject: `[CSTLAB] Nouvelle demande d'audit - ${form.entreprise || form.nom}`,
     _template: 'table',
     _honey: shield.website,
   }
@@ -119,7 +119,7 @@ export default function Audit() {
     setErrorMessage('')
 
     if (form.objectifs.length === 0) {
-      setErrorMessage('Selectionne au moins un objectif pour rendre le cadrage utile.')
+      setErrorMessage('Sélectionne au moins un objectif pour rendre le cadrage utile.')
       return
     }
 
@@ -165,29 +165,31 @@ export default function Audit() {
       <PageMeta
         title="Audit"
         path="/audit"
-        description="Questionnaire d'audit CST Lab pour cadrer un projet web, e-commerce ou outil metier."
+        description="Questionnaire d'audit CSTLAB pour cadrer un projet web, e-commerce ou outil métier."
       />
 
       <div className="page-hero container">
         <span className="page-hero-label">Audit projet</span>
-        <h1 className="page-hero-title">Un audit pour transformer un besoin flou en perimetre exploitable.</h1>
+        <h1 className="page-hero-title">On part de ton idée, on la clarifie ensemble, puis on voit comment bien la lancer.</h1>
         <p className="page-hero-desc">
-          L'objectif n'est pas juste de donner un prix. Le questionnaire sert a clarifier le
-          besoin, les priorites, les integrations critiques et le niveau d'urgence reel.
+          Le but n'est pas de te sortir un prix à la volée. Ce questionnaire m'aide à
+          comprendre ton contexte, tes priorités et la meilleure manière d'avancer
+          ensemble, simplement.
         </p>
       </div>
 
       <section className="section" style={{ paddingTop: '20px' }}>
         <div className="container audit-layout">
           <aside className="audit-intro-card">
-            <h2 className="audit-intro-title">Comment j'utilise ces reponses</h2>
+            <h2 className="audit-intro-title">À quoi ça sert, concrètement</h2>
             <p className="audit-intro-text">
-              Le cadrage sert a estimer le perimetre, identifier les dependances critiques
-              et proposer une trajectoire realiste plutot qu'un devis au doigt mouille.
+              L'idée n'est pas de te faire remplir un formulaire pour la forme. Tes
+              réponses me permettent de comprendre ce qui compte vraiment et de te
+              répondre avec quelque chose de clair, pas avec un devis approximatif.
             </p>
             <p className="audit-intro-text">
-              Si tu es base a {companyInfo.locationLabel.split(',')[0]} ou autour, une
-              rencontre sur site peut etre organisee pour les phases clees.
+              Si tu es basé à {companyInfo.locationLabel.split(',')[0]} ou autour, une
+              rencontre sur site peut être organisée pour les phases clés.
             </p>
             <p className="audit-intro-text">
               Besoin d'une prise de contact plus rapide ? Tu peux aussi passer par la page{' '}
@@ -209,10 +211,10 @@ export default function Audit() {
                   exit={{ opacity: 0 }}
                 >
                   <div className="form-success-icon">OK</div>
-                  <h3 className="form-success-title">Demande envoyee</h3>
+                  <h3 className="form-success-title">Demande envoyée</h3>
                   <p className="form-success-desc">
-                    Merci. Je reviens vers toi avec un cadrage, des priorites et une
-                    premiere estimation exploitable.
+                    Merci. Je reviens vers toi avec une première direction claire, des
+                    priorités simples et une façon concrète d'avancer ensemble.
                   </p>
                   <button
                     type="button"
@@ -284,7 +286,7 @@ export default function Audit() {
                       />
                     </div>
                     <div className="form-group">
-                      <label className="form-label" htmlFor="telephone">Telephone</label>
+                      <label className="form-label" htmlFor="telephone">Téléphone</label>
                       <input
                         id="telephone"
                         name="telephone"
@@ -310,7 +312,7 @@ export default function Audit() {
                         className="form-input"
                         value={form.localisation}
                         onChange={handleChange}
-                        placeholder="Ville / region"
+                        placeholder="Ville / région"
                         maxLength={120}
                       />
                     </div>
@@ -324,7 +326,7 @@ export default function Audit() {
                         onChange={handleChange}
                         required
                       >
-                        <option value="" disabled>Selectionne une option</option>
+                        <option value="" disabled>Sélectionne une option</option>
                         <option value="site-marketing">Site marketing</option>
                         <option value="e-commerce">E-commerce</option>
                         <option value="plateforme-web">Plateforme web</option>
@@ -352,7 +354,7 @@ export default function Audit() {
                   </div>
 
                   <div className="form-group">
-                    <span className="form-label">Fonctionnalites souhaitees</span>
+                    <span className="form-label">Fonctionnalités souhaitées</span>
                     <div className="audit-check-grid">
                       {features.map((feature) => (
                         <label key={feature} className="audit-check-item">
@@ -382,7 +384,7 @@ export default function Audit() {
                       />
                     </div>
                     <div className="form-group">
-                      <label className="form-label" htmlFor="rdv">Preference de rendez-vous</label>
+                      <label className="form-label" htmlFor="rdv">Préférence de rendez-vous</label>
                       <select
                         id="rdv"
                         name="rdv"
@@ -391,7 +393,7 @@ export default function Audit() {
                         onChange={handleChange}
                       >
                         <option value="visio">Visio</option>
-                        <option value="telephone">Telephone</option>
+                        <option value="telephone">Téléphone</option>
                         <option value="sur-place-rennes">Sur place (Rennes et alentours)</option>
                       </select>
                     </div>
@@ -399,7 +401,7 @@ export default function Audit() {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label className="form-label" htmlFor="contenuPret">Contenus prets ?</label>
+                      <label className="form-label" htmlFor="contenuPret">Contenus prêts ?</label>
                       <select
                         id="contenuPret"
                         name="contenuPret"
@@ -407,14 +409,14 @@ export default function Audit() {
                         value={form.contenuPret}
                         onChange={handleChange}
                       >
-                        <option value="" disabled>Selectionne une option</option>
+                        <option value="" disabled>Sélectionne une option</option>
                         <option value="oui">Oui</option>
                         <option value="partiellement">Partiellement</option>
                         <option value="non">Non</option>
                       </select>
                     </div>
                     <div className="form-group">
-                      <label className="form-label" htmlFor="brandingPret">Branding pret ?</label>
+                      <label className="form-label" htmlFor="brandingPret">Branding prêt ?</label>
                       <select
                         id="brandingPret"
                         name="brandingPret"
@@ -422,7 +424,7 @@ export default function Audit() {
                         value={form.brandingPret}
                         onChange={handleChange}
                       >
-                        <option value="" disabled>Selectionne une option</option>
+                        <option value="" disabled>Sélectionne une option</option>
                         <option value="oui">Oui</option>
                         <option value="partiellement">Partiellement</option>
                         <option value="non">Non</option>
@@ -432,7 +434,7 @@ export default function Audit() {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label className="form-label" htmlFor="budget">Budget estime</label>
+                      <label className="form-label" htmlFor="budget">Budget estimé</label>
                       <select
                         id="budget"
                         name="budget"
@@ -441,16 +443,16 @@ export default function Audit() {
                         onChange={handleChange}
                         required
                       >
-                        <option value="" disabled>Selectionne une fourchette</option>
+                        <option value="" disabled>Sélectionne une fourchette</option>
                         <option value="moins-5k">Moins de 5 000 EUR</option>
-                        <option value="5k-15k">5 000 a 15 000 EUR</option>
-                        <option value="15k-30k">15 000 a 30 000 EUR</option>
-                        <option value="30k-60k">30 000 a 60 000 EUR</option>
+                        <option value="5k-15k">5 000 à 15 000 EUR</option>
+                        <option value="15k-30k">15 000 à 30 000 EUR</option>
+                        <option value="30k-60k">30 000 à 60 000 EUR</option>
                         <option value="plus-60k">Plus de 60 000 EUR</option>
                       </select>
                     </div>
                     <div className="form-group">
-                      <label className="form-label" htmlFor="delai">Delai vise</label>
+                      <label className="form-label" htmlFor="delai">Délai visé</label>
                       <select
                         id="delai"
                         name="delai"
@@ -459,28 +461,28 @@ export default function Audit() {
                         onChange={handleChange}
                         required
                       >
-                        <option value="" disabled>Selectionne un delai</option>
+                        <option value="" disabled>Sélectionne un délai</option>
                         <option value="asap">ASAP</option>
-                        <option value="1-2-mois">1 a 2 mois</option>
-                        <option value="3-4-mois">3 a 4 mois</option>
-                        <option value="5-6-mois">5 a 6 mois</option>
+                        <option value="1-2-mois">1 à 2 mois</option>
+                        <option value="3-4-mois">3 à 4 mois</option>
+                        <option value="5-6-mois">5 à 6 mois</option>
                         <option value="plus-6-mois">Plus de 6 mois</option>
                       </select>
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label" htmlFor="details">Contexte et attentes</label>
-                    <textarea
-                      id="details"
-                      name="details"
-                      className="form-textarea"
-                      value={form.details}
-                      onChange={handleChange}
-                      placeholder="Priorites, contraintes, stack actuelle, equipe, dependances, objectifs."
-                      maxLength={3000}
-                      required
-                    />
+                      <label className="form-label" htmlFor="details">Contexte et attentes</label>
+                      <textarea
+                        id="details"
+                        name="details"
+                        className="form-textarea"
+                        value={form.details}
+                        onChange={handleChange}
+                        placeholder="Priorités, contraintes, stack actuelle, équipe, dépendances, objectifs."
+                        maxLength={3000}
+                        required
+                      />
                   </div>
 
                   <div className="form-group form-honeypot" aria-hidden="true">
@@ -504,14 +506,14 @@ export default function Audit() {
                       checked={shield.consent}
                       onChange={handleChange}
                     />
-                    <span>
-                      J'accepte que ces informations soient utilisees pour traiter ma
-                      demande et preparer un cadrage, conformement a la{' '}
-                      <Link to="/confidentialite" className="form-inline-link">
-                        politique de confidentialite
-                      </Link>
-                      .
-                    </span>
+                      <span>
+                        J'accepte que ces informations soient utilisées pour traiter ma
+                        demande et préparer un cadrage, conformément à la{' '}
+                        <Link to="/confidentialite" className="form-inline-link">
+                          politique de confidentialité
+                        </Link>
+                        .
+                      </span>
                   </label>
 
                   {errorMessage && (

@@ -1,19 +1,19 @@
 export const siteUrl = 'https://cstlab.dev'
 
 export const companyInfo = {
-  brandName: 'CST Lab',
+  brandName: 'CSTLAB',
   founderName: 'Ryan Costenoble',
-  founderRole: 'Developpeur full-stack',
+  founderRole: 'Développeur full-stack',
   email: 'contact@cstlab.dev',
   locationLabel: 'Rennes, France',
   localTravelLabel: 'Rennes et 50 km autour',
   serviceAreaLabel: 'Grand Ouest et remote',
-  responseTimeLabel: 'Reponse sous 24h ouvrees',
-  strapline: 'Studio web independant pour sites, outils metier et integrations e-commerce.',
+  responseTimeLabel: 'Réponse sous 24h ouvrées',
+  strapline: 'Studio web indépendant pour sites, outils métier et intégrations e-commerce.',
   positioning:
-    "CST Lab concoit des sites, outils metier et integrations sur mesure avec un objectif simple: clarifier le produit, fiabiliser la technique et accelerer la mise en ligne.",
+    "CSTLAB conçoit des sites, outils métier et intégrations sur mesure avec un objectif simple: clarifier le produit, fiabiliser la technique et accélérer la mise en ligne.",
   collaborationModel:
-    "Le studio est pilote par Ryan Costenoble et s'appuie, selon le perimetre, sur un reseau de partenaires design, contenu et branding.",
+    "Le studio est piloté par Ryan Costenoble et s'appuie, selon le périmètre, sur un réseau de partenaires design, contenu et branding.",
   socialLinks: [
     { href: 'https://github.com/costenoble/', label: 'GitHub', short: 'GH' },
     { href: 'https://www.malt.fr/profile/ryancostenoble', label: 'Malt', short: 'MA' },
@@ -23,7 +23,7 @@ export const companyInfo = {
 export const defaultMeta = {
   title: 'CSTLAB',
   description:
-    'CST Lab accompagne les projets web, e-commerce et outils metier avec une approche sobre, rapide et maintenable.',
+    'CSTLAB accompagne les projets web, e-commerce et outils métier avec une approche sobre, rapide et maintenable.',
   image: '/og-image.svg',
 }
 
@@ -32,18 +32,18 @@ export const serviceShowcase = [
     id: 'plateformes',
     number: '01',
     label: 'Plateformes web',
-    title: 'Des outils metier clairs pour piloter sans friction.',
+    title: 'Des outils métier clairs pour piloter sans friction.',
     description:
-      "Back-offices, espaces clients, dashboards et interfaces d'administration concus pour rester lisibles a mesure que le produit grandit.",
+      "Back-offices, espaces clients, dashboards et interfaces d'administration conçus pour rester lisibles à mesure que le produit grandit.",
     deliverables: [
-      'Architecture front/back adaptee au volume reel du projet',
+      'Architecture front/back adaptée au volume réel du projet',
       'CRUD, authentification, roles et tableaux de bord',
-      'Donnees temps reel, carte, recherche ou workflows specifiques',
+      'Données temps réel, carte, recherche ou workflows spécifiques',
     ],
     stack: ['React', 'Vite', 'Node.js', 'Supabase', 'JWT'],
-    proofTitle: "Retour d'experience",
+    proofTitle: "Retour d'expérience",
     proofText:
-      'Quelia: plateforme cartographique multi-marques avec administration avancee, gestion des roles et affichage temps reel.',
+      'Quelia: plateforme cartographique multi-marques avec administration avancée, gestion des rôles et affichage temps réel.',
   },
   {
     id: 'ecommerce',
@@ -51,16 +51,16 @@ export const serviceShowcase = [
     label: 'E-commerce',
     title: "Des parcours d'achat fiables, du panier au webhook.",
     description:
-      "Le travail ne s'arrete pas a la vitrine: checkout, webhooks, emails transactionnels, suivi de commande et administration doivent tenir la route.",
+      "Le travail ne s'arrête pas à la vitrine: checkout, webhooks, emails transactionnels, suivi de commande et administration doivent tenir la route.",
     deliverables: [
-      'Integration Stripe Checkout et webhooks de confirmation',
+      'Intégration Stripe Checkout et webhooks de confirmation',
       'Tunnel de commande, gestion de statuts et emails transactionnels',
-      'Back-office pour services, disponibilites et contenus',
+      'Back-office pour services, disponibilités et contenus',
     ],
     stack: ['Stripe', 'Supabase', 'Nodemailer', 'PostgreSQL', 'PM2'],
-    proofTitle: "Retour d'experience",
+    proofTitle: "Retour d'expérience",
     proofText:
-      'Atelier Calista: plateforme e-commerce complete avec paiement en ligne, dashboard admin et automatisations autour des commandes.',
+      'Atelier Calista: plateforme e-commerce complète avec paiement en ligne, dashboard admin et automatisations autour des commandes.',
   },
   {
     id: 'marketing',
@@ -68,33 +68,33 @@ export const serviceShowcase = [
     label: 'Sites marketing',
     title: "Une page claire, qui raconte juste ce qu'il faut.",
     description:
-      "Landing pages, sites vitrines et pages de lancement penses pour expliquer une offre, rassurer vite et generer des prises de contact qualifiees.",
+      "Landing pages, sites vitrines et pages de lancement pensées pour expliquer une offre, rassurer vite et générer des prises de contact qualifiées.",
     deliverables: [
-      'Structure editoriale et hierarchie de contenu',
+      'Structure éditoriale et hiérarchie de contenu',
       'Design responsive, performant et SEO-friendly',
       "Animations utiles, jamais la pour distraire de l'essentiel",
     ],
     stack: ['Vite', 'HTML', 'CSS', 'Framer Motion', 'SEO technique'],
-    proofTitle: "Retour d'experience",
+    proofTitle: "Retour d'expérience",
     proofText:
-      'SSEAT: landing page editoriale pour un sujet TVA europeenne, avec ton institutionnel, scroll guide et mise en forme sobre.',
+      'SSEAT: landing page éditoriale pour un sujet TVA européenne, avec ton institutionnel, scroll guidé et mise en forme sobre.',
   },
   {
     id: 'integrations',
     number: '04',
-    label: 'Integrations',
+    label: 'Intégrations',
     title: "Connecter vos outils sans empiler de la dette.",
     description:
-      'APIs tierces, uploads, emails, stockage, synchronisations et automatisations metier pour fiabiliser les operations sans alourdir le produit.',
+      'APIs tierces, uploads, emails, stockage, synchronisations et automatisations métier pour fiabiliser les opérations sans alourdir le produit.',
     deliverables: [
       'Connexions API externes, OAuth et webhooks',
       'Uploads fichiers, stockage et nettoyage automatique',
-      'CORS, validation, securisation des flux et monitoring',
+      'CORS, validation, sécurisation des flux et monitoring',
     ],
     stack: ['APIs REST', 'Webhooks', 'Supabase Storage', 'CORS', 'Rate limiting'],
     proofTitle: 'Approche',
     proofText:
-      "Chaque integration est pensee comme une piece produit: observabilite, validation et reprise sur erreur avant l'effet waouh.",
+      "Chaque intégration est pensée comme une pièce produit: observabilité, validation et reprise sur erreur avant l'effet waouh.",
   },
 ]
 
@@ -103,25 +103,25 @@ export const processSteps = [
     number: '01',
     title: 'Cadrage',
     description:
-      'On clarifie le besoin, les contraintes, les contenus et le niveau de priorite reel avant de dessiner quoi que ce soit.',
+      'On clarifie le besoin, les contraintes, les contenus et le niveau de priorité réel avant de dessiner quoi que ce soit.',
   },
   {
     number: '02',
     title: 'Architecture',
     description:
-      'On choisit une stack proportionnee, on structure les parcours et on verrouille les dependances critiques.',
+      'On choisit une stack proportionnée, on structure les parcours et on verrouille les dépendances critiques.',
   },
   {
     number: '03',
     title: 'Build',
     description:
-      'Le produit avance par iterations courtes avec demos regulieres, arbitrages simples et dette technique sous controle.',
+      'Le produit avance par itérations courtes avec démos régulières, arbitrages simples et dette technique sous contrôle.',
   },
   {
     number: '04',
     title: 'Lancement',
     description:
-      'Mise en ligne, tests, documentation et transmission pour que le projet reste autonome apres livraison.',
+      'Mise en ligne, tests, documentation et transmission pour que le projet reste autonome après livraison.',
   },
 ]
 
@@ -132,10 +132,11 @@ export const projects = [
     category: 'Produit web',
     client: 'Plateforme de visualisation cartographique',
     year: '2026',
-    image: 'photo-1486312338219-ce68d2c6f44d',
+    image: 'photo-1742347073303-814ca9b301ce',
+    siteUrl: 'https://gigaw.app',
     summary:
       'Plateforme de visualisation et gestion de projets avec carte interactive, recherche territoriale et administration multi-marques.',
-    outcomes: ['Carte interactive', 'Admin multi-marques', 'Flux temps reel'],
+    outcomes: ['Carte interactive', 'Admin multi-marques', 'Flux temps réel'],
     stack: ['React 18', 'Vite', 'Supabase', 'PostgreSQL', 'Rust'],
   },
   {
@@ -144,9 +145,10 @@ export const projects = [
     category: 'E-commerce',
     client: 'Atelier de retouches textiles',
     year: '2025',
-    image: 'photo-1504384308090-c894fdcc538d',
+    image: 'photo-1753162658307-a2fdbb4c8a67',
+    siteUrl: 'http://ateliercaslista.fr',
     summary:
-      "Solution web complete pour la gestion de commandes, le paiement Stripe, les notifications emails et l'administration des services.",
+      "Solution web complète pour la gestion de commandes, le paiement Stripe, les notifications emails et l'administration des services.",
     outcomes: ['Checkout Stripe', 'Back-office admin', 'Emails transactionnels'],
     stack: ['Node.js', 'Stripe', 'Supabase', 'Vite', 'PM2'],
   },
@@ -154,36 +156,96 @@ export const projects = [
     slug: 'sseat',
     name: 'SSEAT',
     category: 'Landing page',
-    client: 'Projet exploratoire autour de la TVA europeenne',
+    client: 'Projet exploratoire autour de la TVA européenne',
     year: '2026',
     image: 'photo-1561070791-2526d30994b5',
+    siteUrl: 'https://sseat-lab.com',
     summary:
-      'Landing page editoriale au ton institutionnel pour presenter un concept technique a une cible experte sans sur-promesse commerciale.',
+      'Landing page éditoriale au ton institutionnel pour présenter un concept technique à une cible experte sans sur-promesse commerciale.',
     outcomes: ['Narration one-page', 'SEO technique', 'Animations sobres'],
     stack: ['Vite', 'Tailwind CSS', 'JavaScript', 'SVG'],
   },
+  {
+    slug: 'delaje-solutions',
+    name: 'Delaje Solutions',
+    category: 'Site vitrine',
+    client: 'Spécialiste de la découpe laser',
+    year: '2025',
+    image: 'photo-1581092335397-9583eb92d232',
+    siteUrl: 'https://delaje.com',
+    summary:
+      'Site vitrine pensé pour présenter une activité de découpe laser, clarifier le savoir-faire et générer des prises de contact qualifiées.',
+    outcomes: ['Site vitrine', 'Offre clarifiée', 'Prise de contact'],
+    stack: ['Vite', 'React', 'SEO technique', 'Formulaire'],
+  },
 ]
+
+export const clientTestimonials = {
+  rating: '5,0',
+  reviewCount: '5 évaluations',
+  sourceLabel: 'Avis publiés sur Malt',
+  intro:
+    "Des retours concrets de clients avec qui le travail s'est fait dans la durée, sur des lancements, des refontes ou des besoins plus techniques.",
+  items: [
+    {
+      source: 'Avis Malt',
+      quote:
+        'Toujours un plaisir de travailler avec Ryan, très professionnel, toujours à écouter, et il trouve toujours une solution.',
+      author: 'Rabah',
+      role: 'Cadre',
+      company: 'Asseat',
+      context: 'Plusieurs projets menés ensemble',
+    },
+    {
+      source: 'Avis Malt',
+      quote:
+        "Ryan a été hyper réactif et à l'écoute. Il a su trouver des solutions techniques, proposer des idées, et le travail à distance s'est très bien passé.",
+      author: 'Constant',
+      role: 'Directeur de projet',
+      company: 'Quelia',
+      context: 'Produit web cartographique',
+    },
+    {
+      source: 'Recommandation Malt',
+      quote:
+        "Ryan a su traduire fidèlement mon identité dans un site clair, fluide et professionnel. La communication a été simple, efficace et toujours bienveillante.",
+      author: 'Mélina Lory',
+      role: 'Gérante',
+      company: 'Atelier Calista',
+      context: 'Site e-commerce couture',
+    },
+    {
+      source: 'Recommandation Malt',
+      quote:
+        "Le développement de notre site web s'est parfaitement déroulé du début à la fin. Ryan a su nous accompagner comme il le fallait et le résultat est vraiment top.",
+      author: 'Delaje Solutions',
+      role: 'Chargé de communication',
+      company: 'Delaje Solutions',
+      context: 'Site vitrine découpe laser',
+    },
+  ],
+}
 
 export const aboutValues = [
   {
     title: 'Code propre',
     description:
-      'Chaque projet est pense pour etre maintenable, documente et repris sans douleur quelques mois plus tard.',
+      'Chaque projet est pensé pour être maintenable, documenté et repris sans douleur quelques mois plus tard.',
   },
   {
     title: 'Communication directe',
     description:
-      'Un cadrage clair, des retours reguliers et des arbitrages assumes evitent la confusion et les attentes implicites.',
+      'Un cadrage clair, des retours réguliers et des arbitrages assumés évitent la confusion et les attentes implicites.',
   },
   {
     title: 'Architecture saine',
     description:
-      "Le choix de stack et les integrations sont proportionnes au besoin reel, pas a l'effet de mode.",
+      "Le choix de stack et les intégrations sont proportionnés au besoin réel, pas à l'effet de mode.",
   },
   {
     title: 'Transmission',
     description:
-      'Formation, documentation et passation font partie du livrable pour que le produit reste exploitable apres la mise en ligne.',
+      'Formation, documentation et passation font partie du livrable pour que le produit reste exploitable après la mise en ligne.',
   },
 ]
 
@@ -192,84 +254,91 @@ export const studioModel = [
     label: 'Pilotage',
     title: 'Ryan Costenoble',
     description:
-      'Developpeur full-stack base a Rennes, avec un focus sur React, Vite, Stripe, Supabase et les integrations tierces.',
+      'Développeur full-stack basé à Rennes, avec un focus sur React, Vite, Stripe, Supabase et les intégrations tierces.',
   },
   {
     label: 'Mode de travail',
-    title: 'Studio independant',
+    title: 'Studio indépendant',
     description:
-      "Le projet avance avec un interlocuteur technique unique, puis s'ouvre a des partenaires design ou contenu quand le perimetre le justifie.",
+      "Le projet avance avec un interlocuteur technique unique, puis s'ouvre à des partenaires design ou contenu quand le périmètre le justifie.",
   },
   {
     label: "Zone d'intervention",
     title: 'Rennes, Grand Ouest et remote',
     description:
-      'Cadrage a distance ou sur site selon le besoin, avec deplacements possibles autour de Rennes pour les phases cles.',
+      'Cadrage à distance ou sur site selon le besoin, avec déplacements possibles autour de Rennes pour les phases clés.',
   },
 ]
 
 export const legalSections = {
   mentions: [
     {
-      title: 'Editeur du site',
+      title: 'Éditeur du site',
       body: [
-        'CST Lab est la marque de travail utilisee par Ryan Costenoble pour ses activites de conception et de developpement web.',
+        'CSTLAB est la marque de travail utilisée par Ryan Costenoble pour ses activités de conception et de développement web.',
         'Contact principal: contact@cstlab.dev.',
-        "Zone d'activite communiquee publiquement: Rennes, France.",
+        "Zone d'activité communiquée publiquement: Rennes, France.",
       ],
     },
     {
       title: 'Responsable de publication',
       body: [
-        'Ryan Costenoble assure la direction de la publication et la responsabilite editoriale du site.',
+        'Ryan Costenoble assure la direction de la publication et la responsabilité éditoriale du site.',
       ],
     },
     {
-      title: "Hebergement et informations d'immatriculation",
+      title: 'Immatriculation',
       body: [
-        "Ces informations doivent etre confirmees avec les donnees administratives definitives et l'environnement de production effectivement retenu avant publication finale.",
-        'La page est deja structuree pour accueillir ces mentions sans inventer de donnees sensibles ou inexactes.',
+        'SIREN : 920 294 097.',
+        'Activite exercee en tant que micro-entrepreneur.',
       ],
     },
     {
-      title: 'Propriete intellectuelle',
+      title: 'Hébergement',
       body: [
-        'Les contenus, textes, maquettes, elements graphiques et codes presentes sur ce site restent proteges par le droit applicable sauf mention contraire.',
-        "Toute reproduction totale ou partielle sans autorisation prealable n'est pas autorisee.",
+        'Le site est hébergé par la société Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre.',
+        'Site : www.hostinger.fr',
+      ],
+    },
+    {
+      title: 'Propriété intellectuelle',
+      body: [
+        'Les contenus, textes, maquettes, éléments graphiques et codes présentés sur ce site restent protégés par le droit applicable sauf mention contraire.',
+        "Toute reproduction totale ou partielle sans autorisation préalable n'est pas autorisée.",
       ],
     },
   ],
   privacy: [
     {
-      title: 'Donnees collectees',
+      title: 'Données collectées',
       body: [
-        "Les formulaires de contact et d'audit collectent uniquement les donnees necessaires au traitement d'une demande: identite, coordonnees, contexte du projet et informations utiles au chiffrage.",
+        "Les formulaires de contact et d'audit collectent uniquement les données nécessaires au traitement d'une demande: identité, coordonnées, contexte du projet et informations utiles au chiffrage.",
       ],
     },
     {
-      title: 'Finalites',
+      title: 'Finalités',
       body: [
-        "Les donnees sont utilisees pour repondre a une prise de contact, preparer un devis, organiser un rendez-vous ou assurer le suivi d'un echange commercial.",
+        "Les données sont utilisées pour répondre à une prise de contact, préparer un devis, organiser un rendez-vous ou assurer le suivi d'un échange commercial.",
       ],
     },
     {
-      title: 'Base legale',
+      title: 'Base légale',
       body: [
-        "Le traitement repose sur les demarches engagees a la demande de la personne concernee et, selon les cas, sur l'interet legitime lie au suivi des demandes entrantes.",
+        "Le traitement repose sur les démarches engagées à la demande de la personne concernée et, selon les cas, sur l'intérêt légitime lié au suivi des demandes entrantes.",
       ],
     },
     {
       title: 'Sous-traitants et flux tiers',
       body: [
-        "Les formulaires s'appuient actuellement sur FormSubmit pour relayer les envois email. Des services tiers peuvent egalement etre sollicites pour l'hebergement, la livraison technique ou les polices web.",
-        "Aucune donnee n'est revendue et aucune campagne de prospection automatique n'est alimentee a partir de ces formulaires.",
+        "Les formulaires s'appuient actuellement sur FormSubmit pour relayer les envois email. Des services tiers peuvent également être sollicités pour l'hébergement, la livraison technique ou les polices web.",
+        "Aucune donnée n'est revendue et aucune campagne de prospection automatique n'est alimentée à partir de ces formulaires.",
       ],
     },
     {
       title: 'Conservation et droits',
       body: [
-        'Les donnees sont conservees le temps necessaire au traitement de la demande puis archivees ou supprimees selon leur utilite commerciale et legale.',
-        "Pour exercer un droit d'acces, de rectification ou de suppression, il convient d'ecrire a contact@cstlab.dev.",
+        'Les données sont conservées le temps nécessaire au traitement de la demande puis archivées ou supprimées selon leur utilité commerciale et légale.',
+        "Pour exercer un droit d'accès, de rectification ou de suppression, il convient d'écrire à contact@cstlab.dev.",
       ],
     },
   ],
@@ -277,34 +346,34 @@ export const legalSections = {
     {
       title: "Champ d'application",
       body: [
-        'Les presentes conditions encadrent les prestations proposees par CST Lab pour les missions de conseil, cadrage, design, developpement, integration et maintenance.',
+        'Les présentes conditions encadrent les prestations proposées par CSTLAB pour les missions de conseil, cadrage, design, développement, intégration et maintenance.',
       ],
     },
     {
-      title: 'Devis et demarrage',
+      title: 'Devis et démarrage',
       body: [
-        "Chaque mission fait l'objet d'un devis ou d'une proposition commerciale detaillee precisant le perimetre, le planning, les livrables et les conditions financieres.",
-        "Le lancement du projet intervient a reception d'un accord explicite sur le devis et, le cas echeant, du versement d'un acompte.",
+        "Chaque mission fait l'objet d'un devis ou d'une proposition commerciale détaillée précisant le périmètre, le planning, les livrables et les conditions financières.",
+        "Le lancement du projet intervient à réception d'un accord explicite sur le devis et, le cas échéant, du versement d'un acompte.",
       ],
     },
     {
-      title: 'Execution et recette',
+      title: 'Exécution et recette',
       body: [
-        "Le client s'engage a fournir dans des delais raisonnables les contenus, acces, validations et retours necessaires a la bonne execution de la mission.",
-        'La recette porte sur la conformite du livrable au devis et aux arbitrages valides pendant la mission.',
+        "Le client s'engage à fournir dans des délais raisonnables les contenus, accès, validations et retours nécessaires à la bonne exécution de la mission.",
+        'La recette porte sur la conformité du livrable au devis et aux arbitrages validés pendant la mission.',
       ],
     },
     {
       title: 'Paiement',
       body: [
-        "Sauf mention contraire au devis, les factures sont payables selon l'echeancier convenu. Tout retard de paiement peut entrainer la suspension des travaux ou de la maintenance en cours.",
+        "Sauf mention contraire au devis, les factures sont payables selon l'échéancier convenu. Tout retard de paiement peut entraîner la suspension des travaux ou de la maintenance en cours.",
       ],
     },
     {
-      title: 'Propriete et maintenance',
+      title: 'Propriété et maintenance',
       body: [
-        'La cession des droits sur les livrables intervient selon les termes prevus au devis, apres paiement complet des sommes dues.',
-        "La maintenance, l'hebergement, les licences tierces et les evolutions non prevues au perimetre initial font l'objet d'un accord specifique.",
+        'La cession des droits sur les livrables intervient selon les termes prévus au devis, après paiement complet des sommes dues.',
+        "La maintenance, l'hébergement, les licences tierces et les évolutions non prévues au périmètre initial font l'objet d'un accord spécifique.",
       ],
     },
   ],

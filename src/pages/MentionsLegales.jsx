@@ -12,17 +12,17 @@ export default function MentionsLegales() {
       transition={{ duration: 0.3 }}
     >
       <PageMeta
-        title="Mentions legales"
+        title="Mentions légales"
         path="/mentions-legales"
-        description="Informations legales et editoriales du site CST Lab."
+        description="Informations légales et éditoriales du site CSTLAB."
       />
 
       <div className="page-hero container">
-        <span className="page-hero-label">Cadre legal</span>
-        <h1 className="page-hero-title">Mentions legales</h1>
+        <span className="page-hero-label">Cadre légal</span>
+        <h1 className="page-hero-title">Mentions légales</h1>
         <p className="page-hero-desc">
-          Cette page rassemble les informations editoriales essentielles du site ainsi que
-          les mentions a valider avant une mise en ligne definitive.
+          Cette page rassemble les informations éditoriales essentielles du site ainsi que
+          les mentions à valider avant une mise en ligne définitive.
         </p>
       </div>
 

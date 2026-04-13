@@ -51,7 +51,7 @@ export function markFormSubmitted(formName) {
 
 export function validateFormShield({ formName, startedAt, website, consent }) {
   if (website.trim() !== '') {
-    return 'Envoi refuse.'
+    return 'Envoi refusé.'
   }
 
   if (!consent) {
@@ -105,7 +105,7 @@ export async function postFormPayload(endpoint, payload) {
     }
   } catch (error) {
     if (error?.name === 'AbortError') {
-      throw new Error('Le service a mis trop de temps a repondre. Merci de reessayer.')
+      throw new Error('Le service a mis trop de temps à répondre. Merci de réessayer.')
     }
 
     throw error
