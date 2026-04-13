@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { clientTestimonials, companyInfo, projects, serviceShowcase } from '../content/siteContent.js'
+import { clientTestimonials, companyInfo, projects, serviceShowcase, siteUrl } from '../content/siteContent.js'
 
 const slides = [
   {
@@ -94,6 +94,66 @@ const stripItems = [
 ]
 
 const categories = ['Tous les services', 'Web', 'Design', 'Stratégie', 'Cloud']
+
+const homeStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: companyInfo.brandName,
+    url: siteUrl,
+    inLanguage: 'fr-FR',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: companyInfo.brandName,
+    url: siteUrl,
+    email: companyInfo.email,
+    description: companyInfo.positioning,
+    areaServed: ['Rennes', 'Grand Ouest', 'France'],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Rennes',
+      addressCountry: 'FR',
+    },
+    founder: {
+      '@type': 'Person',
+      name: companyInfo.founderName,
+    },
+    sameAs: companyInfo.socialLinks.map((item) => item.href),
+    serviceType: [
+      'Développement web',
+      'Site vitrine',
+      'E-commerce',
+      'Outil métier',
+      'Intégration Stripe',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: companyInfo.founderName,
+    jobTitle: companyInfo.founderRole,
+    url: siteUrl,
+    worksFor: {
+      '@type': 'Organization',
+      name: companyInfo.brandName,
+    },
+    sameAs: companyInfo.socialLinks.map((item) => item.href),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  },
+]
 
 function unsplash(id) {
   return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`
@@ -241,6 +301,7 @@ export default function Home() {
       <PageMeta
         path="/"
         description="CSTLAB accompagne les projets web, e-commerce et outils métier avec une approche sobre, rapide et maintenable."
+        structuredData={homeStructuredData}
       />
 
       <section className="hero container">

@@ -25,6 +25,7 @@ export const defaultMeta = {
   description:
     'CSTLAB accompagne les projets web, e-commerce et outils métier avec une approche sobre, rapide et maintenable.',
   image: '/og-image.svg',
+  imageAlt: 'CSTLAB, studio web indépendant basé à Rennes',
 }
 
 export const serviceShowcase = [
