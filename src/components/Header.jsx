@@ -96,6 +96,16 @@ export default function Header() {
               aria-modal="true"
               onClick={(event) => event.stopPropagation()}
             >
+              <button
+                type="button"
+                className="menu-close"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Fermer le menu"
+              >
+                <span className="menu-close-line" />
+                <span className="menu-close-line" />
+              </button>
+
               <div className="menu-main">
                 <nav className="menu-nav" id={mobileMenuId}>
                   {navLinks.map((link, i) => (

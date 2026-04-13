@@ -392,7 +392,6 @@ export default function Home() {
                   <button
                     type="button"
                     className="faq-question"
-                    onFocus={() => setOpenFaqIndex(index)}
                     onClick={() => setOpenFaqIndex((prev) => (prev === index ? -1 : index))}
                     aria-expanded={isOpen}
                   >

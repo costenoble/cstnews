@@ -388,6 +388,49 @@ ul, ol {
   overflow-y: auto;
 }
 
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
+  z-index: 2;
+}
+
+.menu-close:hover,
+.menu-close:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.menu-close-line {
+  position: absolute;
+  width: 18px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.menu-close-line:first-child {
+  transform: rotate(45deg);
+}
+
+.menu-close-line:last-child {
+  transform: rotate(-45deg);
+}
+
 .menu-main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
@@ -2925,39 +2968,54 @@ a.contact-info-value:hover {
     width: 100%;
     max-width: none;
     border-radius: 0;
-    padding: calc(var(--header-h) + 24px) var(--pad) 28px;
+    justify-content: flex-start;
+    padding: calc(var(--header-h) + 40px) var(--pad) 24px;
   }
 
   .menu-main {
     grid-template-columns: 1fr;
-    gap: 28px;
+    flex: 0 0 auto;
+    gap: 20px;
     align-items: flex-start;
   }
 
   .menu-nav {
-    gap: 8px;
+    gap: 6px;
   }
 
   .menu-link {
-    font-size: clamp(34px, 9vw, 54px);
+    font-size: clamp(30px, 9vw, 48px);
   }
 
   .menu-side {
-    padding: 24px 0 0;
+    gap: 20px;
+    padding: 20px 0 0;
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .menu-side-stack {
-    gap: 14px;
+    gap: 12px;
   }
 
   .menu-side-value {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .menu-side-cta {
+    width: 100%;
   }
 
   .menu-footer-row {
-    padding-top: 24px;
+    margin-top: 20px;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-footer-socials {
+    gap: 18px;
+    flex-wrap: wrap;
   }
 
   .section {
@@ -3089,7 +3147,14 @@ a.contact-info-value:hover {
 
 @media (max-width: 480px) {
   .menu-link {
-    font-size: clamp(34px, 12vw, 42px);
+    font-size: clamp(28px, 11vw, 40px);
+  }
+
+  .menu-close {
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
   }
 
   .hero-actions {
