@@ -14,7 +14,7 @@ import {
 
 const contactItems = [
   { label: 'Email', value: companyInfo.email, href: `mailto:${companyInfo.email}` },
-  { label: 'Base', value: companyInfo.locationLabel, href: null },
+  { label: 'Basé', value: companyInfo.locationLabel, href: null },
   { label: 'Zone', value: `${companyInfo.localTravelLabel} - ${companyInfo.serviceAreaLabel}`, href: null },
   { label: 'Réponse', value: companyInfo.responseTimeLabel, href: null },
 ]

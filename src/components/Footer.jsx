@@ -35,7 +35,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="footer-local-card">
-              <div className="footer-local-title">Base à Rennes</div>
+              <div className="footer-local-title">Basé à Rennes</div>
               <p className="footer-local-text">{companyInfo.collaborationModel}</p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Footer() {
               </a>
             </div>
             <div className="footer-contact-item">
-              <span className="footer-contact-label">Base</span>
+              <span className="footer-contact-label">Basé</span>
               <span className="footer-contact-value">{companyInfo.locationLabel}</span>
             </div>
             <div className="footer-contact-item">
