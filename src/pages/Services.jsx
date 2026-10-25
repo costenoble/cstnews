@@ -164,10 +164,10 @@ export default function Services() {
           <h2 className="cta-title">Si le sujet est déjà là, on peut maintenant le cadrer proprement.</h2>
         </div>
         <div className="cta-actions">
-          <Link to="/audit" className="btn btn-orange">
+          <Link to="/audit/" className="btn btn-orange">
             Demander un audit
           </Link>
-          <Link to="/contact" className="btn btn-white">
+          <Link to="/contact/" className="btn btn-white">
             Ouvrir la discussion
           </Link>
         </div>

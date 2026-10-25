@@ -352,10 +352,10 @@ export default function Home() {
           </AnimatePresence>
 
           <div className="hero-actions">
-            <Link to="/audit" className="btn btn-orange">
+            <Link to="/audit/" className="btn btn-orange">
               Demander un devis
             </Link>
-            <Link to="/projets" className="btn btn-outline">
+            <Link to="/projets/" className="btn btn-outline">
               Voir nos projets
             </Link>
           </div>
@@ -439,7 +439,7 @@ export default function Home() {
                     <li key={item} className="pricing-item">{item}</li>
                   ))}
                 </ul>
-                <Link to="/audit" className="btn btn-outline pricing-btn">
+                <Link to="/audit/" className="btn btn-outline pricing-btn">
                   Demander un chiffrage
                 </Link>
               </article>
@@ -524,7 +524,7 @@ export default function Home() {
               {companyInfo.founderName} peut intervenir sur site à Rennes et autour pour
               cadrer un besoin, aligner les priorités et accélérer le projet.
             </p>
-            <Link to="/audit" className="btn btn-orange">
+            <Link to="/audit/" className="btn btn-orange">
               Organiser un audit
             </Link>
           </div>
@@ -538,7 +538,7 @@ export default function Home() {
               <span className="section-label">Nos réalisations</span>
               <h2 className="h2">Projets phares</h2>
             </div>
-            <Link to="/projets" className="btn btn-outline">
+            <Link to="/projets/" className="btn btn-outline">
               Voir tous les projets
             </Link>
           </div>
@@ -652,10 +652,10 @@ export default function Home() {
           <h2 className="cta-title">Passez par l'audit pour un devis clair et actionnable.</h2>
         </div>
         <div className="cta-actions">
-          <Link to="/audit" className="btn btn-orange">
+          <Link to="/audit/" className="btn btn-orange">
             Lancer mon audit
           </Link>
-          <Link to="/services" className="btn btn-white">
+          <Link to="/services/" className="btn btn-white">
             Voir les services
           </Link>
         </div>

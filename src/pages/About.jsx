@@ -65,7 +65,7 @@ export default function About() {
           <h1 className="about-hero-title">Un studio web indépendant, avec un interlocuteur technique clair.</h1>
           <p className="about-hero-desc">{companyInfo.positioning}</p>
           <p className="about-hero-desc">{companyInfo.collaborationModel}</p>
-          <Link to="/contact" className="btn btn-orange" style={{ width: 'fit-content' }}>
+          <Link to="/contact/" className="btn btn-orange" style={{ width: 'fit-content' }}>
             Parler de votre projet
           </Link>
         </motion.div>
@@ -145,10 +145,10 @@ export default function About() {
           <h2 className="cta-title">Si le besoin est déjà là, on peut le cadrer ensemble.</h2>
         </div>
         <div className="cta-actions">
-          <Link to="/audit" className="btn btn-orange">
+          <Link to="/audit/" className="btn btn-orange">
             Demander un audit
           </Link>
-          <Link to="/projets" className="btn btn-white">
+          <Link to="/projets/" className="btn btn-white">
             Voir les projets
           </Link>
         </div>

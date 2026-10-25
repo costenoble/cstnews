@@ -193,7 +193,7 @@ export default function Audit() {
             </p>
             <p className="audit-intro-text">
               Besoin d'une prise de contact plus rapide ? Tu peux aussi passer par la page{' '}
-              <Link to="/contact" className="audit-inline-link">
+              <Link to="/contact/" className="audit-inline-link">
                 Contact
               </Link>
               .
@@ -509,7 +509,7 @@ export default function Audit() {
                       <span>
                         J'accepte que ces informations soient utilisées pour traiter ma
                         demande et préparer un cadrage, conformément à la{' '}
-                        <Link to="/confidentialite" className="form-inline-link">
+                        <Link to="/confidentialite/" className="form-inline-link">
                           politique de confidentialité
                         </Link>
                         .

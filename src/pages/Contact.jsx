@@ -329,7 +329,7 @@ export default function Contact() {
                       <span>
                         J'accepte que ces informations soient utilisées pour traiter ma
                         demande, conformément à la{' '}
-                        <Link to="/confidentialite" className="form-inline-link">
+                        <Link to="/confidentialite/" className="form-inline-link">
                           politique de confidentialité
                         </Link>
                         .

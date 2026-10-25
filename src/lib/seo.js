@@ -1,5 +1,12 @@
 import { defaultMeta, siteUrl } from '../content/siteContent.js'
 
+// Les pages prérendues sont servies en /page/index.html : l'hébergeur redirige /page vers /page/.
+// L'adresse canonique doit donc finir par « / », sinon elle pointe vers une redirection.
+function withTrailingSlash(path) {
+  if (path === '/' || path.endsWith('/') || /\.[a-z0-9]+$/i.test(path)) return path
+  return `${path}/`
+}
+
 function normalizeStructuredData(structuredData) {
   return (Array.isArray(structuredData) ? structuredData : [structuredData]).filter(Boolean)
 }
@@ -27,7 +34,7 @@ export function buildPageMeta({
   noIndex = false,
   structuredData = null,
 }) {
-  const canonicalUrl = new URL(path, siteUrl).toString()
+  const canonicalUrl = new URL(withTrailingSlash(path), siteUrl).toString()
   const imageUrl = new URL(image, siteUrl).toString()
   const pageTitle = title ? `${title} | ${defaultMeta.title}` : defaultMeta.title
   const robots = noIndex ? 'noindex,nofollow' : 'index,follow'
