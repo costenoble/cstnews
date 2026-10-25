@@ -5,14 +5,16 @@ import { companyInfo } from '../content/siteContent.js'
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
-  { href: '/services', label: 'Services' },
-  { href: '/projets', label: 'Projets' },
-  { href: '/a-propos', label: 'À propos' },
-  { href: '/audit', label: 'Audit' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/services/', label: 'Services' },
+  { href: '/projets/', label: 'Projets' },
+  { href: '/a-propos/', label: 'À propos' },
+  { href: '/audit/', label: 'Audit' },
+  { href: '/contact/', label: 'Contact' },
 ]
 
 const socialLinks = companyInfo.socialLinks.map(({ href, label }) => ({ href, label }))
+
+const isCurrent = (pathname, href) => pathname.replace(/\/+$/, '') === href.replace(/\/+$/, '')
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -69,7 +71,7 @@ export default function Header() {
           </button>
 
           <div className="header-right">
-            <Link to="/audit" className="btn btn-orange header-cta">
+            <Link to="/audit/" className="btn btn-orange header-cta">
               Demander un devis
             </Link>
           </div>
@@ -118,7 +120,7 @@ export default function Header() {
                     >
                       <Link
                         to={link.href}
-                        className={`menu-link${pathname === link.href ? ' active-menu' : ''}`}
+                        className={`menu-link${isCurrent(pathname, link.href) ? ' active-menu' : ''}`}
                         onClick={() => setMenuOpen(false)}
                       >
                         <span className="menu-link-mask">
@@ -157,7 +159,7 @@ export default function Header() {
                     </div>
                   </div>
 
-                  <Link to="/audit" className="btn btn-orange menu-side-cta" onClick={() => setMenuOpen(false)}>
+                  <Link to="/audit/" className="btn btn-orange menu-side-cta" onClick={() => setMenuOpen(false)}>
                     Demander un audit
                   </Link>
                 </div>
