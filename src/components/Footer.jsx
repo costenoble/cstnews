@@ -3,11 +3,11 @@ import { companyInfo, serviceShowcase } from '../content/siteContent.js'
 
 const navLinks = [
   { to: '/', label: 'Accueil' },
-  { to: '/services', label: 'Services' },
-  { to: '/projets', label: 'Projets' },
-  { to: '/audit', label: 'Audit' },
-  { to: '/a-propos', label: 'À propos' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/services/', label: 'Services' },
+  { to: '/projets/', label: 'Projets' },
+  { to: '/audit/', label: 'Audit' },
+  { to: '/a-propos/', label: 'À propos' },
+  { to: '/contact/', label: 'Contact' },
 ]
 
 export default function Footer() {
@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="footer-links">
               {serviceShowcase.map((service) => (
                 <li key={service.id}>
-                  <Link to="/services" className="footer-link">
+                  <Link to="/services/" className="footer-link">
                     {service.label}
                   </Link>
                 </li>
@@ -96,9 +96,9 @@ export default function Footer() {
         <div className="footer-bottom">
           <p className="footer-copy">(c) {new Date().getFullYear()} CSTLAB. Tous droits réservés.</p>
           <div className="footer-legal">
-            <Link to="/mentions-legales" className="footer-legal-link">Mentions légales</Link>
-            <Link to="/confidentialite" className="footer-legal-link">Politique de confidentialité</Link>
-            <Link to="/cgv" className="footer-legal-link">CGV</Link>
+            <Link to="/mentions-legales/" className="footer-legal-link">Mentions légales</Link>
+            <Link to="/confidentialite/" className="footer-legal-link">Politique de confidentialité</Link>
+            <Link to="/cgv/" className="footer-legal-link">CGV</Link>
           </div>
         </div>
       </div>
