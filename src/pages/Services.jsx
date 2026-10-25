@@ -26,7 +26,7 @@ export default function Services() {
       transition={{ duration: 0.4 }}
     >
       <PageMeta
-        title="Services"
+        title="Services web : sites, e-commerce et outils métier"
         path="/services"
         description="Sites marketing, e-commerce, plateformes web et intégrations métier pilotés par CSTLAB à Rennes."
       />

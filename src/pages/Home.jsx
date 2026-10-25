@@ -299,6 +299,7 @@ export default function Home() {
       transition={{ duration: 0.4 }}
     >
       <PageMeta
+        title="Création de sites web et outils métier à Rennes"
         path="/"
         description="CSTLAB accompagne les projets web, e-commerce et outils métier avec une approche sobre, rapide et maintenable."
         structuredData={homeStructuredData}

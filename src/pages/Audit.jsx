@@ -163,7 +163,7 @@ export default function Audit() {
       transition={{ duration: 0.4 }}
     >
       <PageMeta
-        title="Audit"
+        title="Audit de projet web pour un devis clair"
         path="/audit"
         description="Questionnaire d'audit CSTLAB pour cadrer un projet web, e-commerce ou outil métier."
       />

@@ -118,7 +118,7 @@ export default function Contact() {
       transition={{ duration: 0.4 }}
     >
       <PageMeta
-        title="Contact"
+        title="Contact pour un projet web ou outil métier"
         path="/contact"
         description="Échangeons sur votre projet web, e-commerce ou outil métier avec CSTLAB à Rennes."
       />

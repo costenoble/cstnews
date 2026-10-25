@@ -12,7 +12,7 @@ export default function Cgv() {
       transition={{ duration: 0.3 }}
     >
       <PageMeta
-        title="CGV"
+        title="Conditions générales de vente des prestations"
         path="/cgv"
         description="Conditions générales de vente de CSTLAB : cadre des missions, périmètre, livrables et modalités financières. Le devis prévaut en cas de doute."
       />
