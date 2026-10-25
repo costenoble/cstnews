@@ -14,7 +14,7 @@ export default function MentionsLegales() {
       <PageMeta
         title="Mentions légales"
         path="/mentions-legales"
-        description="Informations légales et éditoriales du site CSTLAB."
+        description="Mentions légales de CSTLAB : éditeur du site, hébergement et informations éditoriales. Consultez-les avant de poursuivre votre visite."
       />
 
       <div className="page-hero container">
