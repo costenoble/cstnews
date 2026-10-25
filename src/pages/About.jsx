@@ -49,7 +49,7 @@ export default function About() {
       transition={{ duration: 0.4 }}
     >
       <PageMeta
-        title="À propos"
+        title="À propos du studio web indépendant à Rennes"
         path="/a-propos"
         description="CSTLAB est un studio indépendant piloté par Ryan Costenoble depuis Rennes pour les projets web, e-commerce et outils métier."
       />
