@@ -12,7 +12,7 @@ export default function Confidentialite() {
       transition={{ duration: 0.3 }}
     >
       <PageMeta
-        title="Confidentialité"
+        title="Confidentialité et traitement des données"
         path="/confidentialite"
         description="Politique de confidentialité et traitement des données sur le site CSTLAB."
       />
