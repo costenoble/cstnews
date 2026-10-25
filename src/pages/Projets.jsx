@@ -26,7 +26,7 @@ export default function Projets() {
       transition={{ duration: 0.4 }}
     >
       <PageMeta
-        title="Projets"
+        title="Projets web, e-commerce et outils réalisés"
         path="/projets"
         description="Une sélection de projets signés CSTLAB: produit web, e-commerce et landing page éditoriale."
       />
