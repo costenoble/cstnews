@@ -12,7 +12,7 @@ export default function MentionsLegales() {
       transition={{ duration: 0.3 }}
     >
       <PageMeta
-        title="Mentions légales"
+        title="Mentions légales et éditeur du site web"
         path="/mentions-legales"
         description="Informations légales et éditoriales du site CSTLAB."
       />
