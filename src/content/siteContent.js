@@ -128,20 +128,23 @@ export const processSteps = [
 
 export const projects = [
   {
-    slug: 'ski-location',
-    name: 'Ski Location',
-    category: 'E-commerce',
-    client: 'Projet personnel : location de matériel de ski',
+    slug: 'kompta',
+    kind: 'perso',
+    name: 'Kompta',
+    category: 'SaaS',
+    client: 'Mon SaaS de facturation électronique',
     year: '2026',
-    localImage: '/projects/ski.jpg',
-    siteUrl: 'https://ski-smoky.vercel.app',
+    localImage: '/projects/kompta.jpg',
+    siteUrl: 'https://kompta.pro',
+    featured: true,
     summary:
-      'Site de réservation en ligne pour un loueur de skis indépendant : catalogue, réservation en deux minutes, paiement en boutique le jour J et espace admin protégé.',
-    outcomes: ['Réservation en ligne', 'Catalogue de matériel', 'Admin sécurisé'],
-    stack: ['Next.js', 'Prisma', 'PostgreSQL', 'Resend', 'Framer Motion'],
+      "Logiciel de devis, factures électroniques et gestion pour artisans du bâtiment : le devis se dicte à la voix, le client signe et verse l'acompte depuis son téléphone.",
+    outcomes: ['Devis dictés à la voix', 'Facture électronique Factur-X', 'Extraction IA des factures'],
+    stack: ['Next.js', 'Supabase', 'Stripe Connect', 'Claude API', 'Factur-X'],
   },
   {
     slug: 'oublie-jamais-bijoux',
+    kind: 'pro',
     name: "N'oublie jamais",
     category: 'E-commerce',
     client: 'Bracelets en pierre naturelle à message vocal',
@@ -154,20 +157,8 @@ export const projects = [
     stack: ['Next.js', 'Stripe', 'Prisma', 'Resend', 'PDF'],
   },
   {
-    slug: 'kompta',
-    name: 'Kompta',
-    category: 'SaaS',
-    client: 'Logiciel de devis et factures pour artisans',
-    year: '2026',
-    localImage: '/projects/kompta.jpg',
-    siteUrl: 'https://kompta.pro',
-    summary:
-      "Logiciel de devis, factures électroniques et gestion pour artisans du bâtiment : le devis se dicte à la voix, le client signe et verse l'acompte depuis son téléphone.",
-    outcomes: ['Devis dictés à la voix', 'Facture électronique Factur-X', 'Extraction IA des factures'],
-    stack: ['Next.js', 'Supabase', 'Stripe Connect', 'Claude API', 'Factur-X'],
-  },
-  {
     slug: 'dentalcao',
+    kind: 'pro',
     name: 'DentalCAO',
     category: 'Plateforme',
     client: 'Plateforme française de la CAO dentaire',
@@ -181,6 +172,7 @@ export const projects = [
   },
   {
     slug: 'vigie-seo',
+    kind: 'pro',
     name: 'Vigie SEO',
     category: 'SaaS',
     client: 'Outil d’audit et de suivi SEO',
@@ -193,20 +185,8 @@ export const projects = [
     stack: ['Python', 'Vercel', 'Supabase', 'Google Search Console'],
   },
   {
-    slug: 'lumea',
-    name: 'Luméa',
-    category: 'Site vitrine',
-    client: 'Marque de boissons revigorantes pour enfants',
-    year: '2026',
-    localImage: '/projects/lumea.jpg',
-    siteUrl: 'https://lum-a-iota.vercel.app',
-    summary:
-      'Site de marque pour des jus pressés à froid, sans sucre ajouté, en verre consigné : un univers féerique qui reste rassurant pour les parents.',
-    outcomes: ['Univers de marque', 'Pressage à froid, zéro sucre', 'Verre consigné'],
-    stack: ['Vercel', 'Animations', 'Design sur mesure'],
-  },
-  {
     slug: 'lumea-v2',
+    kind: 'pro',
     name: 'Luméa v2',
     category: 'E-commerce',
     client: 'Boissons et gâteaux d’anniversaire pour enfants',
@@ -219,12 +199,27 @@ export const projects = [
     stack: ['Vercel', 'E-commerce', 'Formulaire de devis'],
   },
   {
+    slug: 'lumea',
+    kind: 'pro',
+    name: 'Luméa',
+    category: 'Site vitrine',
+    client: 'Marque de boissons revigorantes pour enfants',
+    year: '2026',
+    localImage: '/projects/lumea.jpg',
+    siteUrl: 'https://lum-a-iota.vercel.app',
+    summary:
+      'Site de marque pour des jus pressés à froid, sans sucre ajouté, en verre consigné : un univers féerique qui reste rassurant pour les parents.',
+    outcomes: ['Univers de marque', 'Pressage à froid, zéro sucre', 'Verre consigné'],
+    stack: ['Vercel', 'Animations', 'Design sur mesure'],
+  },
+  {
     slug: 'quelia',
+    kind: 'pro',
     name: 'Quelia',
     category: 'Produit web',
     client: 'Plateforme de visualisation cartographique',
     year: '2026',
-    image: 'photo-1742347073303-814ca9b301ce',
+    localImage: '/projects/quelia.jpg',
     siteUrl: 'https://gigaw.app',
     summary:
       'Plateforme de visualisation et gestion de projets avec carte interactive, recherche territoriale et administration multi-marques.',
@@ -233,11 +228,12 @@ export const projects = [
   },
   {
     slug: 'atelier-calista',
+    kind: 'pro',
     name: 'Atelier Calista',
     category: 'E-commerce',
     client: 'Atelier de retouches textiles',
     year: '2025',
-    image: 'photo-1753162658307-a2fdbb4c8a67',
+    localImage: '/projects/atelier-calista.jpg',
     siteUrl: 'https://ateliercalista.fr',
     summary:
       "Solution web complète pour la gestion de commandes, le paiement Stripe, les notifications emails et l'administration des services.",
@@ -245,12 +241,27 @@ export const projects = [
     stack: ['Node.js', 'Stripe', 'Supabase', 'Vite', 'PM2'],
   },
   {
+    slug: 'ski-location',
+    kind: 'perso',
+    name: 'Ski Location',
+    category: 'E-commerce',
+    client: 'Location de matériel de ski',
+    year: '2026',
+    localImage: '/projects/ski.jpg',
+    siteUrl: 'https://ski-smoky.vercel.app',
+    summary:
+      'Site de réservation en ligne pour un loueur de skis indépendant : catalogue, réservation en deux minutes, paiement en boutique le jour J et espace admin protégé.',
+    outcomes: ['Réservation en ligne', 'Catalogue de matériel', 'Admin sécurisé'],
+    stack: ['Next.js', 'Prisma', 'PostgreSQL', 'Resend', 'Framer Motion'],
+  },
+  {
     slug: 'sseat',
+    kind: 'pro',
     name: 'SSEAT',
     category: 'Landing page',
     client: 'Projet exploratoire autour de la TVA européenne',
     year: '2026',
-    image: 'photo-1561070791-2526d30994b5',
+    localImage: '/projects/sseat.jpg',
     siteUrl: 'https://sseat-lab.com',
     summary:
       'Landing page éditoriale au ton institutionnel pour présenter un concept technique à une cible experte sans sur-promesse commerciale.',
@@ -259,11 +270,12 @@ export const projects = [
   },
   {
     slug: 'delaje-solutions',
+    kind: 'pro',
     name: 'Delaje Solutions',
     category: 'Site vitrine',
     client: 'Spécialiste de la découpe laser',
     year: '2025',
-    image: 'photo-1581092335397-9583eb92d232',
+    localImage: '/projects/delaje.jpg',
     siteUrl: 'https://delaje.com',
     summary:
       'Site vitrine pensé pour présenter une activité de découpe laser, clarifier le savoir-faire et générer des prises de contact qualifiées.',
@@ -272,11 +284,12 @@ export const projects = [
   },
   {
     slug: 'ortho',
+    kind: 'perso',
     name: 'ORTHO',
     category: 'Site vitrine',
-    client: 'Projet personnel pour cabinet d’orthodontie',
+    client: 'Cabinet d’orthodontie (concept)',
     year: '2026',
-    image: 'photo-1629909613654-28e377c37b09',
+    localImage: '/projects/ortho.jpg',
     siteUrl: 'https://ortho-nh1f.vercel.app',
     summary:
       'Projet personnel conçu pour montrer comment un cabinet d’orthodontie peut présenter ses soins, rassurer sur les traitements et structurer une prise de contact claire dans un univers premium et médical.',
@@ -484,7 +497,7 @@ export const legalSections = {
   ],
 }
 
-export function projectImageSrc(project, width = 900) {
-  if (project.localImage) return project.localImage
-  return `https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=${width}&q=80`
+export const projectKinds = {
+  pro: { label: 'Projet pro', className: 'badge kind-pro' },
+  perso: { label: 'Projet perso', className: 'badge kind-perso' },
 }

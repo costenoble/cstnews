@@ -1,0 +1,72 @@
+/* =============================================================================
+   Charte graphique — jetons (couleurs, typographie, arrondis, ombres, mouvement)
+   Changer une valeur ici la change partout. Le mode sombre redéfinit les mêmes noms.
+   ============================================================================= */
+:root {
+  /* Fond et texte */
+  --cream: #faf4f2;      /* fond de page : crème chaud, jamais blanc pur */
+  --paper: #fff;         /* cartes, champs, tableaux */
+  --ink: #0b0b0b;        /* texte, bordures, boutons pleins : presque noir */
+  --muted: #5b5552;      /* texte secondaire */
+  --line: #e9dfdb;       /* séparateurs, pistes de barres */
+
+  /* Pastels : fonds de cartes, alternés pour rythmer une grille */
+  --blue: #d2edff;
+  --pink: #ffc3c3;
+  --mint: #d9f4e6;
+  --sun: #ffe7a8;        /* « en attente », à valider */
+
+  /* Accent et états */
+  --green: #2bb673;      /* accent principal : actions positives, focus du menu, flèches */
+  --green-ink: #137445;  /* vert lisible sur fond clair (texte) */
+  --orange: #ff6235;     /* alerte, gravité élevée */
+  --red: #cf3434;        /* danger, suppression */
+
+  /* Pastilles d'état (fond + texte) */
+  --ok-bg: #c9f0dc;   --ok-fg: #0b5a33;
+  --warn-bg: #ffe7a8; --warn-fg: #6b4a00;
+  --bad-bg: #ffd9d9;  --bad-fg: #8d1f1f;
+
+  /* Typographie */
+  --head: "Poppins", system-ui, sans-serif;   /* titres, boutons, étiquettes : 500 à 700 */
+  --body: "Lato", system-ui, sans-serif;      /* texte courant : 400 et 700 */
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Arrondis : grands et généreux */
+  --r-xl: 44px;   /* grands blocs (pied de page, démo) */
+  --r-lg: 32px;   /* cartes */
+  --r-md: 20px;   /* sous-blocs, accordéons, indicateurs */
+  --r-sm: 12px;   /* petits éléments */
+  --r-pill: 99px; /* boutons, champs, pastilles */
+
+  /* Ombres « décalées » : un aplat net, sans flou (signature du style) */
+  --shadow-sm: 3px 3px 0 var(--ink);
+  --shadow-md: 6px 6px 0 var(--ink);
+  --shadow-lg: 10px 10px 0 var(--ink);
+  --shadow-soft: 0 14px 34px rgba(0, 0, 0, .25);  /* seulement pour ce qui flotte (notifications) */
+
+  /* Mouvement */
+  --ease-out: cubic-bezier(.2, .9, .3, 1);        /* entrées douces */
+  --ease-spring: cubic-bezier(.3, 1.6, .5, 1);    /* petit rebond (flèches, interrupteurs) */
+  --ease-pop: cubic-bezier(.2, .9, .3, 1.3);      /* apparitions avec un léger dépassement */
+  --ease-menu: cubic-bezier(.77, 0, .18, 1);      /* ouverture du menu plein écran */
+  --fast: .15s; --base: .3s; --slow: .6s;
+
+  /* Mise en page */
+  --max: 1280px;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+/* ---------- mode sombre : mêmes noms, autres valeurs ---------- */
+:root[data-theme="dark"] {
+  --cream: #121110; --paper: #1c1a19; --ink: #f3eeea; --muted: #a8a19d; --line: #2e2b29;
+  --blue: #1b3140; --pink: #45282b; --mint: #17382a; --sun: #3d3216; --green-ink: #5fd59b;
+  --ok-bg: #17382a; --ok-fg: #8fe3b8; --warn-bg: #3d3216; --warn-fg: #f5d27a; --bad-bg: #45282b; --bad-fg: #ffb3b3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #121110; --paper: #1c1a19; --ink: #f3eeea; --muted: #a8a19d; --line: #2e2b29;
+    --blue: #1b3140; --pink: #45282b; --mint: #17382a; --sun: #3d3216; --green-ink: #5fd59b;
+    --ok-bg: #17382a; --ok-fg: #8fe3b8; --warn-bg: #3d3216; --warn-fg: #f5d27a; --bad-bg: #45282b; --bad-fg: #ffb3b3;
+  }
+}

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
+import Select from '../components/Select.jsx'
+import { PageHero } from '../components/ui.jsx'
 import { companyInfo } from '../content/siteContent.js'
 import {
   getFormBootPayload,
@@ -51,6 +52,47 @@ const initialForm = {
 
 const contactEndpoint =
   import.meta.env.VITE_CONTACT_ENDPOINT ?? 'https://formsubmit.co/ajax/contact@cstlab.dev'
+
+const options = {
+  typeProjet: [
+    { value: 'site-marketing', label: 'Site marketing' },
+    { value: 'e-commerce', label: 'E-commerce' },
+    { value: 'plateforme-web', label: 'Plateforme web' },
+    { value: 'outil-interne', label: 'Outil interne' },
+    { value: 'refonte', label: 'Refonte' },
+    { value: 'autre', label: 'Autre' },
+  ],
+  rdv: [
+    { value: 'visio', label: 'Visio' },
+    { value: 'telephone', label: 'Téléphone' },
+    { value: 'sur-place-rennes', label: 'Sur place (Rennes et alentours)' },
+  ],
+  pret: [
+    { value: 'oui', label: 'Oui' },
+    { value: 'partiellement', label: 'Partiellement' },
+    { value: 'non', label: 'Non' },
+  ],
+  budget: [
+    { value: 'moins-5k', label: 'Moins de 5 000 €' },
+    { value: '5k-15k', label: '5 000 à 15 000 €' },
+    { value: '15k-30k', label: '15 000 à 30 000 €' },
+    { value: '30k-60k', label: '30 000 à 60 000 €' },
+    { value: 'plus-60k', label: 'Plus de 60 000 €' },
+  ],
+  delai: [
+    { value: 'asap', label: 'Dès que possible' },
+    { value: '1-2-mois', label: '1 à 2 mois' },
+    { value: '3-4-mois', label: '3 à 4 mois' },
+    { value: '5-6-mois', label: '5 à 6 mois' },
+    { value: 'plus-6-mois', label: 'Plus de 6 mois' },
+  ],
+}
+
+const requiredSelects = [
+  { name: 'typeProjet', label: 'Type de projet' },
+  { name: 'budget', label: 'Budget estimé' },
+  { name: 'delai', label: 'Délai visé' },
+]
 
 function toggleArrayItem(list, value) {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value]
@@ -118,13 +160,19 @@ export default function Audit() {
     event.preventDefault()
     setErrorMessage('')
 
+    const missing = requiredSelects.find((item) => !form[item.name])
+    if (missing) {
+      setErrorMessage(`Choisissez une option pour « ${missing.label} ».`)
+      return
+    }
+
     if (form.objectifs.length === 0) {
-      setErrorMessage('Sélectionne au moins un objectif pour rendre le cadrage utile.')
+      setErrorMessage('Sélectionnez au moins un objectif pour rendre le cadrage utile.')
       return
     }
 
     if (normalizeLongText(form.details).length < 30) {
-      setErrorMessage('Ajoute un peu plus de contexte pour obtenir un chiffrage vraiment exploitable.')
+      setErrorMessage('Ajoutez un peu plus de contexte pour obtenir un chiffrage vraiment exploitable.')
       return
     }
 
@@ -154,383 +202,171 @@ export default function Audit() {
     }
   }
 
+  const city = companyInfo.locationLabel.split(',')[0]
+
+  function pills(name, list) {
+    return (
+      <div className="pills" role="group">
+        {list.map((item) => (
+          <button
+            key={item}
+            type="button"
+            className="pill"
+            aria-pressed={form[name].includes(item)}
+            onClick={() => handleToggle(name, item)}
+          >
+            {form[name].includes(item) ? '✓ ' : ''}{item}
+          </button>
+        ))}
+      </div>
+    )
+  }
+
+  function select(name, label, list, placeholder) {
+    return (
+      <div className="field">
+        <label htmlFor={name}>{label}</label>
+        <Select id={name} name={name} value={form[name]} onChange={handleChange} options={list} placeholder={placeholder} />
+      </div>
+    )
+  }
+
   return (
-    <motion.div
-      className="page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <>
       <PageMeta
         title="Audit de projet web pour un devis clair"
         path="/audit"
         description="Questionnaire d'audit CSTLAB pour cadrer un projet web, e-commerce ou outil métier."
       />
 
-      <div className="page-hero container">
-        <span className="page-hero-label">Audit projet</span>
-        <h1 className="page-hero-title">On part de ton idée, on la clarifie ensemble, puis on voit comment bien la lancer.</h1>
-        <p className="page-hero-desc">
-          Le but n'est pas de te sortir un prix à la volée. Ce questionnaire m'aide à
-          comprendre ton contexte, tes priorités et la meilleure manière d'avancer
-          ensemble, simplement.
-        </p>
-      </div>
+      <PageHero eyebrow="Audit projet" title="On part de votre idée, on la clarifie, puis on la lance bien." highlight="clarifie,">
+        Le but n'est pas de sortir un prix à la volée. Ce questionnaire m'aide à comprendre votre
+        contexte, vos priorités et la meilleure manière d'avancer ensemble, simplement.
+      </PageHero>
 
-      <section className="section" style={{ paddingTop: '20px' }}>
-        <div className="container audit-layout">
-          <aside className="audit-intro-card">
-            <h2 className="audit-intro-title">À quoi ça sert, concrètement</h2>
-            <p className="audit-intro-text">
-              L'idée n'est pas de te faire remplir un formulaire pour la forme. Tes
-              réponses me permettent de comprendre ce qui compte vraiment et de te
-              répondre avec quelque chose de clair, pas avec un devis approximatif.
+      <section className="contact-layout">
+        <aside className="stack">
+          <div className="card pink rv">
+            <span className="icon-round" aria-hidden="true">✦</span>
+            <h2 style={{ fontSize: '1.4rem' }}>À quoi ça sert, concrètement</h2>
+            <p className="muted">
+              Vos réponses me permettent de comprendre ce qui compte vraiment et de répondre avec
+              quelque chose de clair, pas avec un devis approximatif.
             </p>
-            <p className="audit-intro-text">
-              Si tu es basé à {companyInfo.locationLabel.split(',')[0]} ou autour, une
-              rencontre sur site peut être organisée pour les phases clés.
+            <p className="muted">
+              Si vous êtes à {city} ou autour, une rencontre sur site peut être organisée pour les phases clés.
             </p>
-            <p className="audit-intro-text">
-              Besoin d'une prise de contact plus rapide ? Tu peux aussi passer par la page{' '}
-              <Link to="/contact/" className="audit-inline-link">
-                Contact
-              </Link>
-              .
-            </p>
-          </aside>
-
-          <div className="contact-form">
-            <AnimatePresence mode="wait">
-              {submitted ? (
-                <motion.div
-                  key="audit-success"
-                  className="form-success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <div className="form-success-icon">OK</div>
-                  <h3 className="form-success-title">Demande envoyée</h3>
-                  <p className="form-success-desc">
-                    Merci. Je reviens vers toi avec une première direction claire, des
-                    priorités simples et une façon concrète d'avancer ensemble.
-                  </p>
-                  <button
-                    type="button"
-                    className="btn btn-orange"
-                    onClick={() => {
-                      setStatus('idle')
-                      setForm(initialForm)
-                      setShield(getFormBootPayload())
-                    }}
-                  >
-                    Envoyer une autre demande
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="audit-form"
-                  onSubmit={handleSubmit}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="entreprise">Entreprise</label>
-                      <input
-                        id="entreprise"
-                        name="entreprise"
-                        type="text"
-                        className="form-input"
-                        value={form.entreprise}
-                        onChange={handleChange}
-                        placeholder="Nom de l'entreprise"
-                        autoComplete="organization"
-                        maxLength={120}
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="nom">Nom</label>
-                      <input
-                        id="nom"
-                        name="nom"
-                        type="text"
-                        className="form-input"
-                        value={form.nom}
-                        onChange={handleChange}
-                        placeholder="Ton nom"
-                        autoComplete="name"
-                        maxLength={80}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="email">Email</label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        className="form-input"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="email@entreprise.fr"
-                        autoComplete="email"
-                        maxLength={120}
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="telephone">Téléphone</label>
-                      <input
-                        id="telephone"
-                        name="telephone"
-                        type="tel"
-                        className="form-input"
-                        value={form.telephone}
-                        onChange={handleChange}
-                        placeholder="+33 6 00 00 00 00"
-                        autoComplete="tel"
-                        inputMode="tel"
-                        maxLength={30}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="localisation">Localisation</label>
-                      <input
-                        id="localisation"
-                        name="localisation"
-                        type="text"
-                        className="form-input"
-                        value={form.localisation}
-                        onChange={handleChange}
-                        placeholder="Ville / région"
-                        maxLength={120}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="typeProjet">Type de projet</label>
-                      <select
-                        id="typeProjet"
-                        name="typeProjet"
-                        className="form-select"
-                        value={form.typeProjet}
-                        onChange={handleChange}
-                        required
-                      >
-                        <option value="" disabled>Sélectionne une option</option>
-                        <option value="site-marketing">Site marketing</option>
-                        <option value="e-commerce">E-commerce</option>
-                        <option value="plateforme-web">Plateforme web</option>
-                        <option value="outil-interne">Outil interne</option>
-                        <option value="refonte">Refonte</option>
-                        <option value="autre">Autre</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <span className="form-label">Objectifs principaux</span>
-                    <div className="audit-check-grid">
-                      {goals.map((goal) => (
-                        <label key={goal} className="audit-check-item">
-                          <input
-                            type="checkbox"
-                            checked={form.objectifs.includes(goal)}
-                            onChange={() => handleToggle('objectifs', goal)}
-                          />
-                          <span>{goal}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <span className="form-label">Fonctionnalités souhaitées</span>
-                    <div className="audit-check-grid">
-                      {features.map((feature) => (
-                        <label key={feature} className="audit-check-item">
-                          <input
-                            type="checkbox"
-                            checked={form.fonctionnalites.includes(feature)}
-                            onChange={() => handleToggle('fonctionnalites', feature)}
-                          />
-                          <span>{feature}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="siteActuel">Site actuel</label>
-                      <input
-                        id="siteActuel"
-                        name="siteActuel"
-                        type="text"
-                        className="form-input"
-                        value={form.siteActuel}
-                        onChange={handleChange}
-                        placeholder="https://..."
-                        maxLength={240}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="rdv">Préférence de rendez-vous</label>
-                      <select
-                        id="rdv"
-                        name="rdv"
-                        className="form-select"
-                        value={form.rdv}
-                        onChange={handleChange}
-                      >
-                        <option value="visio">Visio</option>
-                        <option value="telephone">Téléphone</option>
-                        <option value="sur-place-rennes">Sur place (Rennes et alentours)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="contenuPret">Contenus prêts ?</label>
-                      <select
-                        id="contenuPret"
-                        name="contenuPret"
-                        className="form-select"
-                        value={form.contenuPret}
-                        onChange={handleChange}
-                      >
-                        <option value="" disabled>Sélectionne une option</option>
-                        <option value="oui">Oui</option>
-                        <option value="partiellement">Partiellement</option>
-                        <option value="non">Non</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="brandingPret">Branding prêt ?</label>
-                      <select
-                        id="brandingPret"
-                        name="brandingPret"
-                        className="form-select"
-                        value={form.brandingPret}
-                        onChange={handleChange}
-                      >
-                        <option value="" disabled>Sélectionne une option</option>
-                        <option value="oui">Oui</option>
-                        <option value="partiellement">Partiellement</option>
-                        <option value="non">Non</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="budget">Budget estimé</label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        className="form-select"
-                        value={form.budget}
-                        onChange={handleChange}
-                        required
-                      >
-                        <option value="" disabled>Sélectionne une fourchette</option>
-                        <option value="moins-5k">Moins de 5 000 EUR</option>
-                        <option value="5k-15k">5 000 à 15 000 EUR</option>
-                        <option value="15k-30k">15 000 à 30 000 EUR</option>
-                        <option value="30k-60k">30 000 à 60 000 EUR</option>
-                        <option value="plus-60k">Plus de 60 000 EUR</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="delai">Délai visé</label>
-                      <select
-                        id="delai"
-                        name="delai"
-                        className="form-select"
-                        value={form.delai}
-                        onChange={handleChange}
-                        required
-                      >
-                        <option value="" disabled>Sélectionne un délai</option>
-                        <option value="asap">ASAP</option>
-                        <option value="1-2-mois">1 à 2 mois</option>
-                        <option value="3-4-mois">3 à 4 mois</option>
-                        <option value="5-6-mois">5 à 6 mois</option>
-                        <option value="plus-6-mois">Plus de 6 mois</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                      <label className="form-label" htmlFor="details">Contexte et attentes</label>
-                      <textarea
-                        id="details"
-                        name="details"
-                        className="form-textarea"
-                        value={form.details}
-                        onChange={handleChange}
-                        placeholder="Priorités, contraintes, stack actuelle, équipe, dépendances, objectifs."
-                        maxLength={3000}
-                        required
-                      />
-                  </div>
-
-                  <div className="form-group form-honeypot" aria-hidden="true">
-                    <label className="form-label" htmlFor="website">Site web</label>
-                    <input
-                      id="website"
-                      name="website"
-                      type="text"
-                      className="form-input"
-                      value={shield.website}
-                      onChange={handleChange}
-                      tabIndex={-1}
-                      autoComplete="off"
-                    />
-                  </div>
-
-                  <label className="form-consent">
-                    <input
-                      type="checkbox"
-                      name="consent"
-                      checked={shield.consent}
-                      onChange={handleChange}
-                    />
-                      <span>
-                        J'accepte que ces informations soient utilisées pour traiter ma
-                        demande et préparer un cadrage, conformément à la{' '}
-                        <Link to="/confidentialite/" className="form-inline-link">
-                          politique de confidentialité
-                        </Link>
-                        .
-                      </span>
-                  </label>
-
-                  {errorMessage && (
-                    <p className="form-error" role="alert">
-                      {errorMessage}
-                    </p>
-                  )}
-
-                  <button type="submit" className="form-submit" disabled={isSending}>
-                    {isSending ? 'Envoi en cours...' : 'Recevoir mon cadrage'}
-                  </button>
-                </motion.form>
-              )}
-            </AnimatePresence>
           </div>
-        </div>
+          <div className="card rv" style={{ '--d': '80ms' }}>
+            <h3>Plutôt pressé ?</h3>
+            <p className="muted">Pour une prise de contact plus rapide, passez par la page contact.</p>
+            <Link to="/contact" className="btn btn-small" style={{ justifySelf: 'start' }}>Écrire un message →</Link>
+          </div>
+        </aside>
+
+        {submitted ? (
+          <div className="card outlined mint success pop-in">
+            <span className="star-badge" aria-hidden="true">✓</span>
+            <h2>Demande envoyée 🎉</h2>
+            <p className="muted">
+              Merci. Je reviens vers vous avec une première direction claire, des priorités simples
+              et une façon concrète d'avancer ensemble.
+            </p>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => {
+                setStatus('idle')
+                setForm(initialForm)
+                setShield(getFormBootPayload())
+              }}
+            >
+              Envoyer une autre demande
+            </button>
+          </div>
+        ) : (
+          <form className="card outlined form-card" onSubmit={handleSubmit}>
+            <div className="form-grid">
+              <div className="field">
+                <label htmlFor="entreprise">Entreprise</label>
+                <input id="entreprise" name="entreprise" type="text" value={form.entreprise} onChange={handleChange} placeholder="Nom de l'entreprise" autoComplete="organization" maxLength={120} required />
+              </div>
+              <div className="field">
+                <label htmlFor="nom">Nom</label>
+                <input id="nom" name="nom" type="text" value={form.nom} onChange={handleChange} placeholder="Votre nom" autoComplete="name" maxLength={80} required />
+              </div>
+              <div className="field">
+                <label htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="email@entreprise.fr" autoComplete="email" maxLength={120} required />
+              </div>
+              <div className="field">
+                <label htmlFor="telephone">Téléphone</label>
+                <input id="telephone" name="telephone" type="tel" value={form.telephone} onChange={handleChange} placeholder="+33 6 00 00 00 00" autoComplete="tel" inputMode="tel" maxLength={30} />
+              </div>
+              <div className="field">
+                <label htmlFor="localisation">Localisation</label>
+                <input id="localisation" name="localisation" type="text" value={form.localisation} onChange={handleChange} placeholder="Ville / région" maxLength={120} />
+              </div>
+              {select('typeProjet', 'Type de projet', options.typeProjet, 'Choisissez une option')}
+
+              <div className="field full">
+                <span className="field-label">Objectifs principaux</span>
+                {pills('objectifs', goals)}
+              </div>
+              <div className="field full">
+                <span className="field-label">Fonctionnalités souhaitées</span>
+                {pills('fonctionnalites', features)}
+              </div>
+
+              <div className="field">
+                <label htmlFor="siteActuel">Site actuel</label>
+                <input id="siteActuel" name="siteActuel" type="text" value={form.siteActuel} onChange={handleChange} placeholder="https://..." maxLength={240} />
+              </div>
+              {select('rdv', 'Préférence de rendez-vous', options.rdv)}
+              {select('contenuPret', 'Contenus prêts ?', options.pret, 'Choisissez une option')}
+              {select('brandingPret', 'Branding prêt ?', options.pret, 'Choisissez une option')}
+              {select('budget', 'Budget estimé', options.budget, 'Choisissez une fourchette')}
+              {select('delai', 'Délai visé', options.delai, 'Choisissez un délai')}
+
+              <div className="field full">
+                <label htmlFor="details">Contexte et attentes</label>
+                <textarea
+                  id="details"
+                  name="details"
+                  value={form.details}
+                  onChange={handleChange}
+                  placeholder="Priorités, contraintes, stack actuelle, équipe, dépendances, objectifs."
+                  maxLength={3000}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="honeypot" aria-hidden="true">
+              <label htmlFor="website">Site web</label>
+              <input id="website" name="website" type="text" value={shield.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+            </div>
+
+            <label className="check form-consent">
+              <input type="checkbox" name="consent" checked={shield.consent} onChange={handleChange} />
+              <span>
+                J'accepte que ces informations soient utilisées pour traiter ma demande et préparer un
+                cadrage, conformément à la <Link to="/confidentialite">politique de confidentialité</Link>.
+              </span>
+            </label>
+
+            {errorMessage ? (
+              <p className="error-box shake" role="alert" key={errorMessage}>
+                {errorMessage}
+              </p>
+            ) : null}
+
+            <button type="submit" className={`btn btn-green btn-pop btn-block${isSending ? ' loading' : ''}`} disabled={isSending}>
+              {isSending ? 'Envoi en cours…' : '✦ Recevoir mon cadrage'}
+            </button>
+          </form>
+        )}
       </section>
-    </motion.div>
+    </>
   )
 }

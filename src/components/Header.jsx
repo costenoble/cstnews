@@ -1,194 +1,176 @@
-import { useEffect, useId, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
 import { companyInfo } from '../content/siteContent.js'
 
-const navLinks = [
-  { href: '/', label: 'Accueil' },
-  { href: '/services/', label: 'Services' },
-  { href: '/projets/', label: 'Projets' },
-  { href: '/a-propos/', label: 'À propos' },
-  { href: '/audit/', label: 'Audit' },
-  { href: '/contact/', label: 'Contact' },
+const menuGroups = [
+  {
+    label: 'Découvrir',
+    links: [
+      { href: '/', title: 'Accueil', desc: 'Le studio en un coup d’œil' },
+      { href: '/projets', title: 'Projets', desc: 'Kompta, DentalCAO, Vigie SEO…' },
+      { href: '/services', title: 'Services', desc: 'Sites, e-commerce, outils métier' },
+    ],
+  },
+  {
+    label: 'Travailler ensemble',
+    links: [
+      { href: '/audit', title: 'Audit', desc: 'Un questionnaire pour un devis clair' },
+      { href: '/contact', title: 'Contact', desc: 'Réponse sous 24 h ouvrées' },
+      { href: '/a-propos', title: 'À propos', desc: 'Qui pilote les projets' },
+    ],
+  },
 ]
 
-const socialLinks = companyInfo.socialLinks.map(({ href, label }) => ({ href, label }))
+const CLOSE_MS = 420
 
-const isCurrent = (pathname, href) => pathname.replace(/\/+$/, '') === href.replace(/\/+$/, '')
+function prefersReducedMotion() {
+  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  // closed → opening → open → closing → closed
+  const [state, setState] = useState('closed')
   const { pathname } = useLocation()
-  const mobileMenuId = useId()
+  const burgerRef = useRef(null)
+  const menuRef = useRef(null)
+  const timer = useRef(0)
+
+  const isOpen = state === 'opening' || state === 'open'
+
+  const open = useCallback(() => {
+    window.clearTimeout(timer.current)
+    setState('opening')
+    requestAnimationFrame(() => requestAnimationFrame(() => setState('open')))
+  }, [])
+
+  const close = useCallback(() => {
+    setState((current) => (current === 'closed' ? current : 'closing'))
+    window.clearTimeout(timer.current)
+    timer.current = window.setTimeout(() => setState('closed'), prefersReducedMotion() ? 0 : CLOSE_MS)
+  }, [])
+
+  // Fermer le menu quand on change de page
+  useEffect(() => {
+    close()
+  }, [pathname, close])
 
   useEffect(() => {
-    if (!menuOpen) {
-      return undefined
-    }
+    document.documentElement.classList.toggle('no-scroll', isOpen)
+    if (state !== 'open') return undefined
 
-    function handleKeyDown(event) {
+    const firstLink = menuRef.current?.querySelector('a')
+    const focusTimer = window.setTimeout(() => firstLink?.focus(), prefersReducedMotion() ? 0 : 350)
+
+    function onKey(event) {
       if (event.key === 'Escape') {
-        setMenuOpen(false)
+        close()
+        burgerRef.current?.focus()
+        return
       }
+      if (event.key !== 'Tab') return
+      // le focus reste dans le menu ouvert
+      const items = [burgerRef.current, ...menuRef.current.querySelectorAll('a, button')]
+      const index = items.indexOf(document.activeElement)
+      const next = event.shiftKey
+        ? index <= 0 ? items.length - 1 : index - 1
+        : index === items.length - 1 ? 0 : index + 1
+      event.preventDefault()
+      items[next].focus()
     }
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [menuOpen])
-
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow
-
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = previousOverflow || ''
-    }
-
+    document.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = previousOverflow || ''
+      window.clearTimeout(focusTimer)
+      document.removeEventListener('keydown', onKey)
     }
-  }, [menuOpen])
+  }, [state, isOpen, close])
+
+  useEffect(() => () => window.clearTimeout(timer.current), [])
+
+  let i = 0
+  const menuClass = `menu${state === 'open' ? ' open' : ''}${state === 'closing' ? ' closing' : ''}`
 
   return (
     <>
-      <header className="header">
-        <div className="header-inner">
-          <Link to="/" className="header-logo" onClick={() => setMenuOpen(false)}>
-            CST<span>.</span>
+      <a className="skip" href="#main">Aller au contenu</a>
+      <header className={`top${isOpen ? ' menu-open' : ''}`}>
+        <Link className="brand" to="/" aria-label="CSTLAB, accueil">
+          <span className="brand-mark" aria-hidden="true">C</span>
+          <span>CST<span className="accent">LAB</span></span>
+        </Link>
+
+        <div className="top-actions">
+          <Link to="/audit" className="btn btn-dark btn-small top-cta">
+            Demander un devis
           </Link>
-
-          <button
-            className={`hamburger header-menu-toggle${menuOpen ? ' open is-hidden' : ''}`}
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-            aria-expanded={menuOpen}
-            aria-controls={mobileMenuId}
-          >
-            <span className="hamburger-label">Menu</span>
-            <span className="hamburger-bars" aria-hidden="true">
-              <span className="hamburger-bar" />
-              <span className="hamburger-bar" />
-            </span>
-          </button>
-
-          <div className="header-right">
-            <Link to="/audit/" className="btn btn-orange header-cta">
-              Demander un devis
-            </Link>
-          </div>
         </div>
+
+        <button
+          ref={burgerRef}
+          className="burger"
+          type="button"
+          onClick={() => (isOpen ? close() : open())}
+          aria-controls="menu"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        >
+          <span className="burger-lines" aria-hidden="true">
+            <span />
+            <span />
+          </span>
+          <span className="burger-text">{isOpen ? 'Fermer' : 'Menu'}</span>
+        </button>
       </header>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className="menu-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            onClick={() => setMenuOpen(false)}
-          >
-            <motion.div
-              className="menu-overlay"
-              initial={{ clipPath: 'circle(0% at 50% 36px)' }}
-              animate={{ clipPath: 'circle(150% at 50% 36px)' }}
-              exit={{ clipPath: 'circle(0% at 50% 36px)' }}
-              transition={{ duration: 0.7, ease: [0.77, 0, 0.18, 1] }}
-              role="dialog"
-              aria-modal="true"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                type="button"
-                className="menu-close"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Fermer le menu"
-              >
-                <span className="menu-close-line" />
-                <span className="menu-close-line" />
-              </button>
-
-              <div className="menu-main">
-                <nav className="menu-nav" id={mobileMenuId}>
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: -60 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -60 }}
-                      transition={{ delay: i * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    >
+      <div
+        ref={menuRef}
+        className={menuClass}
+        id="menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu principal"
+        hidden={state === 'closed'}
+      >
+        <div className="menu-inner">
+          <div className="menu-groups">
+            {menuGroups.map((group) => (
+              <section key={group.label} className="menu-group">
+                <p className="menu-label" style={{ '--i': i++ }}>{group.label}</p>
+                <ul>
+                  {group.links.map((link) => (
+                    <li key={link.href} style={{ '--i': i++ }}>
                       <Link
+                        className="menu-item"
                         to={link.href}
-                        className={`menu-link${isCurrent(pathname, link.href) ? ' active-menu' : ''}`}
-                        onClick={() => setMenuOpen(false)}
+                        aria-current={pathname === link.href ? 'page' : undefined}
+                        onClick={close}
                       >
-                        <span className="menu-link-mask">
-                          <motion.span
-                            className="menu-link-reveal"
-                            initial={{ y: '110%' }}
-                            animate={{ y: 0 }}
-                            exit={{ y: '110%' }}
-                            transition={{
-                              delay: 0.08 + i * 0.07,
-                              duration: 0.55,
-                              ease: [0.22, 1, 0.36, 1],
-                            }}
-                          >
-                            <span className="menu-link-slide">
-                              <span className="menu-link-slide-text" data-text={link.label}>
-                                {link.label}
-                              </span>
-                            </span>
-                          </motion.span>
+                        <span className="menu-title">
+                          {link.title} <span className="menu-arrow" aria-hidden="true">→</span>
                         </span>
+                        <span className="menu-desc">{link.desc}</span>
                       </Link>
-                    </motion.div>
+                    </li>
                   ))}
-                </nav>
-
-                <div className="menu-side">
-                  <div className="menu-side-stack">
-                  <div className="menu-side-item">
-                      <span className="menu-side-label">Basé</span>
-                      <span className="menu-side-value">{companyInfo.locationLabel}</span>
-                    </div>
-                    <div className="menu-side-item">
-                      <span className="menu-side-label">Réponse</span>
-                      <span className="menu-side-value">{companyInfo.responseTimeLabel}</span>
-                    </div>
-                  </div>
-
-                  <Link to="/audit/" className="btn btn-orange menu-side-cta" onClick={() => setMenuOpen(false)}>
-                    Demander un audit
-                  </Link>
-                </div>
-              </div>
-
-              <div className="menu-footer-row">
-                <a href="mailto:contact@cstlab.dev" className="menu-footer-email">
-                  contact@cstlab.dev
-                </a>
-                <div className="menu-footer-socials">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      className="menu-social-link"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {social.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                </ul>
+              </section>
+            ))}
+          </div>
+          <div className="menu-foot" style={{ '--i': i++ }}>
+            <Link className="btn btn-green btn-pop" to="/audit" onClick={close}>
+              ✦ Lancer mon audit
+            </Link>
+            <a className="btn btn-ghost" href={`mailto:${companyInfo.email}`}>
+              {companyInfo.email}
+            </a>
+            {companyInfo.socialLinks.map((social) => (
+              <a key={social.label} className="btn btn-ghost" href={social.href} target="_blank" rel="noreferrer">
+                {social.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   )
 }

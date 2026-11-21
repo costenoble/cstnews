@@ -1,177 +1,131 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { processSteps, projects, serviceShowcase } from '../content/siteContent.js'
+import { CtaBlock, PageHero, SectionHead, tone } from '../components/ui.jsx'
+import { processSteps, serviceShowcase } from '../content/siteContent.js'
 
 const fitItems = [
   {
-    title: 'Ce format est bien adapté si...',
+    title: 'Ce format est bien adapté si…',
     text:
-      "Tu veux un site, un outil ou une intégration avec un interlocuteur unique, un besoin concret et un périmètre qu'on peut cadrer puis livrer proprement.",
+      "Vous voulez un site, un outil ou une intégration avec un interlocuteur unique, un besoin concret et un périmètre qu'on peut cadrer puis livrer proprement.",
+    className: 'card mint',
+    mark: '✓',
   },
   {
-    title: 'Ce format est moins adapté si...',
+    title: 'Ce format est moins adapté si…',
     text:
-      "Tu as besoin dès le départ d'une grosse équipe, d'un appel d'offres très lourd ou d'une production très volumineuse avec plusieurs pôles en parallèle.",
+      "Vous avez besoin dès le départ d'une grosse équipe, d'un appel d'offres très lourd ou d'une production très volumineuse avec plusieurs pôles en parallèle.",
+    className: 'card sun',
+    mark: '!',
   },
 ]
 
 export default function Services() {
   return (
-    <motion.div
-      className="page services-page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <>
       <PageMeta
         title="Services web : sites, e-commerce et outils métier"
         path="/services"
         description="Sites marketing, e-commerce, plateformes web et intégrations métier pilotés par CSTLAB à Rennes."
       />
 
-      <div className="page-hero container services-page-hero">
-        <span className="page-hero-label">Services</span>
-        <h1 className="page-hero-title">Une offre simple, lisible, et orientée exécution.</h1>
-        <p className="page-hero-desc">
-          Le but n'est pas de tout promettre. CSTLAB intervient surtout quand il faut
-          clarifier un produit, remettre de l'ordre dans un parcours, ou livrer un outil
-          web qui tient techniquement dans la durée.
-        </p>
-      </div>
+      <PageHero
+        eyebrow="Services"
+        title="Une offre simple, lisible, et orientée exécution."
+        highlight="exécution."
+        actions={
+          <>
+            <Link to="/audit" className="btn btn-dark">Demander un audit</Link>
+            <Link to="/projets" className="btn">Voir les projets →</Link>
+          </>
+        }
+      >
+        Le but n'est pas de tout promettre. CSTLAB intervient surtout quand il faut clarifier un
+        produit, remettre de l'ordre dans un parcours, ou livrer un outil web qui tient
+        techniquement dans la durée.
+      </PageHero>
 
       <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Ce que je prends en charge</span>
-            <h2 className="h2">Quatre blocs de services, sans surcouche.</h2>
-          </div>
-
-          <div className="services-simple-grid">
-            {serviceShowcase.map((service, index) => (
-              <motion.article
-                key={service.id}
-                className="services-simple-card"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ delay: index * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="services-simple-header">
-                  <span className="services-simple-number">{service.number}</span>
-                  <span className="services-simple-label">{service.label}</span>
-                </div>
-
-                <h3 className="services-simple-title">{service.title}</h3>
-                <p className="services-simple-text">{service.description}</p>
-
-                <ul className="services-simple-list">
-                  {service.deliverables.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section services-process-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Méthode</span>
-            <h2 className="h2">Un cadre de travail simple du cadrage à la mise en ligne.</h2>
-          </div>
-
-          <div className="services-process-grid">
-            {processSteps.map((step, index) => (
-              <motion.article
-                key={step.number}
-                className="services-process-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ delay: index * 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="services-process-number">{step.number}</span>
-                <h3 className="services-process-title">{step.title}</h3>
-                <p className="services-process-text">{step.description}</p>
-              </motion.article>
-            ))}
-          </div>
+        <SectionHead eyebrow="Ce que je prends en charge" title="Quatre blocs de services, sans surcouche." />
+        <div className="grid-2">
+          {serviceShowcase.map((service, index) => (
+            <article key={service.id} className={`card hoverable rv ${tone(index)}`.trim()} style={{ '--d': `${(index % 2) * 80}ms` }}>
+              <div className="row">
+                <span className="icon-round" aria-hidden="true">{service.number}</span>
+                <span className="tag">{service.label}</span>
+              </div>
+              <h3 style={{ fontSize: '1.5rem' }}>{service.title}</h3>
+              <p className="muted">{service.description}</p>
+              <ul className="checks">
+                {service.deliverables.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="card-foot">
+                {service.stack.map((item) => (
+                  <span key={item} className="chip small">{item}</span>
+                ))}
+              </div>
+              <p className="note"><b>{service.proofTitle} :</b> {service.proofText}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Références</span>
-            <h2 className="h2">Quelques projets qui montrent le type de sujet traité.</h2>
-          </div>
-
-          <div className="services-proof-grid">
-            {projects.map((project, index) => (
-              <motion.article
-                key={project.slug}
-                className="services-proof-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ delay: index * 0.06, duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="services-proof-tag">{project.category}</span>
-                <h3 className="services-proof-title">{project.name}</h3>
-                <p className="services-proof-text">{project.summary}</p>
-              </motion.article>
-            ))}
-          </div>
+        <SectionHead eyebrow="Méthode" title="Un cadre simple, du cadrage à la mise en ligne." />
+        <ol className="steps" style={{ marginBottom: 20 }}>
+          {processSteps.map((step) => (
+            <li key={step.number}>
+              <span className="num">{Number(step.number)}</span>
+              {step.title}
+            </li>
+          ))}
+        </ol>
+        <div className="grid-4">
+          {processSteps.map((step, index) => (
+            <article key={step.number} className={`card rv ${tone(index)}`.trim()} style={{ '--d': `${index * 80}ms` }}>
+              <span className="num-badge">{step.number}</span>
+              <h3>{step.title}</h3>
+              <p className="muted">{step.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Cadre d'intervention</span>
-            <h2 className="h2">Pour qui ce format est pensé.</h2>
-          </div>
+        <SectionHead eyebrow="Cadre d’intervention" title="Pour qui ce format est pensé." />
+        <div className="grid-2">
+          {fitItems.map((item, index) => (
+            <article key={item.title} className={`${item.className} rv`} style={{ '--d': `${index * 80}ms` }}>
+              <span className="icon-round" aria-hidden="true">{item.mark}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-          <div className="services-fit-grid">
-            {fitItems.map((item) => (
-              <article key={item.title} className="services-fit-card">
-                <h3 className="services-fit-title">{item.title}</h3>
-                <p className="services-fit-text">{item.text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="services-maintenance-card">
-            <span className="services-maintenance-label">Maintenance</span>
-            <h3 className="services-maintenance-title">
-              Un suivi est possible à partir de 45 EUR HT / mois.
-            </h3>
-            <p className="services-maintenance-text">
-              C'est utile pour garder un site propre dans le temps: petites corrections,
-              mises à jour, surveillance légère et ajustements ponctuels.
+      <section className="section">
+        <article className="card outlined blue maint rv">
+          <div className="stack" style={{ gap: 10 }}>
+            <p className="eyebrow" style={{ margin: 0 }}>Maintenance</p>
+            <h2>Un suivi à partir de 45 € HT / mois.</h2>
+            <p>
+              Utile pour garder un site propre dans le temps : petites corrections, mises à jour,
+              surveillance légère et ajustements ponctuels.
             </p>
           </div>
-        </div>
+          <Link to="/contact" className="btn btn-dark">Parler maintenance →</Link>
+        </article>
       </section>
 
-      <div className="cta-section">
-        <div className="cta-content">
-          <span className="cta-label">Parlons du besoin</span>
-          <h2 className="cta-title">Si le sujet est déjà là, on peut maintenant le cadrer proprement.</h2>
-        </div>
-        <div className="cta-actions">
-          <Link to="/audit/" className="btn btn-orange">
-            Demander un audit
-          </Link>
-          <Link to="/contact/" className="btn btn-white">
-            Ouvrir la discussion
-          </Link>
-        </div>
-      </div>
-    </motion.div>
+      <CtaBlock
+        eyebrow="Parlons du besoin"
+        title="Si le sujet est déjà là, on peut le cadrer proprement."
+        primary={{ to: '/audit', label: '✦ Demander un audit' }}
+        secondary={{ to: '/contact', label: 'Ouvrir la discussion' }}
+      />
+    </>
   )
 }

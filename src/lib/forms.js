@@ -55,11 +55,11 @@ export function validateFormShield({ formName, startedAt, website, consent }) {
   }
 
   if (!consent) {
-    return 'Merci de confirmer que tu acceptes le traitement de ta demande.'
+    return 'Merci de confirmer que vous acceptez le traitement de votre demande.'
   }
 
   if (Date.now() - startedAt < MIN_FILL_DURATION_MS) {
-    return "Prends quelques secondes pour relire le formulaire avant de l'envoyer."
+    return "Prenez quelques secondes pour relire le formulaire avant de l'envoyer."
   }
 
   const remainingCooldown = getRemainingCooldownMs(formName)

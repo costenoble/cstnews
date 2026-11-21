@@ -1,0 +1,39 @@
+/* =============================================================================
+   Base : remise à zéro, typographie, liens, focus, mise en page
+   ============================================================================= */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+
+h1, h2, h3, h4 { font-family: var(--head); font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -.015em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.9rem); }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+a { color: inherit; text-underline-offset: 3px; }
+img, svg { max-width: 100%; }
+
+/* Focus clavier toujours visible : épais, noir, décalé */
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--cream); padding: 8px 14px; border-radius: var(--r-pill); z-index: 100; }
+.skip:focus { left: 12px; }
+
+/* Petit titre en capitales au-dessus d'un grand titre */
+.eyebrow { font: 600 .8rem var(--head); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 14px; }
+.muted { color: var(--muted); }
+.note { font-size: .9rem; color: var(--muted); max-width: 70ch; }
+
+/* Mise en page */
+main { padding: clamp(24px, 4vw, 56px) var(--gutter) 72px; max-width: var(--max); margin: 0 auto; }
+main:focus { outline: none; }
+.hero { display: grid; gap: 20px; max-width: 900px; margin-bottom: 44px; }
+.hero p { font-size: 1.2rem; color: var(--muted); max-width: 60ch; }
+.hero .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.section { margin-top: 56px; }
+.section > header { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+.stack { display: grid; gap: 16px; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+html.no-scroll { overflow: hidden; }

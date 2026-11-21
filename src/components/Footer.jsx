@@ -3,109 +3,86 @@ import { companyInfo, serviceShowcase } from '../content/siteContent.js'
 
 const navLinks = [
   { to: '/', label: 'Accueil' },
-  { to: '/services/', label: 'Services' },
-  { to: '/projets/', label: 'Projets' },
-  { to: '/audit/', label: 'Audit' },
-  { to: '/a-propos/', label: 'À propos' },
-  { to: '/contact/', label: 'Contact' },
+  { to: '/projets', label: 'Projets' },
+  { to: '/services', label: 'Services' },
+  { to: '/audit', label: 'Audit' },
+  { to: '/a-propos', label: 'À propos' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-grid">
-          <div>
-            <Link to="/" className="footer-brand-logo">
-              CST<span>.</span>
+    <div className="foot-wrap">
+      <footer className="bigfoot">
+        <div className="stack" style={{ maxWidth: 680, justifyItems: 'start' }}>
+          <Link className="brand" to="/" aria-label="CSTLAB, accueil">
+            <span className="brand-mark" aria-hidden="true">C</span>
+            <span>CST<span className="accent">LAB</span></span>
+          </Link>
+          <h2>Un projet en tête ? Parlons-en simplement.</h2>
+          <p>{companyInfo.strapline} {companyInfo.responseTimeLabel}.</p>
+          <div className="row">
+            <Link className="btn btn-green btn-pop" to="/audit">
+              ✦ Lancer mon audit
             </Link>
-            <p className="footer-brand-desc">{companyInfo.strapline}</p>
-            <div className="footer-social">
-              {companyInfo.socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="footer-social-btn"
-                  aria-label={social.label}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {social.short}
-                </a>
-              ))}
-            </div>
-            <div className="footer-local-card">
-              <div className="footer-local-title">Basé à Rennes</div>
-              <p className="footer-local-text">{companyInfo.collaborationModel}</p>
-            </div>
+            <a className="btn btn-ghost" href={`mailto:${companyInfo.email}`}>
+              {companyInfo.email}
+            </a>
           </div>
+        </div>
 
-          <div>
-            <p className="footer-col-title">Navigation</p>
-            <ul className="footer-links">
+        <div className="bigfoot-cols">
+          <div className="fcol">
+            <p className="fcol-title">Navigation</p>
+            <ul>
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="footer-link footer-link-slide" aria-label={link.label}>
-                    <span className="footer-link-slide-text" data-text={link.label}>
-                      {link.label}
-                    </span>
-                  </Link>
+                  <Link to={link.to}>{link.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          <div>
-            <p className="footer-col-title">Services</p>
-            <ul className="footer-links">
+          <div className="fcol">
+            <p className="fcol-title">Services</p>
+            <ul>
               {serviceShowcase.map((service) => (
                 <li key={service.id}>
-                  <Link to="/services/" className="footer-link">
-                    {service.label}
-                  </Link>
+                  <Link to="/services">{service.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          <div>
-            <p className="footer-col-title">Contact</p>
-            <div className="footer-contact-item">
-              <span className="footer-contact-label">Email</span>
-              <a href={`mailto:${companyInfo.email}`} className="footer-contact-value footer-link">
-                {companyInfo.email}
-              </a>
-            </div>
-            <div className="footer-contact-item">
-              <span className="footer-contact-label">Basé</span>
-              <span className="footer-contact-value">{companyInfo.locationLabel}</span>
-            </div>
-            <div className="footer-contact-item">
-              <span className="footer-contact-label">Zone</span>
-              <span className="footer-contact-value">
-                {companyInfo.localTravelLabel} - {companyInfo.serviceAreaLabel}
-              </span>
-            </div>
-            <div className="footer-contact-item">
-              <span className="footer-contact-label">Réponse</span>
-              <span className="footer-contact-value">{companyInfo.responseTimeLabel}</span>
-            </div>
+          <div className="fcol">
+            <p className="fcol-title">Studio</p>
+            <ul>
+              <li><span>{companyInfo.locationLabel}</span></li>
+              <li><span>{companyInfo.localTravelLabel}</span></li>
+              <li><span>{companyInfo.serviceAreaLabel}</span></li>
+            </ul>
+          </div>
+          <div className="fcol">
+            <p className="fcol-title">Ailleurs</p>
+            <ul>
+              {companyInfo.socialLinks.map((social) => (
+                <li key={social.label}>
+                  <a href={social.href} target="_blank" rel="noreferrer">
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p className="footer-copy">(c) {new Date().getFullYear()} CSTLAB. Tous droits réservés.</p>
-          <div className="footer-legal">
-            <Link to="/mentions-legales/" className="footer-legal-link">Mentions légales</Link>
-            <Link to="/confidentialite/" className="footer-legal-link">Politique de confidentialité</Link>
-            <Link to="/cgv/" className="footer-legal-link">CGV</Link>
-          </div>
+        <div className="foot-bottom">
+          <span>© {new Date().getFullYear()} CSTLAB · {companyInfo.founderName}</span>
+          <nav aria-label="Informations légales">
+            <Link to="/mentions-legales">Mentions légales</Link>
+            <Link to="/confidentialite">Confidentialité</Link>
+            <Link to="/cgv">CGV</Link>
+          </nav>
         </div>
-      </div>
-
-      <div className="footer-wordmark">
-        <div className="footer-wordmark-text">CSTLAB</div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   )
 }

@@ -1,102 +1,65 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { projectImageSrc, projects } from '../content/siteContent.js'
+import { FeaturedProject, PageHero, ProjectCard } from '../components/ui.jsx'
+import { projects } from '../content/siteContent.js'
 
-const categories = ['Tous', ...new Set(projects.map((project) => project.category))]
+const filters = [
+  { id: 'tous', label: 'Tous', test: () => true },
+  { id: 'pro', label: 'Projets pro', test: (project) => project.kind === 'pro' },
+  { id: 'perso', label: 'Projets perso', test: (project) => project.kind === 'perso' },
+  ...[...new Set(projects.map((project) => project.category))].map((category) => ({
+    id: category,
+    label: category,
+    test: (project) => project.category === category,
+  })),
+]
 
 export default function Projets() {
-  const [activeFilter, setActiveFilter] = useState('Tous')
-
-  const filteredProjects =
-    activeFilter === 'Tous'
-      ? projects
-      : projects.filter((project) => project.category === activeFilter)
+  const [activeId, setActiveId] = useState('tous')
+  const active = filters.find((filter) => filter.id === activeId) ?? filters[0]
+  const featured = projects.find((project) => project.featured)
+  const list = projects.filter((project) => project !== featured && active.test(project))
+  const showFeatured = featured && active.test(featured)
 
   return (
-    <motion.div
-      className="page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <>
       <PageMeta
-        title="Projets web, e-commerce et outils réalisés"
+        title="Projets"
         path="/projets"
-        description="Une sélection de projets signés CSTLAB: produits web, SaaS, e-commerce et sites de marque."
+        description="Les projets signés CSTLAB : SaaS, plateformes, e-commerce et sites de marque, projets clients et projets personnels."
       />
 
-      <div className="page-hero container">
-        <span className="page-hero-label">Projets</span>
-        <h1 className="page-hero-title">Quelques missions récentes, choisies pour ce qu'elles racontent.</h1>
-        <p className="page-hero-desc">
-          Des projets variés, mais un fil conducteur commun: clarifier l'usage, tenir la
-          technique et livrer quelque chose que le client peut vraiment exploiter.
-        </p>
+      <PageHero eyebrow="Projets" title="Des projets pro et perso, tous en ligne." highlight="ligne.">
+        Projets pro pour des clients, projets perso pour tester des idées et des outils. Chaque carte
+        l’indique et ouvre le site en ligne.
+      </PageHero>
+
+      <div className="pills" role="group" aria-label="Filtrer les projets">
+        {filters.map((filter) => {
+          const count = projects.filter(filter.test).length
+          return (
+            <button
+              key={filter.id}
+              className="pill"
+              type="button"
+              aria-pressed={filter.id === activeId}
+              onClick={() => setActiveId(filter.id)}
+            >
+              {filter.label} <span className="n">{count}</span>
+            </button>
+          )
+        })}
       </div>
 
-      <section className="section" style={{ paddingTop: '20px' }}>
-        <div className="container">
-          <div className="projects-filter">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`filter-btn${activeFilter === category ? ' active' : ''}`}
-                onClick={() => setActiveFilter(category)}
-                type="button"
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+      {showFeatured ? <FeaturedProject project={featured} /> : null}
 
-          <motion.div className="projects-grid" layout>
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
-                <motion.a
-                  key={project.slug}
-                  className="project-grid-card"
-                  href={project.siteUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Voir le site ${project.name}`}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.94 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <div style={{ overflow: 'hidden' }}>
-                    <img
-                      src={projectImageSrc(project)}
-                      alt={project.name}
-                      className="project-grid-image"
-                      loading="lazy"
-                    />
-                  </div>
-                  <span className="project-grid-visit">Voir le site</span>
-                  <div className="project-grid-body">
-                    <span className="project-grid-tag">{project.category}</span>
-                    <h3 className="project-grid-title">{project.name}</h3>
-                    <p className="project-grid-client">
-                      {project.client} - {project.year}
-                    </p>
-                    <p className="project-grid-summary">{project.summary}</p>
-                    <div className="project-grid-outcomes">
-                      {project.outcomes.map((item) => (
-                        <span key={item} className="project-grid-outcome">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.a>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+      <section className="section">
+        <div className="grid-3" key={activeId}>
+          {list.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} delay={(index % 3) * 80} />
+          ))}
         </div>
       </section>
-    </motion.div>
+    </>
   )
 }

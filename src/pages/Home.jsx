@@ -1,69 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { clientTestimonials, companyInfo, projectImageSrc, projects, serviceShowcase, siteUrl } from '../content/siteContent.js'
-
-const slides = [
-  {
-    label: 'Développement Web',
-    title: 'Des sites qui\nperforment.',
-    desc: 'Nous créons des expériences web performantes, accessibles et belles.',
-    image: 'photo-1460925895917-afdab827c52f',
-  },
-  {
-    label: 'Design UX/UI',
-    title: 'Des interfaces\nqui séduisent.',
-    desc: 'Du wireframe au produit final, nous concevons des interfaces intuitives.',
-    image: 'photo-1561070791-2526d30994b5',
-  },
-  {
-    label: 'Stratégie Digitale',
-    title: 'Une présence\nqui rayonne.',
-    desc: 'Audit, stratégie et exécution pour une visibilité digitale solide.',
-    image: 'photo-1553877522-43269d4ea984',
-  },
-]
-
-const serviceCards = [
-  {
-    title: serviceShowcase[0].label,
-    desc: serviceShowcase[0].description,
-    image: 'photo-1498050108023-c5249f4df085',
-  },
-  {
-    title: serviceShowcase[1].label,
-    desc: serviceShowcase[1].description,
-    image: 'photo-1559136555-9303baea8ebd',
-  },
-  {
-    title: serviceShowcase[2].label,
-    desc: serviceShowcase[2].description,
-    image: 'photo-1504384308090-c894fdcc538d',
-  },
-  {
-    title: serviceShowcase[3].label,
-    desc: serviceShowcase[3].description,
-    image: 'photo-1451187580459-43490279c0fa',
-  },
-]
+import { CtaBlock, Faq, FeaturedProject, ProjectCard, SectionHead, TitleWords, tone } from '../components/ui.jsx'
+import { clientTestimonials, companyInfo, projects, serviceShowcase, siteUrl } from '../content/siteContent.js'
 
 const packagedOffers = [
   {
     name: 'Site vitrine',
-    range: '1 200 EUR - 2 500 EUR',
+    range: '1 200 – 2 500 €',
     desc: 'Pour présenter votre activité et générer des demandes qualifiées.',
     items: ['5 à 10 pages', 'Design sur mesure', 'SEO technique de base', 'Formation prise en main'],
   },
   {
     name: 'Refonte complète',
-    range: '1 000 EUR - 2 000 EUR',
+    range: '1 000 – 2 000 €',
     desc: 'Pour moderniser votre image et améliorer clairement les conversions.',
     items: ['Audit UX + technique', 'Nouvelle architecture', 'Nouveau design', 'Migration progressive'],
   },
   {
     name: 'Maintenance évolutive',
-    range: '45 EUR - 150 EUR / mois',
+    range: '45 – 150 €',
+    per: '/ mois',
     desc: 'Pour garder un site rapide, sécurisé et qui évolue chaque mois.',
     items: ['Mises à jour', 'Corrections rapides', 'Monitoring', 'Petites évolutions continues'],
   },
@@ -88,12 +44,7 @@ const faqItems = [
   },
 ]
 
-const stripItems = [
-  'Développement Web', 'Design UX/UI', 'Stratégie Digitale', 'Cloud & DevOps',
-  'Branding', 'SEO', 'Motion Design', 'E-commerce',
-]
-
-const categories = ['Tous les services', 'Web', 'Design', 'Stratégie', 'Cloud']
+const marqueeItems = ['Sites vitrines', 'E-commerce', 'SaaS', 'Outils métier', 'Stripe', 'Supabase', 'SEO technique', 'Facture électronique']
 
 const homeStructuredData = [
   {
@@ -121,13 +72,7 @@ const homeStructuredData = [
       name: companyInfo.founderName,
     },
     sameAs: companyInfo.socialLinks.map((item) => item.href),
-    serviceType: [
-      'Développement web',
-      'Site vitrine',
-      'E-commerce',
-      'Outil métier',
-      'Intégration Stripe',
-    ],
+    serviceType: ['Développement web', 'Site vitrine', 'E-commerce', 'Outil métier', 'Intégration Stripe'],
   },
   {
     '@context': 'https://schema.org',
@@ -155,149 +100,24 @@ const homeStructuredData = [
   },
 ]
 
-function unsplash(id) {
-  return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`
-}
-
-function ServiceRevealCard({ card, index, progress }) {
-  const prefersReducedMotion = useReducedMotion()
-  const start = 0.05 + index * 0.12
-  const end = start + 0.22
-  const clipPath = useTransform(progress, [start, end], [
-    'inset(0% 0% 100% 0% round 28px)',
-    'inset(0% 0% 0% 0% round 28px)',
-  ])
-  const opacity = useTransform(progress, [start, end], [0.3, 1])
-  const y = useTransform(progress, [start, end], [30, 0])
-
-  return (
-    <motion.article
-      className="service-card service-card-reveal"
-      style={prefersReducedMotion ? undefined : { clipPath, opacity }}
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.div className="service-card-inner" style={prefersReducedMotion ? undefined : { y }}>
-        <img
-          src={unsplash(card.image)}
-          alt={card.title}
-          className="service-card-image"
-          loading="lazy"
-        />
-        <div className="service-card-body">
-          <h3 className="service-card-title">{card.title}</h3>
-          <p className="service-card-desc">{card.desc}</p>
-        </div>
-      </motion.div>
-    </motion.article>
-  )
-}
-
-function TestimonialRevealCard({ item, index, progress }) {
-  const prefersReducedMotion = useReducedMotion()
-  const start = 0.05 + index * 0.12
-  const end = start + 0.24
-  const clipPath = useTransform(progress, [start, end], [
-    'inset(0% 0% 100% 0% round 28px)',
-    'inset(0% 0% 0% 0% round 28px)',
-  ])
-  const opacity = useTransform(progress, [start, end], [0.3, 1])
-  const y = useTransform(progress, [start, end], [28, 0])
-
-  return (
-    <motion.article
-      className="testimonial-card testimonial-card-reveal"
-      style={prefersReducedMotion ? undefined : { clipPath, opacity }}
-    >
-      <motion.div className="testimonial-card-shell" style={prefersReducedMotion ? undefined : { y }}>
-        <span className="testimonial-source">{item.source}</span>
-        <p className="testimonial-quote">{item.quote}</p>
-        <div className="testimonial-footer">
-          <div>
-            <div className="testimonial-author">{item.author}</div>
-            <div className="testimonial-role">
-              {item.role} · {item.company}
-            </div>
-          </div>
-          <div className="testimonial-context">{item.context}</div>
-        </div>
-      </motion.div>
-    </motion.article>
-  )
-}
-
 export default function Home() {
-  const [current, setCurrent] = useState(0)
-  const [activeCategory, setActiveCategory] = useState(0)
-  const [openFaqIndex, setOpenFaqIndex] = useState(0)
-  const [isMobileFaq, setIsMobileFaq] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth <= 768,
-  )
-  const [isAuditCtaExpanded, setIsAuditCtaExpanded] = useState(false)
-  const auditCtaRef = useRef(null)
-  const expertiseRef = useRef(null)
-  const testimonialsRef = useRef(null)
-  const { scrollYProgress: expertiseProgress } = useScroll({
-    target: expertiseRef,
-    offset: ['start 88%', 'end 34%'],
-  })
-  const { scrollYProgress: testimonialsProgress } = useScroll({
-    target: testimonialsRef,
-    offset: ['start 86%', 'end 24%'],
-  })
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
-
-  useEffect(() => {
-    const media = window.matchMedia('(max-width: 768px)')
-    const updateMobileFaq = (event) => setIsMobileFaq(event.matches)
-
-    setIsMobileFaq(media.matches)
-    media.addEventListener('change', updateMobileFaq)
-
-    return () => media.removeEventListener('change', updateMobileFaq)
-  }, [])
-
-  useEffect(() => {
-    const node = auditCtaRef.current
-    if (!node) {
-      return undefined
-    }
-
-    let frame = 0
-
-    function updateExpandedState() {
-      const rect = node.getBoundingClientRect()
-      const viewportH = window.innerHeight || 0
-      const isVisibleZone = rect.top < viewportH * 0.88 && rect.bottom > viewportH * 0.12
-
-      setIsAuditCtaExpanded((prev) => (prev === isVisibleZone ? prev : isVisibleZone))
-      frame = window.requestAnimationFrame(updateExpandedState)
-    }
-
-    frame = window.requestAnimationFrame(updateExpandedState)
-
-    return () => {
-      window.cancelAnimationFrame(frame)
-    }
-  }, [])
-
-  const slide = slides[current]
+  const featured = projects.find((project) => project.featured)
+  const others = projects.filter((project) => !project.featured)
+  const heroShots = projects.filter((project) => ['vigie-seo', 'dentalcao', 'kompta'].includes(project.slug))
   const maltLink = companyInfo.socialLinks.find((item) => item.label === 'Malt')?.href
+  const marqueeRow = (
+    <div className="marquee-row">
+      {marqueeItems.map((item) => (
+        <span key={item} className="row" style={{ gap: 26 }}>
+          <span>{item}</span>
+          <span className="dot" />
+        </span>
+      ))}
+    </div>
+  )
 
   return (
-    <motion.div
-      className="page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <>
       <PageMeta
         title="Création de sites web et outils métier à Rennes"
         path="/"
@@ -305,362 +125,146 @@ export default function Home() {
         structuredData={homeStructuredData}
       />
 
-      <section className="hero container">
-        <div className="hero-content">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`tag-${current}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="hero-tag">
-                <span className="hero-tag-dot" />
-                {slide.label}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={`title-${current}`}
-              className="hero-title"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -24 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {slide.title.split('\n').map((line, idx) =>
-                idx === 1
-                  ? <span key={idx}><br /><span className="orange">{line}</span></span>
-                  : <span key={idx}>{line}</span>
-              )}
-            </motion.h1>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`desc-${current}`}
-              className="hero-desc"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.45, delay: 0.05 }}
-            >
-              {slide.desc}
-            </motion.p>
-          </AnimatePresence>
-
-          <div className="hero-actions">
-            <Link to="/audit/" className="btn btn-orange">
-              Demander un devis
-            </Link>
-            <Link to="/projets/" className="btn btn-outline">
-              Voir nos projets
-            </Link>
+      <section className="home-hero">
+        <div className="hero">
+          <div className="hero-badges">
+            <span className="badge ok"><span className="dot-live" /> Disponible pour de nouveaux projets</span>
           </div>
-
-          <div className="hero-categories">
-            {categories.map((cat, i) => (
-              <button
-                key={cat}
-                className={`hero-cat-pill${activeCategory === i ? ' active' : ''}`}
-                onClick={() => setActiveCategory(i)}
-                type="button"
-              >
-                {cat}
-              </button>
-            ))}
+          <TitleWords text="Des sites et des outils web qui tiennent la route." highlight="route." />
+          <p>
+            Je suis {companyInfo.founderName}, développeur full-stack à Rennes. Je conçois des sites,
+            des e-commerces et des SaaS, du cadrage à la mise en ligne.
+          </p>
+          <div className="actions">
+            <Link to="/audit" className="btn btn-dark">Demander un devis</Link>
+            <Link to="/projets" className="btn">Voir les projets →</Link>
           </div>
         </div>
 
-        <div className="hero-visual">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={`img-${current}`}
-              src={unsplash(slide.image)}
-              alt={slide.label}
-              className="hero-image-main"
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            />
-          </AnimatePresence>
-        </div>
-      </section>
-
-      <div className="services-strip">
-        <div className="services-strip-inner">
-          {[...stripItems, ...stripItems].map((item, i) => (
-            <span key={i} className="services-strip-item">
-              {item}
-              <span className="services-strip-dot" />
-            </span>
+        <div className="shots" aria-hidden="true">
+          {heroShots.map((project) => (
+            <figure key={project.slug} className="shot">
+              <img src={project.localImage} alt="" width="1100" height="687" decoding="async" />
+            </figure>
           ))}
         </div>
+      </section>
+
+      <section className="section">
+        <div className="kpis">
+          <div className="kpi blue rv"><span className="v" data-count>{projects.length}</span><span className="l">projets en ligne</span></div>
+          <div className="kpi pink rv" style={{ '--d': '80ms' }}><span className="v" data-count>{clientTestimonials.rating}</span><span className="l">sur 5 sur Malt</span></div>
+          <div className="kpi rv" style={{ '--d': '160ms' }}><span className="v" data-count>24 h</span><span className="l">pour une première réponse</span></div>
+          <div className="kpi mint rv" style={{ '--d': '240ms' }}><span className="v" data-count>1</span><span className="l">interlocuteur, du devis à la mise en ligne</span></div>
+        </div>
+      </section>
+
+      <div className="marquee-wrap fullbleed" aria-hidden="true">
+        <div className="marquee">
+          <div className="marquee-track">
+            {marqueeRow}
+            {marqueeRow}
+          </div>
+        </div>
       </div>
 
+      {featured ? <FeaturedProject project={featured} /> : null}
+
       <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Nos expertises</span>
-            <h2 className="h2">Ce que nous faisons</h2>
-          </div>
-          <div className="services-grid" ref={expertiseRef}>
-            {serviceCards.map((card, i) => (
-              <ServiceRevealCard
-                key={card.title}
-                card={card}
-                index={i}
-                progress={expertiseProgress}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section pricing-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Offres packagées</span>
-            <h2 className="h2">Repères de budget</h2>
-          </div>
-          <div className="pricing-grid">
-            {packagedOffers.map((offer) => (
-              <article key={offer.name} className="pricing-card">
-                <div className="pricing-top">
-                  <h3 className="pricing-title">{offer.name}</h3>
-                  <p className="pricing-range">{offer.range}</p>
-                </div>
-                <p className="pricing-desc">{offer.desc}</p>
-                <ul className="pricing-list">
-                  {offer.items.map((item) => (
-                    <li key={item} className="pricing-item">{item}</li>
-                  ))}
-                </ul>
-                <Link to="/audit/" className="btn btn-outline pricing-btn">
-                  Demander un chiffrage
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section faq-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">FAQ objections</span>
-            <h2 className="h2">Questions fréquentes avant de lancer</h2>
-          </div>
-          <div className="faq-list">
-            {faqItems.map((item, index) => {
-              const isOpen = isMobileFaq || openFaqIndex === index
-              return (
-                <article
-                  key={item.q}
-                  className={`faq-item${isOpen ? ' open' : ''}`}
-                  onPointerEnter={(event) => {
-                    if (!isMobileFaq && event.pointerType === 'mouse') {
-                      setOpenFaqIndex(index)
-                    }
-                  }}
-                >
-                  {isMobileFaq ? (
-                    <div className="faq-question faq-question-static">
-                      <span>{item.q}</span>
-                    </div>
-                  ) : (
-                    <button
-                      type="button"
-                      className="faq-question"
-                      onClick={() => setOpenFaqIndex((prev) => (prev === index ? -1 : index))}
-                      aria-expanded={isOpen}
-                    >
-                      <span>{item.q}</span>
-                      <span className="faq-arrow" aria-hidden="true">+</span>
-                    </button>
-                  )}
-                  <motion.div
-                    className="faq-answer"
-                    initial={false}
-                    animate={{
-                      height: isOpen ? 'auto' : 0,
-                      opacity: isOpen ? 1 : 0,
-                    }}
-                    transition={{
-                      height: { duration: 0.52, ease: [0.22, 1, 0.36, 1] },
-                      opacity: { duration: 0.28, ease: 'easeOut' },
-                    }}
-                  >
-                    <motion.div
-                      className="faq-answer-inner"
-                      initial={false}
-                      animate={{
-                        y: isOpen ? 0 : -10,
-                      }}
-                      transition={{
-                        duration: 0.42,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                    >
-                      <p>{item.a}</p>
-                    </motion.div>
-                  </motion.div>
-                </article>
-              )
-            })}
-          </div>
+        <SectionHead
+          eyebrow="Réalisations"
+          title="Projets récents"
+          action={<Link to="/projets" className="btn">Voir les {projects.length} projets →</Link>}
+        >
+          Projets pro pour des clients, et projets perso pour tester des idées. Chaque carte le précise.
+        </SectionHead>
+        <div className="grid-3">
+          {others.slice(0, 6).map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} delay={(index % 3) * 80} />
+          ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="container">
-          <div className="rennes-banner">
-            <span className="section-label">Présence locale</span>
-            <h3 className="h3">Base à Rennes, déplacements possibles en entreprise.</h3>
-            <p className="rennes-text">
-              {companyInfo.founderName} peut intervenir sur site à Rennes et autour pour
-              cadrer un besoin, aligner les priorités et accélérer le projet.
-            </p>
-            <Link to="/audit/" className="btn btn-orange">
-              Organiser un audit
+        <SectionHead eyebrow="Expertises" title="Ce que je prends en charge" action={<Link to="/services" className="btn">Détail des services →</Link>} />
+        <div className="grid-4">
+          {serviceShowcase.map((service, index) => (
+            <Link key={service.id} to="/services" className={`card rv ${tone(index)}`.trim()} style={{ '--d': `${index * 70}ms` }}>
+              <span className="icon-round" aria-hidden="true">{service.number}</span>
+              <h3>{service.label}</h3>
+              <p className="muted">{service.description}</p>
             </Link>
-          </div>
+          ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="container">
-          <div className="section-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-            <div>
-              <span className="section-label">Nos réalisations</span>
-              <h2 className="h2">Projets phares</h2>
-            </div>
-            <Link to="/projets/" className="btn btn-outline">
-              Voir tous les projets
-            </Link>
-          </div>
-          <div className="projects-featured">
-            {projects.slice(0, 6).map((project, i) => (
-              <motion.a
-                key={project.slug}
-                className="project-card"
-                href={project.siteUrl}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Voir le site ${project.name}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ delay: i * 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <img
-                  src={projectImageSrc(project, 800)}
-                  alt={project.name}
-                  className="project-card-image"
-                  loading="lazy"
-                />
-                <span className="project-card-visit">Voir le site</span>
-                <div className="project-card-info">
-                  <span className="project-card-tag">{project.category}</span>
-                  <h3 className="project-card-title">{project.name}</h3>
-                </div>
-              </motion.a>
-            ))}
-          </div>
+        <SectionHead eyebrow="Offres" title="Repères de budget">
+          Des fourchettes indicatives, hors taxes. L’audit permet de chiffrer plus juste.
+        </SectionHead>
+        <div className="grid-3">
+          {packagedOffers.map((offer, index) => (
+            <article key={offer.name} className={`card hoverable offer rv ${index === 1 ? 'outlined mint' : tone(index + 2)}`.trim()} style={{ '--d': `${index * 80}ms` }}>
+              <h3>{offer.name}</h3>
+              <p className="price">
+                {offer.range} {offer.per ? <small>{offer.per}</small> : null}
+              </p>
+              <p className="muted">{offer.desc}</p>
+              <ul className="checks">
+                {offer.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <Link to="/audit" className={`btn ${index === 1 ? 'btn-dark' : ''}`.trim()}>
+                Demander un chiffrage
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="section testimonials-section">
-        <div className="container">
-          <div className="section-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '20px' }}>
-            <div>
-              <span className="section-label">Avis clients</span>
-              <h2 className="h2">Des retours qui parlent du travail, pas juste du rendu.</h2>
+      <section className="section">
+        <SectionHead
+          eyebrow="Avis clients"
+          title="Ce qu’en disent les clients"
+          action={maltLink ? <a href={maltLink} target="_blank" rel="noreferrer" className="btn">Voir le profil Malt ↗</a> : null}
+        />
+        <div className="reviews">
+          <article className="card mint rv">
+            <p className="eyebrow" style={{ margin: 0 }}>{clientTestimonials.sourceLabel}</p>
+            <div className="score">
+              <b data-count>{clientTestimonials.rating}</b>
+              <span className="muted">/ 5 · {clientTestimonials.reviewCount}</span>
             </div>
-            {maltLink ? (
-              <a
-                href={maltLink}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-outline"
-              >
-                Voir le profil Malt
-              </a>
-            ) : null}
-          </div>
-
-          <div ref={testimonialsRef} className="testimonials-layout">
-            <motion.aside
-              className="testimonials-proof"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <span className="testimonials-proof-label">{clientTestimonials.sourceLabel}</span>
-              <div className="testimonials-proof-score">
-                <span className="testimonials-proof-rating">{clientTestimonials.rating}</span>
-                <span className="testimonials-proof-outof">/5</span>
-              </div>
-              <div className="testimonials-proof-meta">
-                <span>Le plus pertinent</span>
-                <span>{clientTestimonials.reviewCount}</span>
-              </div>
-              <p className="testimonials-proof-text">{clientTestimonials.intro}</p>
-              <div className="testimonials-proof-bars" aria-hidden="true">
-                <div className="testimonials-proof-bar">
-                  <span>Qualité</span>
-                  <strong>5,0</strong>
-                </div>
-                <div className="testimonials-proof-bar">
-                  <span>Délai</span>
-                  <strong>5,0</strong>
-                </div>
-                <div className="testimonials-proof-bar">
-                  <span>Communication</span>
-                  <strong>5,0</strong>
+            <p className="muted">{clientTestimonials.intro}</p>
+          </article>
+          {clientTestimonials.items.map((item, index) => (
+            <article key={item.author} className={`card rv ${tone(index)}`.trim()} style={{ '--d': `${(index + 1) * 70}ms` }}>
+              <p className="quote">{item.quote}</p>
+              <div className="who">
+                <span className="avatar" aria-hidden="true">{item.author.charAt(0)}</span>
+                <div>
+                  <b>{item.author}</b>
+                  <p className="muted" style={{ fontSize: '.9rem' }}>{item.role}, {item.company}</p>
                 </div>
               </div>
-            </motion.aside>
-
-            <div className="testimonials-grid">
-              {clientTestimonials.items.map((item, index) => (
-                <TestimonialRevealCard
-                  key={`${item.author}-${item.company}`}
-                  item={item}
-                  index={index}
-                  progress={testimonialsProgress}
-                />
-              ))}
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <div
-        ref={auditCtaRef}
-        className={`cta-section cta-section-expand${isAuditCtaExpanded ? ' is-inview' : ''}`}
-      >
-        <div className="cta-expand-orb" aria-hidden="true">
-          Audit
-        </div>
-        <div className="cta-content">
-          <span className="cta-label">Prêt à cadrer votre projet ?</span>
-          <h2 className="cta-title">Passez par l'audit pour un devis clair et actionnable.</h2>
-        </div>
-        <div className="cta-actions">
-          <Link to="/audit/" className="btn btn-orange">
-            Lancer mon audit
-          </Link>
-          <Link to="/services/" className="btn btn-white">
-            Voir les services
-          </Link>
-        </div>
-      </div>
-    </motion.div>
+      <section className="section">
+        <SectionHead eyebrow="Questions fréquentes" title="Avant de se lancer" />
+        <Faq items={faqItems} />
+      </section>
+
+      <CtaBlock
+        eyebrow="Basé à Rennes"
+        title="Un audit pour un devis clair et actionnable."
+        text={`${companyInfo.founderName} peut intervenir sur site à Rennes et autour pour cadrer un besoin, aligner les priorités et accélérer le projet.`}
+        primary={{ to: '/audit', label: '✦ Lancer mon audit' }}
+        secondary={{ to: '/services', label: 'Voir les services' }}
+      />
+    </>
   )
 }

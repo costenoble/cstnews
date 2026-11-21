@@ -1,0 +1,52 @@
+/* =============================================================================
+   Mouvement : animations réutilisables
+   Principe : tout bouge un peu, rien ne bouge longtemps. Entrées 0,3 à 0,8 s, avec un léger rebond.
+   Tout s'arrête si l'utilisateur a demandé moins d'animations (en bas du fichier).
+   ============================================================================= */
+
+/* Apparition au défilement : ajouter .rv (et éventuellement style="--d:120ms"), charte.js ajoute .in */
+.rv { opacity: 0; transform: translateY(34px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); transition-delay: var(--d, 0ms); }
+.rv.in { opacity: 1; transform: none; }
+
+/* Arrivée d'une page : les blocs de <main class="enter"> apparaissent l'un après l'autre (--n posé par charte.js) */
+main.enter > * { animation: pageIn .55s var(--ease-out) backwards; animation-delay: calc(var(--n, 0) * 55ms); }
+
+/* Titre héros : les mots montent un par un, un mot surligné en vert */
+.title-words .w { display: inline-block; animation: wordIn .8s cubic-bezier(.2,.9,.3,1.1) backwards; animation-delay: calc(var(--w, 0) * 50ms + 50ms); }
+.hl { position: relative; z-index: 0; }
+.hl::after { content: ""; position: absolute; left: 0; right: 0; bottom: .06em; height: .22em; background: var(--green); z-index: -1; border-radius: 99px;
+  transform-origin: left; animation: underline .7s var(--ease-out) .9s backwards; }
+
+/* Petites animations d'ambiance */
+.float { animation: floaty 6s ease-in-out infinite; }
+.pop-in { animation: popIn .5s var(--ease-pop) both; }
+.shake { animation: shake .45s cubic-bezier(.36,.07,.19,.97); }
+.stagger > * { animation: popIn .5s var(--ease-pop) both; animation-delay: calc(var(--k, 0) * 90ms); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(43,182,115,.6); } 70% { box-shadow: 0 0 0 9px rgba(43,182,115,0); } 100% { box-shadow: 0 0 0 0 rgba(43,182,115,0); } }
+@keyframes riseIn { to { opacity: 1; transform: none; } }
+@keyframes pageIn { from { opacity: 0; transform: translateY(16px); } }
+@keyframes wordIn { from { opacity: 0; transform: translateY(40%) rotate(4deg); } }
+@keyframes underline { from { transform: scaleX(0); } }
+@keyframes popIn { from { opacity: 0; transform: translateY(10px) scale(.95); } }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes toastIn { from { opacity: 0; transform: translateY(24px) scale(.96); } }
+@keyframes toastOut { to { opacity: 0; transform: translateY(16px) scale(.96); } }
+@keyframes selOpen { from { opacity: 0; transform: translateY(-8px) scale(.94); } }
+@keyframes optIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes floaty { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(10deg); } }
+@keyframes spinPulse { 0%, 100% { transform: rotate(0) scale(1); } 50% { transform: rotate(180deg) scale(1.1); } }
+@keyframes glowShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes stripes { to { background-position: 28px 0; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes blink { 45%, 55% { transform: scaleY(.06); } }
+@keyframes shake { 20%, 80% { transform: translateX(-3px); } 30%, 50%, 70% { transform: translateX(6px); } 40%, 60% { transform: translateX(-6px); } }
+
+/* Moins d'animations demandé par l'utilisateur (réglage du système) : tout reste immobile et lisible */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .rv { opacity: 1; transform: none; }
+  .menu, .menu.open, .menu.closing { clip-path: none; }
+  .menu .menu-label, .menu li, .menu-foot, .sel-opt { opacity: 1; transform: none; }
+}

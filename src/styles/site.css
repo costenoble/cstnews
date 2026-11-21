@@ -1,0 +1,172 @@
+/* =============================================================================
+   Site CSTLAB : mise en page propre au site, construite sur la charte.
+   Toutes les couleurs passent par les jetons de tokens.css (mode sombre compris).
+   ============================================================================= */
+
+/* Apparition au défilement : jouée en animation (et non en transition) pour laisser
+   intacts les survols des cartes. Sans JavaScript, rien ne reste caché. */
+.rv { opacity: 1; transform: none; }
+html.js .rv:not(.in) { opacity: 0; }
+.rv.in { animation: rvIn .8s var(--ease-out) var(--d, 0ms) backwards; }
+@keyframes rvIn { from { opacity: 0; transform: translateY(34px); } }
+
+/* Les blocs d'une page arrivent l'un après l'autre */
+main.enter > :nth-child(2) { --n: 1; } main.enter > :nth-child(3) { --n: 2; }
+main.enter > :nth-child(4) { --n: 3; } main.enter > :nth-child(n+5) { --n: 4; }
+
+/* ---------- barre du haut ---------- */
+.top { gap: 12px; }
+.brand { color: var(--ink); }
+.brand-mark { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--green); font: 700 .95rem var(--head); }
+.top.menu-open .brand-mark { background: var(--cream); color: #0b0b0b; }
+.top-actions .btn { white-space: nowrap; }
+@media (max-width: 720px) { .top-cta { display: none; } }
+
+/* ---------- titres de section ---------- */
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px 24px; flex-wrap: wrap; margin-bottom: 26px; }
+.section-head > div { max-width: 720px; }
+.section-head p { margin-top: 10px; }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 62ch; }
+
+/* ---------- héros de l'accueil ---------- */
+.home-hero { display: grid; gap: clamp(32px, 5vw, 64px); grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; margin-bottom: 20px; }
+.home-hero .hero { margin: 0; }
+.home-hero h1 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.shots { position: relative; aspect-ratio: 1 / .9; }
+.shot { position: absolute; width: 74%; margin: 0; border: 2px solid var(--ink); border-radius: var(--r-md); overflow: hidden; background: var(--paper);
+  box-shadow: var(--shadow-md); aspect-ratio: 16 / 10; transition: transform .45s var(--ease-pop), box-shadow .3s; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.shot:nth-child(1) { top: 0; right: 0; transform: rotate(3deg); z-index: 1; }
+.shot:nth-child(2) { top: 30%; left: 0; transform: rotate(-4deg); z-index: 2; }
+.shot:nth-child(3) { bottom: 0; right: 6%; transform: rotate(2deg); z-index: 3; }
+.shot:hover { transform: rotate(0) translate(-4px, -4px) scale(1.02); box-shadow: var(--shadow-lg); z-index: 4; }
+.shot-label { position: absolute; left: 12px; bottom: 12px; }
+@media (max-width: 900px) {
+  .home-hero { grid-template-columns: 1fr; }
+  .shots { max-width: 520px; width: 100%; margin: 0 auto; }
+}
+
+/* Bandeau qui défile, sur toute la largeur */
+.fullbleed { width: 100vw; margin-left: calc(50% - 50vw); }
+.marquee-wrap { margin: 56px 0 8px; padding: 12px 0; overflow: hidden; }
+
+/* ---------- grilles ---------- */
+.grid-2, .grid-3, .grid-4 { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+
+/* Liste à coches vertes */
+.checks { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
+.checks li { display: flex; gap: 10px; align-items: baseline; }
+.checks li::before { content: "✓"; flex: none; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--ink); color: var(--green); font: 700 .7rem var(--head); transform: translateY(2px); }
+.card.ink .checks li::before { background: var(--green); color: #0b0b0b; }
+
+.num-badge { font: 700 .85rem var(--head); display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--ink); background: var(--paper); }
+.card-foot { margin-top: auto; padding-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.chip.small { padding: 4px 12px; font-size: .82rem; border: 1.5px solid var(--ink); background: transparent; }
+
+/* ---------- cartes projet ---------- */
+.proj { gap: 14px; }
+.proj-shot { margin: 0; border: 2px solid var(--ink); border-radius: var(--r-md); overflow: hidden; aspect-ratio: 16 / 10; background: var(--cream); }
+.proj-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .6s var(--ease-out); }
+a.proj:hover .proj-shot img { transform: scale(1.04); }
+.proj-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.proj h3 { font-size: 1.35rem; display: flex; align-items: center; gap: 10px; }
+.proj h3 .go { font-size: .8em; color: var(--green-ink); opacity: 0; transform: translateX(-8px); transition: opacity .25s, transform .35s var(--ease-pop); }
+a.proj:hover h3 .go, a.proj:focus-visible h3 .go { opacity: 1; transform: none; }
+.proj-client { font-size: .92rem; color: var(--muted); }
+
+/* Mise en avant de Kompta (carte magique) */
+.feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: clamp(20px, 4vw, 44px); }
+.feature h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); }
+.feature .proj-shot { box-shadow: 6px 6px 0 #0b0b0b; border-color: #0b0b0b; transform: rotate(1.5deg); }
+.feature .badge { border-color: #0b0b0b; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
+
+/* ---------- offres ---------- */
+.price { font: 700 1.6rem/1.15 var(--head); }
+.price small { font: 400 .95rem var(--body); color: var(--muted); }
+.offer .btn { margin-top: auto; }
+.offer { align-content: stretch; }
+
+/* Maintenance */
+.maint { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 18px 28px; }
+@media (max-width: 720px) { .maint { grid-template-columns: 1fr; justify-items: start; } }
+
+/* ---------- avis ---------- */
+.score { display: flex; align-items: baseline; gap: 6px; }
+.score b { font: 700 3.4rem/1 var(--head); }
+.quote { font-size: 1.05rem; }
+.quote::before { content: "“"; display: block; font: 700 3rem/0.6 var(--head); color: var(--green-ink); margin-bottom: 4px; }
+.who { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 8px; }
+.who .avatar { width: 42px; height: 42px; font-size: 1rem; flex: none; }
+
+/* ---------- appel à l'action ---------- */
+.cta-block { position: relative; overflow: hidden; padding: clamp(28px, 5vw, 56px); gap: 16px; }
+.cta-block::after { content: ""; position: absolute; width: 420px; height: 420px; right: -140px; top: -170px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(43,182,115,.35), transparent 65%); pointer-events: none; }
+.cta-block > * { position: relative; z-index: 1; }
+.cta-block h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); max-width: 22ch; }
+.cta-block .eyebrow { color: var(--green-ink); margin: 0; }
+
+/* Étiquettes « Projet pro » / « Projet perso » : lisibles sur tous les fonds */
+.badge.kind-pro { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.badge.kind-perso { background: var(--sun); color: #6b4a00; border: 1.5px solid #6b4a00; }
+
+/* Avis : la note à gauche, quatre avis en 2 × 2 */
+.reviews { display: grid; gap: 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.reviews > :first-child { grid-row: span 2; align-content: center; }
+@media (max-width: 1000px) { .reviews { grid-template-columns: repeat(2, minmax(0, 1fr)); } .reviews > :first-child { grid-row: auto; grid-column: 1 / -1; } }
+@media (max-width: 640px) { .reviews { grid-template-columns: 1fr; } }
+
+/* ---------- pied de page ---------- */
+.foot-wrap { padding: 0 var(--gutter); }
+.bigfoot .brand { color: #faf4f2; }
+.bigfoot .brand-mark { background: var(--green); color: #0b0b0b; }
+.fcol p, .fcol li > span { color: #a8a19d; }
+.foot-bottom { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; border-top: 1px solid #2a2725; padding-top: 22px; font-size: .9rem; color: #a8a19d; }
+.foot-bottom nav { display: flex; flex-wrap: wrap; gap: 18px; }
+.foot-bottom a { color: #a8a19d; text-decoration: none; } .foot-bottom a:hover { color: var(--green); }
+
+/* ---------- formulaires ---------- */
+.form-card { gap: 18px; }
+.form-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.form-grid .full { grid-column: 1 / -1; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+.field input, .field textarea { width: 100%; }
+input[type="tel"] { font: 400 1rem var(--body); padding: 12px 18px; border-radius: var(--r-pill); border: 2px solid var(--ink); background: var(--paper); color: var(--ink); min-width: 0;
+  transition: box-shadow var(--fast), transform var(--fast); }
+.field-label { font: 600 .85rem var(--head); }
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.check a { font-weight: 700; }
+.success { justify-items: start; }
+.success .star-badge { animation: none; }
+
+/* Liste déroulante maison (voir components/Select.jsx) */
+.sel-list { list-style: none; }
+.sel-placeholder { color: var(--muted); }
+
+/* ---------- contact ---------- */
+.contact-layout { display: grid; gap: 24px; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; }
+@media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+.info-list { display: grid; gap: 14px; margin: 4px 0 0; }
+.info-list dt { font: 600 .75rem var(--head); text-transform: uppercase; letter-spacing: .12em; color: var(--green-ink); }
+.info-list dd { margin: 2px 0 0; font-weight: 700; }
+.info-list a { text-decoration: none; } .info-list a:hover { text-decoration: underline; }
+
+/* ---------- pages légales ---------- */
+.legal { display: grid; gap: 16px; max-width: 860px; }
+.legal .card p + p { margin-top: 8px; }
+
+/* ---------- 404 ---------- */
+.not-found { display: grid; gap: 18px; justify-items: start; max-width: 640px; padding: 40px 0; }
+
+@media (max-width: 720px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .kpi .v { font-size: 1.8rem; }
+  .home-hero h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+  .section { margin-top: 44px; }
+}
