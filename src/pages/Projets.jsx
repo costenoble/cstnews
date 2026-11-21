@@ -1,13 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { projects } from '../content/siteContent.js'
+import { projectImageSrc, projects } from '../content/siteContent.js'
 
 const categories = ['Tous', ...new Set(projects.map((project) => project.category))]
-
-function unsplash(id) {
-  return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
-}
 
 export default function Projets() {
   const [activeFilter, setActiveFilter] = useState('Tous')
@@ -28,7 +24,7 @@ export default function Projets() {
       <PageMeta
         title="Projets web, e-commerce et outils réalisés"
         path="/projets"
-        description="Une sélection de projets signés CSTLAB: produit web, e-commerce et landing page éditoriale."
+        description="Une sélection de projets signés CSTLAB: produits web, SaaS, e-commerce et sites de marque."
       />
 
       <div className="page-hero container">
@@ -73,7 +69,7 @@ export default function Projets() {
                 >
                   <div style={{ overflow: 'hidden' }}>
                     <img
-                      src={unsplash(project.image)}
+                      src={projectImageSrc(project)}
                       alt={project.name}
                       className="project-grid-image"
                       loading="lazy"

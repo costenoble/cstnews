@@ -65,9 +65,11 @@ export default function Header() {
             aria-expanded={menuOpen}
             aria-controls={mobileMenuId}
           >
-            <span className="hamburger-bar" />
-            <span className="hamburger-bar" />
-            <span className="hamburger-bar" />
+            <span className="hamburger-label">Menu</span>
+            <span className="hamburger-bars" aria-hidden="true">
+              <span className="hamburger-bar" />
+              <span className="hamburger-bar" />
+            </span>
           </button>
 
           <div className="header-right">
@@ -90,10 +92,10 @@ export default function Header() {
           >
             <motion.div
               className="menu-overlay"
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ clipPath: 'circle(0% at 50% 36px)' }}
+              animate={{ clipPath: 'circle(150% at 50% 36px)' }}
+              exit={{ clipPath: 'circle(0% at 50% 36px)' }}
+              transition={{ duration: 0.7, ease: [0.77, 0, 0.18, 1] }}
               role="dialog"
               aria-modal="true"
               onClick={(event) => event.stopPropagation()}

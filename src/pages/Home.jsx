@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import PageMeta from '../components/PageMeta.jsx'
-import { clientTestimonials, companyInfo, projects, serviceShowcase, siteUrl } from '../content/siteContent.js'
+import { clientTestimonials, companyInfo, projectImageSrc, projects, serviceShowcase, siteUrl } from '../content/siteContent.js'
 
 const slides = [
   {
@@ -544,7 +544,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="projects-featured">
-            {projects.map((project, i) => (
+            {projects.slice(0, 6).map((project, i) => (
               <motion.a
                 key={project.slug}
                 className="project-card"
@@ -558,7 +558,7 @@ export default function Home() {
                 transition={{ delay: i * 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               >
                 <img
-                  src={unsplash(project.image)}
+                  src={projectImageSrc(project, 800)}
                   alt={project.name}
                   className="project-card-image"
                   loading="lazy"

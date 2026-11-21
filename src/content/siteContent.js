@@ -128,6 +128,84 @@ export const processSteps = [
 
 export const projects = [
   {
+    slug: 'oublie-jamais-bijoux',
+    name: "N'oublie jamais",
+    category: 'E-commerce',
+    client: 'Bracelets en pierre naturelle à message vocal',
+    year: '2026',
+    localImage: '/projects/oublie-jamais-bijoux.jpg',
+    siteUrl: 'https://oubliejamaisbijoux.fr',
+    summary:
+      "Boutique pour un bracelet accompagné d'une carte qui fait écouter un message vocal privé : composeur de commande, paiement en ligne et page d'écoute du message.",
+    outcomes: ['Message vocal par QR code', 'Paiement Stripe', 'Carte PDF personnalisée'],
+    stack: ['Next.js', 'Stripe', 'Prisma', 'Resend', 'PDF'],
+  },
+  {
+    slug: 'kompta',
+    name: 'Kompta',
+    category: 'SaaS',
+    client: 'Logiciel de devis et factures pour artisans',
+    year: '2026',
+    localImage: '/projects/kompta.jpg',
+    siteUrl: 'https://kompta.pro',
+    summary:
+      "Logiciel de devis, factures électroniques et gestion pour artisans du bâtiment : le devis se dicte à la voix, le client signe et verse l'acompte depuis son téléphone.",
+    outcomes: ['Devis dictés à la voix', 'Facture électronique Factur-X', 'Extraction IA des factures'],
+    stack: ['Next.js', 'Supabase', 'Stripe Connect', 'Claude API', 'Factur-X'],
+  },
+  {
+    slug: 'dentalcao',
+    name: 'DentalCAO',
+    category: 'Plateforme',
+    client: 'Plateforme française de la CAO dentaire',
+    year: '2026',
+    localImage: '/projects/dentalcao.jpg',
+    siteUrl: 'https://dentalcao.fr',
+    summary:
+      "Plateforme de formation pour prothésistes et cabinets dentaires : cours vidéo, atelier d'entraînement sur cas réels, wiki des logiciels et échange de fichiers STL.",
+    outcomes: ['Formations vidéo', "Atelier d'entraînement", 'Échange de fichiers STL'],
+    stack: ['Next.js', 'Supabase', 'Lenis', 'Auth'],
+  },
+  {
+    slug: 'vigie-seo',
+    name: 'Vigie SEO',
+    category: 'SaaS',
+    client: 'Outil d’audit et de suivi SEO',
+    year: '2026',
+    localImage: '/projects/vigie-seo.jpg',
+    siteUrl: 'https://vigie-seo.vercel.app',
+    summary:
+      'Outil qui explore un site, repère ce qui freine son référencement et suit les positions Google, audit après audit, avec un résumé hebdomadaire par email.',
+    outcomes: ['Score de santé du site', 'Suivi des positions', 'Résumé de la semaine'],
+    stack: ['Python', 'Vercel', 'Supabase', 'Google Search Console'],
+  },
+  {
+    slug: 'lumea',
+    name: 'Luméa',
+    category: 'Site vitrine',
+    client: 'Marque de boissons revigorantes pour enfants',
+    year: '2026',
+    localImage: '/projects/lumea.jpg',
+    siteUrl: 'https://lum-a-iota.vercel.app',
+    summary:
+      'Site de marque pour des jus pressés à froid, sans sucre ajouté, en verre consigné : un univers féerique qui reste rassurant pour les parents.',
+    outcomes: ['Univers de marque', 'Pressage à froid, zéro sucre', 'Verre consigné'],
+    stack: ['Vercel', 'Animations', 'Design sur mesure'],
+  },
+  {
+    slug: 'lumea-v2',
+    name: 'Luméa v2',
+    category: 'E-commerce',
+    client: 'Boissons et gâteaux d’anniversaire pour enfants',
+    year: '2026',
+    localImage: '/projects/lumea-v2.jpg',
+    siteUrl: 'https://lumea-v2-five.vercel.app',
+    summary:
+      "Seconde version de Luméa, « le monde des saveurs magiques » : boutique de boissons, personnages-saveurs et composition de gâteau sur mesure avec devis sous 24 h.",
+    outcomes: ['Boutique en ligne', 'Gâteau sur mesure', 'Devis sous 24 h'],
+    stack: ['Vercel', 'E-commerce', 'Formulaire de devis'],
+  },
+  {
     slug: 'quelia',
     name: 'Quelia',
     category: 'Produit web',
@@ -391,4 +469,9 @@ export const legalSections = {
       ],
     },
   ],
+}
+
+export function projectImageSrc(project, width = 900) {
+  if (project.localImage) return project.localImage
+  return `https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=${width}&q=80`
 }

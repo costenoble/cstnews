@@ -1,0 +1,328 @@
+/* ================================================
+   CHARTE GRAPHIQUE (costenoble/CharteGraphique)
+   Couche appliquée après index.css : bordures franches,
+   ombres décalées sans flou, pastilles, accent vert unique.
+   ================================================ */
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.display, .h1, .h2, .h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Surtitres */
+.section-label,
+.page-hero-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--ink);
+  transition: transform .15s var(--ease-out), box-shadow .15s var(--ease-out), background-color .15s;
+}
+.btn-primary, .btn-orange {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+.btn-primary:hover, .btn-orange:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-sm);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-outline:hover {
+  border-color: var(--ink);
+  background: var(--paper);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-sm);
+}
+.btn-white {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-white:hover {
+  background: var(--green);
+  color: var(--ink);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-sm);
+}
+.btn:active { transform: translate(0, 0); box-shadow: none; }
+
+/* ---------- En-tête et menu ---------- */
+.header {
+  background: rgba(250, 244, 242, .92);
+  border-bottom: 2px solid var(--ink);
+}
+.header-logo { font-weight: 700; }
+.header-logo span { color: var(--green); }
+.header-cta { padding: 10px 22px; }
+
+.hamburger {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: var(--radius-pill, 99px);
+  border: 2px solid var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform .15s var(--ease-out), box-shadow .15s var(--ease-out);
+}
+.hamburger:hover { transform: translate(calc(-50% - 2px), calc(-50% - 2px)); box-shadow: var(--shadow-sm); }
+.hamburger-bars { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+.hamburger-bar { background: var(--green); height: 2px; border-radius: 2px; }
+.hamburger-bar:nth-child(1), .hamburger-bar:nth-child(2) { width: 18px; }
+.hamburger-label { line-height: 1; }
+
+.menu-backdrop { background: transparent; }
+.menu-overlay {
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--ink);
+  padding: calc(var(--header-h) + 40px) clamp(24px, 6vw, 96px) 48px;
+}
+.menu-close {
+  top: 16px;
+  right: 24px;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  border-radius: 99px;
+  border: 2px solid var(--cream);
+  background: var(--cream);
+}
+.menu-close-line { background: var(--ink); }
+.menu-link {
+  font-weight: 700;
+  color: rgba(250, 244, 242, .35);
+}
+.menu-link:hover, .menu-link:focus-visible, .menu-link.active-menu { color: var(--green); }
+.menu-side-label { color: var(--green); letter-spacing: .12em; text-transform: uppercase; font-family: var(--font-heading); font-weight: 600; }
+
+/* ---------- Cartes de projets ---------- */
+.project-card,
+.project-grid-card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out);
+}
+.project-card:hover,
+.project-grid-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-md);
+}
+.project-card-tag, .project-grid-tag {
+  background: var(--green);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.project-card-visit, .project-grid-visit {
+  background: var(--cream);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-heading);
+}
+.project-card-title, .project-grid-title { font-family: var(--font-heading); font-weight: 700; }
+.project-grid-outcome {
+  background: var(--mint);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  font-weight: 700;
+}
+.project-grid-card:nth-child(3n+2) .project-grid-outcome { background: var(--blue); }
+.project-grid-card:nth-child(3n+3) .project-grid-outcome { background: var(--pink); }
+
+/* Filtres */
+.filter-btn {
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  transition: transform .15s var(--ease-out), box-shadow .15s var(--ease-out);
+}
+.filter-btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-sm); background: var(--paper); color: var(--ink); }
+.filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+/* ---------- Pied de page ---------- */
+.footer {
+  background: var(--ink);
+  background-image: radial-gradient(circle at 100% 0%, rgba(43, 182, 115, .28), transparent 45%);
+  border-radius: var(--radius-xl);
+  margin: 0 12px 12px;
+  color: var(--cream);
+}
+.footer-brand-logo span { color: var(--green); }
+.footer-col-title { color: var(--green); font-family: var(--font-heading); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .hamburger, .project-card, .project-grid-card, .filter-btn { transition: none; }
+}
+
+/* ================================================
+   PASSE 2 : cartes, formulaires, FAQ, blocs sombres
+   ================================================ */
+
+/* Alternance de fonds de section : crème, jamais blanc pur */
+.section, .faq-section, .testimonials-section, .services-process-section { background-color: transparent; }
+body, main { background: var(--cream); }
+
+/* Cartes : sans bordure au repos, coins 32px, blanc puis pastels */
+.service-card, .pricing-card, .testimonial-card, .value-card, .about-model-card,
+.audit-intro-card, .audit-check-item, .services-simple-card, .services-hero-fact,
+.services-step-card, .services-immersive-card, .services-process-card,
+.services-proof-card, .services-fit-card, .services-maintenance-card,
+.services-mobile-card, .legal-card, .contact-info, .testimonials-proof {
+  background: var(--paper);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out), border-color .2s var(--ease-out);
+}
+.service-card:nth-child(3n+2), .pricing-card:nth-child(3n+2), .testimonial-card:nth-child(3n+2),
+.value-card:nth-child(3n+2), .about-model-card:nth-child(3n+2), .services-simple-card:nth-child(3n+2),
+.services-process-card:nth-child(3n+2), .audit-check-item:nth-child(3n+2) { background: var(--blue); }
+.service-card:nth-child(3n+3), .pricing-card:nth-child(3n+3), .testimonial-card:nth-child(3n+3),
+.value-card:nth-child(3n+3), .about-model-card:nth-child(3n+3), .services-simple-card:nth-child(3n+3),
+.services-process-card:nth-child(3n+3), .audit-check-item:nth-child(3n+3) { background: var(--pink); }
+.testimonials-proof { background: var(--mint); }
+
+.service-card:hover, .pricing-card:hover, .testimonial-card:hover, .value-card:hover,
+.about-model-card:hover, .services-simple-card:hover, .services-process-card:hover {
+  transform: translate(-4px, -4px);
+  border-color: var(--ink);
+  box-shadow: var(--shadow-md);
+}
+.pricing-card .pricing-btn { border-color: var(--ink); }
+.pricing-card:hover .pricing-btn { background: var(--ink); color: var(--cream); }
+
+/* Pastilles de prix et puces */
+.pricing-range {
+  background: var(--green);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* FAQ */
+.faq-item {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  transition: transform .15s var(--ease-out), box-shadow .15s var(--ease-out);
+}
+.faq-item:hover, .faq-item.open { transform: translate(-2px, -2px); box-shadow: var(--shadow-sm); }
+.faq-question { font-family: var(--font-heading); font-weight: 600; }
+.faq-arrow { color: var(--green); }
+
+/* Formulaires : champs en pilule, focus avec ombre verte */
+.contact-form { background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.form-label { font-family: var(--font-heading); font-weight: 600; color: var(--ink); }
+.form-input, .form-select {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-full);
+  padding-left: 22px;
+  color: var(--ink);
+  transition: box-shadow .15s var(--ease-out), transform .15s var(--ease-out);
+}
+.form-textarea {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  transition: box-shadow .15s var(--ease-out), transform .15s var(--ease-out);
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 4px 4px 0 var(--green);
+  transform: translate(-2px, -2px);
+}
+.form-submit {
+  background: var(--ink);
+  color: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.form-submit:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-sm); background: var(--ink); }
+.form-error { background: var(--bad-bg, #ffd9d9); color: var(--bad-fg, #8d1f1f); border-radius: var(--radius-sm); }
+.form-success-icon { background: var(--green); color: var(--ink); border: 2px solid var(--ink); }
+
+/* Blocs sombres : encre avec halo vert en haut à droite */
+.cta-section, .rennes-banner, .about-mission {
+  background: radial-gradient(circle at 100% 0%, rgba(43, 182, 115, .3), transparent 45%), var(--ink);
+  border-radius: var(--radius-xl);
+}
+.cta-section .cta-label, .cta-label { color: var(--green); font-family: var(--font-heading); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.cta-title { font-family: var(--font-heading); font-weight: 700; }
+
+/* Témoignages */
+.testimonial-source { background: var(--ink); color: var(--cream); font-family: var(--font-heading); font-weight: 600; }
+
+/* Pastilles du hero */
+.hero-tag { background: var(--mint); color: var(--green-ink); border: 2px solid var(--ink); font-family: var(--font-heading); font-weight: 600; }
+.hero-cat-pill { border: 2px solid var(--ink); background: transparent; color: var(--ink); font-family: var(--font-heading); font-weight: 600; transition: transform .15s var(--ease-out), box-shadow .15s var(--ease-out); }
+.hero-cat-pill:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-sm); background: var(--paper); color: var(--ink); }
+.hero-cat-pill.active { background: var(--ink); color: var(--cream); }
+.hero-title .orange { color: var(--green-ink); }
+.hero-image-main { border: 2px solid var(--ink); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.hero-desc { color: var(--muted); }
+
+/* Page hero commun */
+.page-hero-title { font-family: var(--font-heading); font-weight: 700; letter-spacing: -0.02em; }
+
+/* Étincelles ✦ sur la mise en avant de page */
+.page-hero-label::before { content: '✦ '; color: var(--green-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card, .pricing-card, .testimonial-card, .value-card, .faq-item, .form-input, .form-textarea, .form-submit, .hero-cat-pill { transition: none; }
+}
