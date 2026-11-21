@@ -128,6 +128,19 @@ export const processSteps = [
 
 export const projects = [
   {
+    slug: 'ski-location',
+    name: 'Ski Location',
+    category: 'E-commerce',
+    client: 'Projet personnel : location de matériel de ski',
+    year: '2026',
+    localImage: '/projects/ski.jpg',
+    siteUrl: 'https://ski-smoky.vercel.app',
+    summary:
+      'Site de réservation en ligne pour un loueur de skis indépendant : catalogue, réservation en deux minutes, paiement en boutique le jour J et espace admin protégé.',
+    outcomes: ['Réservation en ligne', 'Catalogue de matériel', 'Admin sécurisé'],
+    stack: ['Next.js', 'Prisma', 'PostgreSQL', 'Resend', 'Framer Motion'],
+  },
+  {
     slug: 'oublie-jamais-bijoux',
     name: "N'oublie jamais",
     category: 'E-commerce',

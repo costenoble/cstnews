@@ -216,7 +216,7 @@ body, main { background: var(--cream); }
 .audit-intro-card, .audit-check-item, .services-simple-card, .services-hero-fact,
 .services-step-card, .services-immersive-card, .services-process-card,
 .services-proof-card, .services-fit-card, .services-maintenance-card,
-.services-mobile-card, .legal-card, .contact-info, .testimonials-proof {
+.services-mobile-card, .legal-card, .testimonials-proof {
   background: var(--paper);
   border: 2px solid transparent;
   border-radius: var(--radius-md);
